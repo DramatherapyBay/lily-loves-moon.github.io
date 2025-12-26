@@ -1,22 +1,22 @@
 body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
-  color: #1c1c1c;
-  background: #f0f4f8;
+  color: #153243;
+  background: #f5f9fc;
 }
 
 header { background: #dbe9ff; padding: 10px 20px; }
 nav { display:flex; justify-content:space-between; align-items:center; }
 .logo { font-weight:bold; }
 nav ul { list-style:none; display:flex; gap:15px; }
-nav a { text-decoration:none; color:#1c1c1c; }
+nav a { text-decoration:none; color:#153243; }
 
-.hero { text-align:center; padding:90px 20px; background: #6a8bc0; color:white; }
-
-.btn { padding:10px 18px; background: #6a8bc0; color:white; border-radius:6px; text-decoration:none; }
+.hero { text-align:center; padding:90px 20px; background: linear-gradient(#e7f1ff, #ffffff); color: white; }
+.btn { padding:10px 18px; background:#90b4ff; color:white; border-radius:6px; text-decoration:none; }
 
 .section { padding:60px 20px; max-width:900px; margin:auto; display:none; }
 .section.active { display:block; }
-.alt { background:#e0eaf7; }
+.alt { background:#ecf2ff; }
 
 footer { text-align:center; padding:20px; background:#dbe9ff; }
+img { display:block; margin:auto; border-radius:50%; width:200px; }
