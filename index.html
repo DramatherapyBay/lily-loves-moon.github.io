@@ -16,7 +16,7 @@
         .emerald-gradient { background: linear-gradient(135deg, #10b981 0%, #a855f7 100%); }
     </style>
 </head>
-<body class="bg-slate-50 text-slate-800" x-data="{ page: 'about', modal: false }">
+<body class="bg-slate-50 text-slate-800" x-data="{ page: 'home', modal: false }">
 
     <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-100 shadow-sm">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
@@ -32,17 +32,36 @@
                 <a href="#" @click.prevent="page = 'about'" class="hover:text-emerald-600 transition" :class="page === 'about' ? 'text-emerald-600 border-b-2 border-emerald-500' : ''">About Dramatherapy</a>
                 <a href="#" @click.prevent="page = 'team'" class="hover:text-emerald-600 transition" :class="page === 'team' ? 'text-emerald-600 border-b-2 border-emerald-500' : ''">Our Team</a>
                 <a href="#" @click.prevent="page = 'services'" class="hover:text-emerald-600 transition" :class="page === 'services' ? 'text-emerald-600 border-b-2 border-emerald-500' : ''">Services</a>
-                <button @click="modal = true" class="bg-emerald-500 hover:bg-emerald-600 text-white px-6 py-2 rounded-full text-sm font-bold transition shadow-md">Book Consultation</button>
+                <a href="#" @click.prevent="page = 'resources'" class="hover:text-emerald-600 transition" :class="page === 'resources' ? 'text-emerald-600 border-b-2 border-emerald-500' : ''">Resources</a>
             </div>
+            <button @click="modal = true" class="bg-emerald-500 hover:bg-emerald-600 text-white px-6 py-2 rounded-full text-sm font-bold transition shadow-md">Book Consultation</button>
         </div>
     </nav>
 
     <main class="min-h-screen">
         
+        <template x-if="page === 'home'">
+            <div class="fade-in">
+                <section class="py-20 bg-white">
+                    <div class="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+                        <div>
+                            <h1 class="text-6xl font-bold text-slate-900 mb-6 leading-tight">Healing Through <span class="text-emerald-500">Creativity</span></h1>
+                            <p class="text-lg text-slate-600 mb-8 leading-relaxed">Discover the transformative power of dramatherapy with Lily Lau, HCPC registered Arts Therapist. Professional, compassionate care for emotional and psychological well-being.</p>
+                            <button @click="modal = true" class="emerald-gradient text-white px-8 py-4 rounded-xl font-bold flex items-center gap-3 hover:scale-105 transition shadow-xl">
+                                Book Free Consultation <i data-lucide="arrow-right"></i>
+                            </button>
+                        </div>
+                        <div class="relative">
+                            <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=800" class="rounded-3xl shadow-2xl" alt="Therapy Session">
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </template>
+
         <template x-if="page === 'about'">
             <div class="fade-in bg-white py-20">
                 <div class="container mx-auto px-6">
-                    
                     <div class="text-center mb-16">
                         <h2 class="text-4xl md:text-5xl font-bold text-slate-900 mb-4 text-center">What is <span class="text-emerald-500">Dramatherapy?</span></h2>
                         <p class="text-lg text-slate-600 max-w-4xl mx-auto leading-relaxed text-center">
@@ -57,21 +76,19 @@
                         <div>
                             <h3 class="text-3xl font-bold text-slate-900 mb-6">A Holistic Approach to Healing</h3>
                             <p class="text-slate-600 mb-6 leading-relaxed">
-                                Unlike traditional talk therapy, dramatherapy engages the whole person – mind, body, and spirit – creating opportunities for profound healing and self-discovery. Through the safe medium of creative play and storytelling, individuals can explore difficult emotions and develop greater self-awareness.
+                                Unlike traditional talk therapy, dramatherapy engages the whole person – mind, body, and spirit – creating opportunities for profound healing and self-discovery.
                             </p>
-                            <div class="bg-emerald-50 border-l-4 border-emerald-500 p-6 rounded-r-2xl mb-6">
+                            <div class="bg-emerald-50 border-l-4 border-emerald-500 p-6 rounded-r-2xl mb-6 shadow-sm">
                                 <h4 class="font-bold text-emerald-900 mb-2">Evidence-Based Practice</h4>
                                 <p class="text-sm text-emerald-800 leading-relaxed">
-                                    Dramatherapy is recognized by the Health and Care Professions Council (HCPC) and is used in hospitals, schools, community centers, and private practice settings worldwide.
+                                    Dramatherapy is recognized by the Health and Care Professions Council (HCPC) and is used in hospitals, schools, and private practice settings worldwide.
                                 </p>
                             </div>
                         </div>
                     </div>
 
                     <div class="mb-24">
-                        <h3 class="text-3xl font-bold text-slate-900 mb-4 text-center">Therapeutic Techniques</h3>
-                        <p class="text-slate-500 text-center mb-12">Tailored creative techniques to meet individual therapeutic goals.</p>
-                        
+                        <h3 class="text-3xl font-bold text-slate-900 mb-12 text-center">Therapeutic Techniques</h3>
                         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                             <div class="p-8 bg-white rounded-3xl shadow-sm border border-slate-100 flex flex-col items-center text-center hover:shadow-md transition">
                                 <div class="w-14 h-14 bg-purple-100 text-purple-600 rounded-2xl flex items-center justify-center mb-4"><i data-lucide="masks"></i></div>
@@ -106,16 +123,12 @@
                         </div>
                     </div>
 
-                    <div class="bg-slate-50 rounded-[3rem] p-12 shadow-inner">
-                        <h3 class="text-3xl font-bold text-slate-900 mb-4 text-center">Who Can Benefit from Dramatherapy?</h3>
-                        <p class="text-slate-500 text-center mb-12">Effective support for a wide range of emotional and mental health challenges.</p>
-                        
+                    <div class="bg-slate-50 rounded-[3rem] p-12">
+                        <h3 class="text-3xl font-bold text-slate-900 mb-12 text-center">Who Can Benefit?</h3>
                         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-6xl mx-auto">
                             <template x-for="item in ['Addiction recovery support', 'Anxiety and depression management', 'ADHD and autism spectrum support', 'Bereavement and grief processing', 'Cognitive impairments and dementia care', 'Communication disorder assistance', 'Eating disorder treatment', 'Learning disability support', 'Life transition guidance', 'Personality disorder therapy', 'Trauma and PTSD healing']">
-                                <div class="flex items-center gap-4 bg-white p-4 rounded-2xl border border-slate-100 shadow-sm">
-                                    <div class="bg-emerald-100 text-emerald-600 p-1.5 rounded-full flex-shrink-0">
-                                        <i data-lucide="check" class="w-4 h-4"></i>
-                                    </div>
+                                <div class="flex items-center gap-4 bg-white p-4 rounded-2xl shadow-sm border border-slate-100">
+                                    <div class="bg-emerald-100 text-emerald-600 p-1.5 rounded-full flex-shrink-0"><i data-lucide="check" class="w-4 h-4"></i></div>
                                     <span class="text-slate-700 text-sm font-medium" x-text="item"></span>
                                 </div>
                             </template>
@@ -126,14 +139,39 @@
         </template>
 
         <template x-if="page === 'team'">
+            <div class="fade-in py-20 container mx-auto px-6">
+                <div class="grid md:grid-cols-2 gap-16 items-center max-w-5xl mx-auto">
+                    <img src="./lily-photo.jpg" class="rounded-full w-80 h-80 object-cover shadow-2xl border-8 border-white mx-auto" onerror="this.src='https://via.placeholder.com/400?text=Lily+Lau'">
+                    <div>
+                        <h1 class="text-4xl font-bold text-slate-900 mb-2">Lily Yim Ching LAU</h1>
+                        <p class="text-emerald-600 font-bold mb-6 italic">HCPC Registered Dramatherapist</p>
+                        <p class="text-slate-600 leading-relaxed italic border-l-4 border-emerald-500 pl-6">"I believe in the inherent capacity for healing that exists within every person."</p>
+                    </div>
+                </div>
+            </div>
+        </template>
+
+        <template x-if="page === 'resources'">
             <div class="fade-in py-20 container mx-auto px-6 text-center">
-                <img src="./lily-photo.jpg" class="rounded-full w-64 h-64 object-cover mx-auto mb-6 shadow-2xl border-4 border-white" onerror="this.src='https://via.placeholder.com/400?text=Lily+Lau'">
-                <h1 class="text-3xl font-bold">Lily Yim Ching LAU</h1>
-                <p class="text-emerald-600 font-bold">HCPC Registered Dramatherapist</p>
+                <h2 class="text-4xl font-bold text-slate-900 mb-6">Resources</h2>
+                <p class="text-slate-500 max-w-2xl mx-auto">Coming soon: Downloadable guides, therapeutic worksheets, and helpful articles about the creative arts in therapy.</p>
             </div>
         </template>
 
     </main>
+
+    <div x-show="modal" class="fixed inset-0 z-[100] flex items-center justify-center p-6 bg-slate-900/60 backdrop-blur-sm" x-cloak x-transition>
+        <div class="bg-white rounded-[2.5rem] p-8 max-w-md w-full relative">
+            <button @click="modal = false" class="absolute top-6 right-6 text-slate-400"><i data-lucide="x"></i></button>
+            <h2 class="text-2xl font-bold mb-8 text-center">Book Consultation</h2>
+            <form class="space-y-4" @submit.prevent="window.location.href='mailto:dramatherapybay@gmail.com'; modal=false">
+                <input type="text" placeholder="Name" class="w-full p-4 bg-slate-50 rounded-2xl" required>
+                <input type="email" placeholder="Email" class="w-full p-4 bg-slate-50 rounded-2xl" required>
+                <textarea placeholder="Message" class="w-full p-4 bg-slate-50 rounded-2xl h-24" required></textarea>
+                <button type="submit" class="w-full emerald-gradient text-white py-4 rounded-2xl font-bold">Send Message</button>
+            </form>
+        </div>
+    </div>
 
     <footer class="bg-white border-t py-12 text-center text-slate-400 text-xs">
         <p class="font-bold text-slate-600 mb-1">Dramatherapy Bay Limited</p>
