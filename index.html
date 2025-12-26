@@ -22,7 +22,7 @@
             <div class="flex items-center gap-3 cursor-pointer" @click="page = 'home'">
                 <div class="w-10 h-10 rounded-full emerald-gradient flex items-center justify-center text-white font-bold shadow-lg">DB</div>
                 <div>
-                    <span class="font-bold text-lg block leading-none">Dramatherapy Bay</span>
+                    <span class="font-bold text-lg block leading-none text-slate-900">Dramatherapy Bay</span>
                     <span class="text-[10px] uppercase tracking-widest text-slate-400">Limited</span>
                 </div>
             </div>
@@ -70,78 +70,60 @@
             </div>
         </template>
 
-<template x-if="page === 'about'">
-            <div class="fade-in bg-white">
-                <section class="py-20 container mx-auto px-6">
-                    <h1 class="text-4xl md:text-5xl font-bold mb-6 text-slate-900">What is Dramatherapy?</h1>
-                    <p class="text-lg text-slate-600 mb-12 max-w-3xl leading-relaxed">
-                        Dramatherapy is a specialized form of psychotherapy that harnesses the power of drama, theater, and creative expression to promote healing and personal growth. Unlike traditional talk therapy, it engages the whole person – mind, body, and spirit.
+        <template x-if="page === 'about'">
+            <div class="fade-in bg-white py-20">
+                <div class="container mx-auto px-6">
+                    <h1 class="text-4xl md:text-5xl font-bold mb-6 text-slate-900 text-center">What is Dramatherapy?</h1>
+                    <p class="text-lg text-slate-600 mb-16 max-w-3xl mx-auto text-center leading-relaxed">
+                        Dramatherapy is a specialized form of psychotherapy that harnesses the power of drama, theater, and creative expression to promote healing and personal growth.
                     </p>
 
+                    
                     <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-20">
-                        <div class="p-6 bg-emerald-50 rounded-2xl border-b-4 border-emerald-500 shadow-sm">
-                            <span class="text-3xl font-bold text-emerald-200">01</span>
-                            <h3 class="font-bold mt-2 text-slate-900">Assessment</h3>
-                            <p class="text-xs text-slate-500 mt-1">Understanding your unique needs and goals.</p>
+                        <div class="p-8 bg-emerald-50 rounded-2xl border-b-4 border-emerald-500 shadow-sm text-center">
+                            <div class="text-3xl font-bold text-emerald-300 mb-2">01</div>
+                            <h3 class="font-bold text-slate-900 mb-2">Assessment</h3>
+                            <p class="text-sm text-slate-500">Identifying needs and setting therapeutic goals.</p>
                         </div>
-                        <div class="p-6 bg-purple-50 rounded-2xl border-b-4 border-purple-500 shadow-sm">
-                            <span class="text-3xl font-bold text-purple-200">02</span>
-                            <h3 class="font-bold mt-2 text-slate-900">Exploration</h3>
-                            <p class="text-xs text-slate-500 mt-1">Engaging in creative activities and theater techniques.</p>
+                        <div class="p-8 bg-purple-50 rounded-2xl border-b-4 border-purple-500 shadow-sm text-center text-slate-900">
+                            <div class="text-3xl font-bold text-purple-300 mb-2">02</div>
+                            <h3 class="font-bold text-slate-900 mb-2">Exploration</h3>
+                            <p class="text-sm text-slate-500">Creative play and theatrical techniques.</p>
                         </div>
-                        <div class="p-6 bg-pink-50 rounded-2xl border-b-4 border-pink-500 shadow-sm">
-                            <span class="text-3xl font-bold text-pink-200">03</span>
-                            <h3 class="font-bold mt-2 text-slate-900">Integration</h3>
-                            <p class="text-xs text-slate-500 mt-1">Reflecting on insights gained during the process.</p>
+                        <div class="p-8 bg-pink-50 rounded-2xl border-b-4 border-pink-500 shadow-sm text-center">
+                            <div class="text-3xl font-bold text-pink-300 mb-2">03</div>
+                            <h3 class="font-bold text-slate-900 mb-2">Integration</h3>
+                            <p class="text-sm text-slate-500">Processing insights and emotional breakthroughs.</p>
                         </div>
-                        <div class="p-6 bg-blue-50 rounded-2xl border-b-4 border-blue-500 shadow-sm">
-                            <span class="text-3xl font-bold text-blue-200">04</span>
-                            <h3 class="font-bold mt-2 text-slate-900">Application</h3>
-                            <p class="text-xs text-slate-500 mt-1">Applying new skills and perspectives to daily life.</p>
+                        <div class="p-8 bg-blue-50 rounded-2xl border-b-4 border-blue-500 shadow-sm text-center">
+                            <div class="text-3xl font-bold text-blue-300 mb-2">04</div>
+                            <h3 class="font-bold text-slate-900 mb-2">Application</h3>
+                            <p class="text-sm text-slate-500">Bringing growth into your everyday life.</p>
                         </div>
                     </div>
 
-                    <div class="grid md:grid-cols-2 gap-12 items-start">
-                        <div>
-                            <h2 class="text-2xl font-bold mb-6 flex items-center gap-2">
-                                <i data-lucide="sparkles" class="text-emerald-500"></i> Therapeutic Techniques
-                            </h2>
-                            <div class="space-y-4">
-                                <div class="flex items-start gap-4 p-4 bg-slate-50 rounded-xl">
-                                    <i data-lucide="users" class="text-purple-500 mt-1"></i>
-                                    <div><h4 class="font-bold text-slate-900">Role-Play</h4><p class="text-sm text-slate-500">Practice new behaviors in a safe, fictional space.</p></div>
-                                </div>
-                                <div class="flex items-start gap-4 p-4 bg-slate-50 rounded-xl">
-                                    <i data-lucide="message-circle" class="text-emerald-500 mt-1"></i>
-                                    <div><h4 class="font-bold text-slate-900">Storytelling</h4><p class="text-sm text-slate-500">Using metaphor to process difficult emotions.</p></div>
-                                </div>
-                            </div>
+                    <div class="grid md:grid-cols-2 gap-12">
+                        <div class="bg-slate-50 p-8 rounded-3xl">
+                            <h2 class="text-2xl font-bold mb-6 flex items-center gap-2"><i data-lucide="sparkles" class="text-emerald-500"></i> Techniques</h2>
+                            <ul class="space-y-4 text-slate-600">
+                                <li class="flex items-center gap-3"><i data-lucide="check-circle" class="text-emerald-500 w-5 h-5"></i> Role-play & Improvisation</li>
+                                <li class="flex items-center gap-3"><i data-lucide="check-circle" class="text-emerald-500 w-5 h-5"></i> Storytelling & Metaphor</li>
+                                <li class="flex items-center gap-3"><i data-lucide="check-circle" class="text-emerald-500 w-5 h-5"></i> Movement & Embodiment</li>
+                            </ul>
                         </div>
-
-                        <div>
-                            <h2 class="text-2xl font-bold mb-6 flex items-center gap-2">
-                                <i data-lucide="heart" class="text-pink-500"></i> Who Can Benefit?
-                            </h2>
-                            <ul class="grid grid-cols-1 gap-2 text-slate-600 text-sm">
-                                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-500"></i> Anxiety & Depression</li>
-                                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-500"></i> Eating Disorders</li>
-                                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-500"></i> Autism & ADHD Support</li>
-                                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-500"></i> Trauma & PTSD Recovery</li>
+                        <div class="bg-slate-50 p-8 rounded-3xl">
+                            <h2 class="text-2xl font-bold mb-6 flex items-center gap-2"><i data-lucide="heart" class="text-pink-500"></i> Who it Helps</h2>
+                            <ul class="space-y-4 text-slate-600 text-slate-900">
+                                <li class="flex items-center gap-3"><i data-lucide="users" class="text-pink-500 w-5 h-5"></i> Anxiety, Depression & PTSD</li>
+                                <li class="flex items-center gap-3"><i data-lucide="users" class="text-pink-500 w-5 h-5"></i> Eating Disorders Recovery</li>
+                                <li class="flex items-center gap-3"><i data-lucide="users" class="text-pink-500 w-5 h-5"></i> Neurodiversity (Autism/ADHD)</li>
                             </ul>
                         </div>
                     </div>
-
-                    <div class="mt-16 pt-8 border-t border-slate-100">
-                        <p class="text-sm text-slate-400 italic">
-                            Evidence-based practice recognized by the HCPC. For more info visit: 
-                            <a href="https://badth.org.uk" target="_blank" class="text-emerald-600 underline ml-1">BADth</a> or 
-                            <a href="https://nadta.org" target="_blank" class="text-emerald-600 underline ml-1">NADTA</a>
-                        </p>
-                    </div>
-                </section>
+                </div>
             </div>
         </template>
-        
+
         <template x-if="page === 'services'">
             <div class="fade-in py-20 container mx-auto px-6">
                 <div class="text-center mb-16">
@@ -159,11 +141,11 @@
                             <li>• Personalized plan</li>
                         </ul>
                     </div>
-                    </div>
+                </div>
                 <div class="bg-emerald-900 text-white p-12 rounded-3xl flex flex-col md:flex-row items-center gap-10">
                     <div class="flex-1">
-                        <h2 class="text-3xl font-bold mb-4">Specialized Eating Disorder Treatment</h2>
-                        <p class="opacity-80">Combining Dramatherapy, CBT-T, and Guided Self-Help.</p>
+                        <h2 class="text-3xl font-bold mb-4 text-white">Specialized Eating Disorder Treatment</h2>
+                        <p class="opacity-80 text-white">Combining Dramatherapy, CBT-T, and Guided Self-Help.</p>
                     </div>
                     <button @click="page = 'contact'" class="bg-white text-emerald-900 px-8 py-4 rounded-xl font-bold">Inquire About Treatment</button>
                 </div>
@@ -175,7 +157,7 @@
                 <div class="grid md:grid-cols-2 gap-16 items-center mb-20">
                     <div class="relative group">
                         <div class="absolute -inset-4 bg-purple-100 rounded-full blur-3xl opacity-30 group-hover:opacity-50 transition"></div>
-                        <img src="lily-photo.jpg" class="relative rounded-full w-80 h-80 object-cover mx-auto shadow-2xl border-8 border-white" alt="Lily Yim Ching Lau">
+                        <img src="lily-photo.jpg" class="relative rounded-full w-80 h-80 object-cover mx-auto shadow-2xl border-8 border-white block" alt="Lily Yim Ching Lau">
                     </div>
                     <div>
                         <h1 class="text-4xl font-bold mb-2">Lily Yim Ching LAU</h1>
@@ -241,15 +223,23 @@
 
     </main>
 
-    <div x-show="modal" class="fixed inset-0 z-[100] flex items-center justify-center p-6 bg-slate-900/60 backdrop-blur-sm" x-transition>
-        <div class="bg-white rounded-3xl p-8 max-w-md w-full relative">
-            <button @click="modal = false" class="absolute top-4 right-4 text-slate-400 hover:text-slate-900"><i data-lucide="x"></i></button>
-            <h2 class="text-2xl font-bold mb-2">Book Consultation</h2>
-            <p class="text-slate-500 text-sm mb-6">Fill in your details and we will reach out shortly.</p>
-            <form class="space-y-4">
-                <input type="text" placeholder="Your Name" class="w-full p-3 border rounded-xl">
-                <input type="email" placeholder="Your Email" class="w-full p-3 border rounded-xl">
-                <button type="button" @click="modal = false; alert('Thank you! Redirecting to email...')" class="w-full bg-emerald-500 text-white py-3 rounded-xl font-bold">Confirm Booking</button>
+    <div x-show="modal" class="fixed inset-0 z-[100] flex items-center justify-center p-6 bg-slate-900/60 backdrop-blur-sm" x-transition x-cloak>
+        <div class="bg-white rounded-3xl p-8 max-w-md w-full relative shadow-2xl">
+            <button @click="modal = false" class="absolute top-4 right-4 text-slate-400 hover:text-slate-900 transition"><i data-lucide="x"></i></button>
+            <h2 class="text-2xl font-bold mb-2 text-slate-900">Book Consultation</h2>
+            <p class="text-slate-500 text-sm mb-6 leading-relaxed">Fill in your details for a free 20-minute consultation.</p>
+            
+            <form class="space-y-4" x-data="{ name: '', email: '', phone: '', message: '' }" 
+                  @submit.prevent="window.location.href='mailto:dramatherapybay@gmail.com?subject=Consultation Booking&body=Name: '+name+'%0AEmail: '+email+'%0APhone: '+phone+'%0AMessage: '+message; modal = false">
+                
+                <input type="text" x-model="name" placeholder="Full Name" class="w-full p-3 bg-slate-50 border border-slate-200 rounded-xl outline-none focus:border-emerald-500 transition" required>
+                <input type="email" x-model="email" placeholder="Email Address" class="w-full p-3 bg-slate-50 border border-slate-200 rounded-xl outline-none focus:border-emerald-500 transition" required>
+                <input type="tel" x-model="phone" placeholder="Contact Number" class="w-full p-3 bg-slate-50 border border-slate-200 rounded-xl outline-none focus:border-emerald-500 transition" required>
+                <textarea x-model="message" placeholder="Message" class="w-full p-3 bg-slate-50 border border-slate-200 rounded-xl h-24 outline-none focus:border-emerald-500 transition" required></textarea>
+                
+                <button type="submit" class="w-full bg-emerald-500 hover:bg-emerald-600 text-white py-3 rounded-xl font-bold shadow-lg transition transform hover:scale-[1.02]">
+                    Send Message
+                </button>
             </form>
         </div>
     </div>
@@ -263,7 +253,6 @@
 
     <script>
         lucide.createIcons();
-        // Update icons when page changes
         window.addEventListener('click', () => { setTimeout(() => lucide.createIcons(), 50); });
     </script>
 </body>
