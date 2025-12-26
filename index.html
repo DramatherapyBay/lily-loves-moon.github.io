@@ -1,110 +1,23 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dramatherapy Bay</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body class="bg-gray-50 text-gray-800 scroll-smooth">
 
-  <!-- Navigation -->
-  <nav class="sticky top-0 z-50 bg-white border-b border-gray-200">
-    <div class="container mx-auto px-4 py-4 flex items-center justify-between">
-      <div class="flex items-center gap-2">
-        <div class="w-10 h-10 rounded-full bg-gradient-to-br from-emerald-400 to-purple-500 flex items-center justify-center text-white font-bold">
-          DB
-        </div>
-        <div>
-          <h1 class="font-bold text-gray-900">Dramatherapy Bay</h1>
-          <p class="text-xs text-gray-600">Limited</p>
-        </div>
-      </div>
-      <div class="hidden md:flex items-center gap-8">
-        <a href="#home" class="text-emerald-600 font-medium">Home</a>
-        <a href="#about-dramatherapy" class="text-gray-700 hover:text-gray-900">About Dramatherapy</a>
-        <a href="#about-lily" class="text-gray-700 hover:text-gray-900">About Lily</a>
-        <a href="#services" class="text-gray-700 hover:text-gray-900">Services</a>
-        <a href="#resources" class="text-gray-700 hover:text-gray-900">Resources</a>
-        <a href="#contact" class="text-gray-700 hover:text-gray-900">Contact</a>
-      </div>
-      <a href="#contact" class="bg-emerald-500 hover:bg-emerald-600 text-white rounded-full px-6 py-2">Book Consultation</a>
-    </div>
-  </nav>
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+    <meta name="description" content="Professional dramatherapy services by Lily Lau, HCPC registered Arts Therapist. Healing through creativity." />
+    <meta name="keywords" content="dramatherapy, arts therapy, mental health, healing, Cambridge" />
+    <title>Dramatherapy Bay Limited - Professional Dramatherapy Services</title>
+  </head>
 
-  <!-- Hero Section -->
-  <section id="home" class="relative bg-gradient-to-br from-emerald-50 via-white to-purple-50 py-20">
-    <div class="container mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-      <div class="space-y-6">
-        <h2 class="text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
-          Healing Through<br>
-          <span class="bg-gradient-to-r from-emerald-500 to-purple-500 bg-clip-text text-transparent">
-            Creativity
-          </span>
-        </h2>
-        <p class="text-lg text-gray-700 leading-relaxed">
-          Discover the transformative power of dramatherapy with Lily Lau, HCPC registered Arts Therapist (Dramatherapist). Professional, compassionate care for emotional and psychological well-being.
-        </p>
-        <div class="flex flex-wrap gap-4 pt-4">
-          <a href="#contact" class="bg-emerald-500 hover:bg-emerald-600 text-white rounded-full px-8 py-4 text-base font-semibold">Book Free Consultation</a>
-          <a href="#about-dramatherapy" class="border border-emerald-200 text-emerald-600 rounded-full px-8 py-4 text-base hover:bg-emerald-50">Learn More</a>
-        </div>
-      </div>
-      <div class="relative">
-        <div class="absolute inset-0 bg-gradient-to-br from-emerald-200 to-purple-200 rounded-3xl blur-2xl opacity-40"></div>
-        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=500&fit=crop" alt="Group therapy session" class="relative rounded-3xl shadow-2xl w-full h-auto object-cover">
-      </div>
-    </div>
-  </section>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+    <script
+      defer
+      src="%VITE_ANALYTICS_ENDPOINT%/umami"
+      data-website-id="%VITE_ANALYTICS_WEBSITE_ID%"></script>
+  </body>
 
-  <!-- About Dramatherapy Section -->
-  <section id="about-dramatherapy" class="section py-20 bg-white">
-    <div class="container mx-auto px-4 space-y-6">
-      <h2 class="text-4xl font-bold text-gray-900">What is Dramatherapy</h2>
-      <h3 class="text-2xl font-semibold text-gray-700">A Holistic Approach to Healing</h3>
-      <p class="text-gray-700">
-        Unlike traditional talk therapy, dramatherapy engages the whole person – mind, body, and spirit, creating opportunities for profound healing and self-discovery. Through the safe medium of creative play and storytelling, individuals can explore difficult emotions and develop greater self-awareness.
-      </p>
-      <p class="text-gray-700">
-        This innovative therapeutic approach allows clients to safely explore their emotions, experiences, and relationships through techniques such as role-play, improvisation, storytelling, and creative movement.
-      </p>
-
-      <h3 class="text-xl font-semibold mt-6">Therapeutic Techniques</h3>
-      <ul class="list-disc list-inside space-y-2 text-gray-700">
-        <li><strong>Role-Play & Character Exploration:</strong> Safely explore different perspectives and practice new behaviors through character work.</li>
-        <li><strong>Creative Storytelling:</strong> Use narrative and metaphor to process experiences and discover new meanings.</li>
-        <li><strong>Movement & Embodiment:</strong> Integrate body awareness and physical expression into the therapeutic process.</li>
-        <li><strong>Improvisation & Spontaneity:</strong> Develop flexibility, creativity, and confidence through spontaneous expression.</li>
-      </ul>
-
-      <h3 class="text-xl font-semibold mt-6">Who Can Benefit?</h3>
-      <ul class="list-disc list-inside space-y-2 text-gray-700">
-        <li>Addiction recovery support</li>
-        <li>Anxiety and depression management</li>
-        <li>ADHD and autism spectrum support</li>
-        <li>Bereavement and grief processing</li>
-        <li>Cognitive impairments and dementia care</li>
-        <li>Emotionally Unstable Personality Disorder (EUPD)</li>
-        <li>Eating disorder treatment</li>
-        <li>Learning disability support</li>
-        <li>Life transition guidance</li>
-        <li>Personality disorder therapy</li>
-        <li>Trauma and PTSD healing</li>
-      </ul>
-
-      <h3 class="text-xl font-semibold mt-6">Professional Recognition</h3>
-      <p class="text-gray-700">
-        Dramatherapy is a regulated profession recognized by professional bodies including the <a href="https://www.nadta.org/what-is-drama-therapy" class="text-emerald-600 underline">North American Drama Therapy Association (NADTA)</a> and <a href="https://www.badth.org.uk/dramatherapy/what-is-dramatherapy" class="text-emerald-600 underline">British Association of Dramatherapists (BADth)</a>. It is evidence-based and internationally recognized.
-      </p>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer id="contact" class="bg-gray-900 text-white py-16">
-    <div class="container mx-auto px-4 text-center">
-      <p>© 2024 Dramatherapy Bay Limited. All rights reserved. | HCPC Registered Arts Therapist</p>
-    </div>
-  </footer>
-
-</body>
 </html>
