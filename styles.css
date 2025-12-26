@@ -102,7 +102,17 @@ footer {
 }
 
 /* Review Stars */
-.review-stars { 
+.review-stars {
   color: #FFD700; /* gold/yellow */
+  font-size: 1.2em;
+  display: inline-block; /* ensures it’s separate */
+  margin-bottom: 8px;
+}
+
+.testimonial p {
+  color: #153243; /* keeps text dark */
+  margin: 0 0 5px 0;
+}
+
   font-size: 1.2em;
 }
