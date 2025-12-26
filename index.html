@@ -14,13 +14,16 @@
         .fade-in { animation: fadeIn 0.6s ease-out forwards; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
         .emerald-gradient { background: linear-gradient(135deg, #10b981 0%, #a855f7 100%); }
+        /* Fix for the quote icon overlap */
+        .quote-bg { position: absolute; top: 1rem; right: 1rem; opacity: 0.1; z-index: 0; }
+        .testimonial-card { position: relative; z-index: 10; }
     </style>
 </head>
-<body class="bg-slate-50 text-slate-800" x-data="{ page: 'home', modal: false, lang: 'en' }">
+<body class="bg-slate-50 text-slate-800" x-data="{ page: 'home', modal: false, lang: 'zh' }">
 
-    <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-100 shadow-sm">
-        <div class="container mx-auto px-4 md:px-6 py-4 flex justify-between items-center">
-            <div class="flex items-center gap-2 md:gap-3 cursor-pointer" @click="page = 'home'">
+    <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-100 shadow-sm">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center gap-3 cursor-pointer" @click="page = 'home'">
                 <div class="w-10 h-10 rounded-full emerald-gradient flex items-center justify-center text-white font-bold shadow-lg">DB</div>
                 <div class="flex flex-col">
                     <span class="font-bold text-base md:text-lg leading-none text-slate-900">Dramatherapy Bay</span>
@@ -30,27 +33,24 @@
             
             <div class="hidden lg:flex items-center gap-8 text-sm font-medium text-slate-600">
                 <a href="#" @click.prevent="page = 'home'" :class="page === 'home' ? 'text-emerald-600 border-b-2 border-emerald-500' : ''" x-text="lang === 'en' ? 'Home' : '首頁'"></a>
-                <a href="#" @click.prevent="page = 'about'" :class="page === 'about' ? 'text-emerald-600 border-b-2 border-emerald-500' : ''" x-text="lang === 'en' ? 'About' : '關於戲劇治療'"></a>
-                <a href="#" @click.prevent="page = 'team'" :class="page === 'team' ? 'text-emerald-600 border-b-2 border-emerald-500' : ''" x-text="lang === 'en' ? 'Team' : '專業團隊'"></a>
+                <a href="#" @click.prevent="page = 'about'" :class="page === 'about' ? 'text-emerald-600 border-b-2 border-emerald-500' : ''" x-text="lang === 'en' ? 'About Dramatherapy' : '關於戲劇治療'"></a>
+                <a href="#" @click.prevent="page = 'team'" :class="page === 'team' ? 'text-emerald-600 border-b-2 border-emerald-500' : ''" x-text="lang === 'en' ? 'Our Team' : '專業團隊'"></a>
             </div>
 
-            <div class="flex items-center gap-2 md:gap-3">
+            <div class="flex items-center gap-3">
                 <div class="flex items-center gap-2 bg-slate-100 px-3 py-1 rounded-full">
                     <button @click="lang = 'en'" :class="lang === 'en' ? 'text-emerald-600 font-bold' : 'text-slate-400'" class="text-xs">EN</button>
                     <span class="text-slate-300">|</span>
                     <button @click="lang = 'zh'" :class="lang === 'zh' ? 'text-emerald-600 font-bold' : 'text-slate-400'" class="text-xs">繁</button>
                 </div>
-                <button @click="modal = true" class="bg-emerald-500 text-white p-2 md:px-6 md:py-2 rounded-full font-bold shadow-sm flex items-center gap-2">
-                    <i data-lucide="calendar" class="w-4 h-4"></i>
-                    <span class="hidden md:inline" x-text="lang === 'en' ? 'Book' : '預約'"></span>
-                </button>
+                <button @click="modal = true" class="bg-emerald-500 text-white p-2 md:px-6 md:py-2 rounded-full font-bold shadow-sm"><i data-lucide="calendar" class="w-5 h-5"></i></button>
             </div>
         </div>
 
-        <div class="lg:hidden flex justify-around py-3 bg-slate-50 border-t border-slate-100 text-[11px] font-bold uppercase tracking-wider text-slate-500">
+        <div class="lg:hidden flex justify-around py-3 bg-slate-50 border-t border-slate-100 text-[10px] font-bold uppercase tracking-wider text-slate-500 px-2">
             <a href="#" @click.prevent="page = 'home'" :class="page === 'home' ? 'text-emerald-600' : ''" x-text="lang === 'en' ? 'Home' : '首頁'"></a>
-            <a href="#" @click.prevent="page = 'about'" :class="page === 'about' ? 'text-emerald-600' : ''" x-text="lang === 'en' ? 'About' : '關於'"></a>
-            <a href="#" @click.prevent="page = 'team'" :class="page === 'team' ? 'text-emerald-600' : ''" x-text="lang === 'en' ? 'Team' : '團隊'"></a>
+            <a href="#" @click.prevent="page = 'about'" :class="page === 'about' ? 'text-emerald-600' : ''" x-text="lang === 'en' ? 'About Therapy' : '關於戲劇治療'"></a>
+            <a href="#" @click.prevent="page = 'team'" :class="page === 'team' ? 'text-emerald-600' : ''" x-text="lang === 'en' ? 'Our Team' : '專業團隊'"></a>
         </div>
     </nav>
 
@@ -65,12 +65,9 @@
                                 <span x-show="lang === 'en'">Healing Through <span class="text-emerald-500">Creativity</span></span>
                                 <span x-show="lang === 'zh'">以創意啟發<span class="text-emerald-500">身心療癒</span></span>
                             </h1>
-                            <p class="text-base md:text-lg text-slate-600 mb-8 leading-relaxed">
-                                <span x-show="lang === 'en'">Discover the transformative power of dramatherapy with Lily Lau, HCPC registered Arts Therapist. Professional, compassionate care.</span>
-                                <span x-show="lang === 'zh'">與英國 HCPC 註冊藝術治療師 Lily Lau 一同探索戲劇治療的轉化力量。我們為您的心理健康提供專業且具同理心的支持。</span>
-                            </p>
+                            <p class="text-lg text-slate-600 mb-8 leading-relaxed" x-text="lang === 'en' ? 'Professional, compassionate care for emotional and psychological well-being.' : '我們為您的心理健康提供專業且具同理心的支持與治療。'"></p>
                             <button @click="modal = true" class="emerald-gradient text-white px-8 py-4 rounded-xl font-bold flex items-center gap-3 hover:scale-105 transition shadow-xl mx-auto md:mx-0">
-                                <span x-text="lang === 'en' ? 'Free Consultation' : '預約免費諮詢'"></span>
+                                <span x-text="lang === 'en' ? 'Book Free Consultation' : '預約免費諮詢'"></span>
                                 <i data-lucide="arrow-right"></i>
                             </button>
                         </div>
@@ -79,23 +76,66 @@
                         </div>
                     </div>
                 </section>
-                
+
                 <section class="py-16 bg-slate-50">
                     <div class="container mx-auto px-6">
-                        <h2 class="text-3xl font-bold text-center mb-12" x-text="lang === 'en' ? 'Client Voices' : '個案分享'"></h2>
-                        <div class="grid md:grid-cols-3 gap-6">
-                            <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 italic text-slate-600">
-                                <p x-text="lang === 'en' ? '“Life-changing experience.”' : '「這是一段真正改變人生的經歷。」'"></p>
+                        <h2 class="text-3xl font-bold text-center mb-12" x-text="lang === 'en' ? 'Client Testimonials' : '個案心聲分享'"></h2>
+                        <div class="grid md:grid-cols-3 gap-8">
+                            <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-100 italic text-slate-600 testimonial-card overflow-hidden">
+                                <i data-lucide="quote" class="text-emerald-500 w-12 h-12 quote-bg"></i>
+                                <p class="relative z-10" x-text="lang === 'en' ? '“The creative approach helped me express things I couldn\'t find words for.”' : '「這種創意治療方式幫助我表達了難以言喻的情感。」'"></p>
+                                <div class="mt-4 not-italic font-bold text-slate-900 text-xs" x-text="lang === 'en' ? '- Client, Cambridge' : '- 個案，劍橋'"></div>
                             </div>
-                            <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 italic text-slate-600">
-                                <p x-text="lang === 'en' ? '“Safe and warm space.”' : '「Lily 營造了一個非常安全且溫暖的空間。」'"></p>
+                            <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-100 italic text-slate-600 testimonial-card overflow-hidden">
+                                <i data-lucide="quote" class="text-emerald-500 w-12 h-12 quote-bg"></i>
+                                <p class="relative z-10" x-text="lang === 'en' ? '“Lily provides such a safe, warm space. I felt truly supported.”' : '「Lily 營造了一個非常安全且溫暖的空間，讓我感到被支持。」'"></p>
+                                <div class="mt-4 not-italic font-bold text-slate-900 text-xs" x-text="lang === 'en' ? '- Client, London' : '- 個案，倫敦'"></div>
                             </div>
-                            <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 italic text-slate-600">
-                                <p x-text="lang === 'en' ? '“Helped my child manage anxiety.”' : '「戲劇治療讓我的孩子學會了應對焦慮。」'"></p>
+                            <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-100 italic text-slate-600 testimonial-card overflow-hidden">
+                                <i data-lucide="quote" class="text-emerald-500 w-12 h-12 quote-bg"></i>
+                                <p class="relative z-10" x-text="lang === 'en' ? '“Dramatherapy gave my child the tools to manage their anxiety.”' : '「戲劇治療讓我的孩子學會了應對焦慮的技巧。」'"></p>
+                                <div class="mt-4 not-italic font-bold text-slate-900 text-xs" x-text="lang === 'en' ? '- Parent' : '- 個案家長'"></div>
                             </div>
                         </div>
                     </div>
                 </section>
+            </div>
+        </template>
+
+        <template x-if="page === 'about'">
+            <div class="fade-in py-16 bg-white">
+                <div class="container mx-auto px-6">
+                    <div class="text-center mb-16">
+                        <h2 class="text-4xl font-bold text-slate-900 mb-4">
+                            <span x-show="lang === 'en'">What is <span class="text-emerald-500">Dramatherapy?</span></span>
+                            <span x-show="lang === 'zh'">甚麼是 <span class="text-emerald-500">戲劇治療？</span></span>
+                        </h2>
+                        <p class="text-lg text-slate-600 max-w-4xl mx-auto leading-relaxed" x-text="lang === 'en' ? 'Dramatherapy is a specialized form of psychotherapy that harnesses creative expression to promote healing and growth.' : '戲劇治療是一種專門的心理治療形式，利用創意表達、故事和角色扮演的力量來促進身心康復和個人成長。'"></p>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-20">
+                        <template x-for="tech in (lang === 'en' ? 
+                            [{t:'Role-Play', d:'Exploring perspectives.'}, {t:'Storytelling', d:'Processing experiences.'}, {t:'Body Movement', d:'Integrating physical expression.'}, {t:'Creative Writing', d:'Externalizing thoughts.'}, {t:'Sand Play', d:'Visualizing internal worlds.'}, {t:'Improvisation', d:'Building spontaneity.'}] : 
+                            [{t:'角色扮演', d:'探索不同的生活觀點與處境。'}, {t:'故事創作', d:'整理並轉化個人生命經歷。'}, {t:'身體律動', d:'結合肢體表達，促進身心整合。'}, {t:'創意寫作', d:'將內心深處的想法具象化。'}, {t:'沙盤遊戲', d:'以視覺化方式探索內心世界。'}, {t:'即興創作', d:'培養自發性、靈活性與洞察力。'}])">
+                            <div class="p-8 bg-slate-50 rounded-3xl border border-slate-100 text-center">
+                                <h4 class="font-bold text-slate-900 mb-2" x-text="tech.t"></h4>
+                                <p class="text-sm text-slate-500" x-text="tech.d"></p>
+                            </div>
+                        </template>
+                    </div>
+
+                    <div class="bg-emerald-50 rounded-[3rem] p-10 md:p-16">
+                        <h3 class="text-2xl font-bold text-center mb-12" x-text="lang === 'en' ? 'Who Can Benefit?' : '誰能從中受益？'"></h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                            <template x-for="item in (lang === 'en' ? ['Anxiety and depression', 'ADHD and autism support', 'Trauma and PTSD', 'Grief and loss', 'Eating disorders', 'Life transitions'] : ['焦慮與抑鬱管理', 'ADHD 與自閉症譜系支援', '創傷與 PTSD 療癒', '哀傷輔導與喪親支援', '飲食失調治療', '生活轉變適應指導'])">
+                                <div class="flex items-center gap-3 bg-white p-4 rounded-2xl shadow-sm">
+                                    <div class="bg-emerald-500 text-white p-1 rounded-full"><i data-lucide="check" class="w-3 h-3"></i></div>
+                                    <span class="text-slate-700 text-sm font-medium" x-text="item"></span>
+                                </div>
+                            </template>
+                        </div>
+                    </div>
+                </div>
             </div>
         </template>
 
@@ -118,16 +158,9 @@
             </div>
         </template>
 
-        <template x-if="page === 'about'">
-             <div class="fade-in py-16 container mx-auto px-6 text-center">
-                <h2 class="text-3xl font-bold mb-8" x-text="lang === 'en' ? 'What is Dramatherapy?' : '甚麼是戲劇治療？'"></h2>
-                <p class="text-slate-600 max-w-2xl mx-auto" x-text="lang === 'en' ? 'A specialized form of psychotherapy using creative arts.' : '一種結合創意藝術與心理學的專業心理治療。'"></p>
-             </div>
-        </template>
-
     </main>
 
-    <footer class="bg-white border-t py-12 text-center text-slate-400 text-[10px] md:text-xs px-6">
+    <footer class="bg-white border-t py-12 text-center text-slate-400 text-[10px] md:text-xs">
         <p class="font-bold text-slate-600 mb-1">Dramatherapy Bay Limited</p>
         <p x-text="lang === 'en' ? '© 2025 | HCPC Registered Arts Therapist | Cambridge, UK' : '© 2025 | 英國註冊藝術治療師 | 劍橋，英國'"></p>
     </footer>
