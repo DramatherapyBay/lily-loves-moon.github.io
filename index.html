@@ -8,6 +8,10 @@
   <title>Dramatherapy Bay Limited - Professional Dramatherapy Services</title>
 
   <style>
+    html {
+      scroll-behavior: smooth; /* Enables smooth scrolling */
+    }
+
     body {
       margin: 0;
       font-family: Arial, Helvetica, sans-serif;
@@ -103,7 +107,7 @@
           <a href="#contact">Contact</a>
         </div>
         <div>
-          <span class="btn" id="consultationBtn">Book Free Consultation</span>
+          <span class="btn" data-target="#contact">Book Free Consultation</span>
         </div>
       </nav>
     </div>
@@ -125,7 +129,7 @@
       <p>Expert care for eating disorders, trauma, and complex mental health needs.</p>
 
       <div style="margin-top:20px;">
-        <span class="btn">View All Services</span>
+        <span class="btn" data-target="#services">View All Services</span>
       </div>
     </div>
   </section>
@@ -183,7 +187,7 @@
   <section id="cta" style="background: linear-gradient(to right,#10b981,#6366f1); color:white; text-align:center; padding:60px 20px;">
     <h2>Ready to Begin Your Healing Journey?</h2>
     <p>Take the first step toward emotional well-being with a free 20-minute consultation.</p>
-    <span class="btn" id="ctaBtn">Book Your Free Consultation</span>
+    <span class="btn" data-target="#contact">Book Your Free Consultation</span>
   </section>
 
   <!-- Footer -->
@@ -205,12 +209,18 @@
     </div>
   </footer>
 
-  <!-- Scripts -->
   <script>
-    // Prevent "jump to top" for buttons
-    document.querySelectorAll('.btn').forEach(btn => {
-      btn.addEventListener('click', e => e.preventDefault());
+    // Smooth scroll for all buttons with data-target
+    document.querySelectorAll('.btn[data-target]').forEach(btn => {
+      btn.addEventListener('click', e => {
+        e.preventDefault();
+        const target = document.querySelector(btn.getAttribute('data-target'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
     });
   </script>
+
 </body>
 </html>
