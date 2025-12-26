@@ -1,20 +1,31 @@
+// Smooth scroll for buttons
 document.addEventListener("DOMContentLoaded", function() {
-  const sections = document.querySelectorAll(".section");
-  const links = document.querySelectorAll("nav a");
-
-  function hideAll() {
-    sections.forEach(sec => sec.classList.remove("active"));
-  }
-
-  links.forEach(link => {
-    link.addEventListener("click", function(e){
-      e.preventDefault();
-      hideAll();
-      const target = this.getAttribute("href").substring(1);
-      document.getElementById(target).classList.add("active");
+  // Scroll to consultation form
+  const consultationButtons = document.querySelectorAll(".book-consultation-btn");
+  
+  consultationButtons.forEach(button => {
+    button.addEventListener("click", function(e) {
+      e.preventDefault(); // prevent default jump
+      const target = document.querySelector("#contact");
+      if(target) {
+        target.scrollIntoView({ behavior: "smooth" });
+      }
     });
   });
 
-  // Show home by default
-  document.getElementById("home").classList.add("active");
+  // Section animations on scroll
+  const sections = document.querySelectorAll(".section");
+  
+  function revealSections() {
+    const triggerBottom = window.innerHeight * 0.85;
+    sections.forEach(section => {
+      const sectionTop = section.getBoundingClientRect().top;
+      if(sectionTop < triggerBottom) {
+        section.classList.add("active");
+      }
+    });
+  }
+
+  window.addEventListener("scroll", revealSections);
+  revealSections(); // trigger on load
 });
