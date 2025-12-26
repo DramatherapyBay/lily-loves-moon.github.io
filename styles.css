@@ -1,0 +1,90 @@
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #153243;
+  background: #f5f9fc;
+}
+
+/* Header */
+header {
+  background: #dbe9ff;
+  padding: 10px 20px;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-weight: bold;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 15px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #153243;
+}
+
+/* Hero */
+.hero {
+  text-align: center;
+  padding: 90px 20px;
+  background: linear-gradient(#e7f1ff, #ffffff);
+}
+
+.btn {
+  padding: 10px 18px;
+  background: #90b4ff;
+  color: white;
+  border-radius: 6px;
+  text-decoration: none;
+}
+
+/* Sections */
+.section {
+  padding: 60px 20px;
+  max-width: 900px;
+  margin: auto;
+}
+
+.alt {
+  background: #ecf2ff;
+}
+
+/* Cards */
+.cards {
+  display: grid;
+  gap: 12px;
+}
+
+.card {
+  background: white;
+  padding: 15px;
+  border-radius: 10px;
+}
+
+/* Contact */
+form {
+  display: grid;
+  gap: 10px;
+}
+
+input, textarea {
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #aac1e8;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #dbe9ff;
+}
