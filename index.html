@@ -70,6 +70,78 @@
             </div>
         </template>
 
+<template x-if="page === 'about'">
+            <div class="fade-in bg-white">
+                <section class="py-20 container mx-auto px-6">
+                    <h1 class="text-4xl md:text-5xl font-bold mb-6 text-slate-900">What is Dramatherapy?</h1>
+                    <p class="text-lg text-slate-600 mb-12 max-w-3xl leading-relaxed">
+                        Dramatherapy is a specialized form of psychotherapy that harnesses the power of drama, theater, and creative expression to promote healing and personal growth. Unlike traditional talk therapy, it engages the whole person – mind, body, and spirit.
+                    </p>
+
+                    <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-20">
+                        <div class="p-6 bg-emerald-50 rounded-2xl border-b-4 border-emerald-500 shadow-sm">
+                            <span class="text-3xl font-bold text-emerald-200">01</span>
+                            <h3 class="font-bold mt-2 text-slate-900">Assessment</h3>
+                            <p class="text-xs text-slate-500 mt-1">Understanding your unique needs and goals.</p>
+                        </div>
+                        <div class="p-6 bg-purple-50 rounded-2xl border-b-4 border-purple-500 shadow-sm">
+                            <span class="text-3xl font-bold text-purple-200">02</span>
+                            <h3 class="font-bold mt-2 text-slate-900">Exploration</h3>
+                            <p class="text-xs text-slate-500 mt-1">Engaging in creative activities and theater techniques.</p>
+                        </div>
+                        <div class="p-6 bg-pink-50 rounded-2xl border-b-4 border-pink-500 shadow-sm">
+                            <span class="text-3xl font-bold text-pink-200">03</span>
+                            <h3 class="font-bold mt-2 text-slate-900">Integration</h3>
+                            <p class="text-xs text-slate-500 mt-1">Reflecting on insights gained during the process.</p>
+                        </div>
+                        <div class="p-6 bg-blue-50 rounded-2xl border-b-4 border-blue-500 shadow-sm">
+                            <span class="text-3xl font-bold text-blue-200">04</span>
+                            <h3 class="font-bold mt-2 text-slate-900">Application</h3>
+                            <p class="text-xs text-slate-500 mt-1">Applying new skills and perspectives to daily life.</p>
+                        </div>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-12 items-start">
+                        <div>
+                            <h2 class="text-2xl font-bold mb-6 flex items-center gap-2">
+                                <i data-lucide="sparkles" class="text-emerald-500"></i> Therapeutic Techniques
+                            </h2>
+                            <div class="space-y-4">
+                                <div class="flex items-start gap-4 p-4 bg-slate-50 rounded-xl">
+                                    <i data-lucide="users" class="text-purple-500 mt-1"></i>
+                                    <div><h4 class="font-bold text-slate-900">Role-Play</h4><p class="text-sm text-slate-500">Practice new behaviors in a safe, fictional space.</p></div>
+                                </div>
+                                <div class="flex items-start gap-4 p-4 bg-slate-50 rounded-xl">
+                                    <i data-lucide="message-circle" class="text-emerald-500 mt-1"></i>
+                                    <div><h4 class="font-bold text-slate-900">Storytelling</h4><p class="text-sm text-slate-500">Using metaphor to process difficult emotions.</p></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h2 class="text-2xl font-bold mb-6 flex items-center gap-2">
+                                <i data-lucide="heart" class="text-pink-500"></i> Who Can Benefit?
+                            </h2>
+                            <ul class="grid grid-cols-1 gap-2 text-slate-600 text-sm">
+                                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-500"></i> Anxiety & Depression</li>
+                                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-500"></i> Eating Disorders</li>
+                                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-500"></i> Autism & ADHD Support</li>
+                                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-500"></i> Trauma & PTSD Recovery</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="mt-16 pt-8 border-t border-slate-100">
+                        <p class="text-sm text-slate-400 italic">
+                            Evidence-based practice recognized by the HCPC. For more info visit: 
+                            <a href="https://badth.org.uk" target="_blank" class="text-emerald-600 underline ml-1">BADth</a> or 
+                            <a href="https://nadta.org" target="_blank" class="text-emerald-600 underline ml-1">NADTA</a>
+                        </p>
+                    </div>
+                </section>
+            </div>
+        </template>
+        
         <template x-if="page === 'services'">
             <div class="fade-in py-20 container mx-auto px-6">
                 <div class="text-center mb-16">
@@ -103,7 +175,7 @@
                 <div class="grid md:grid-cols-2 gap-16 items-center mb-20">
                     <div class="relative group">
                         <div class="absolute -inset-4 bg-purple-100 rounded-full blur-3xl opacity-30 group-hover:opacity-50 transition"></div>
-                        <img src="https://i.ibb.co/XpZp3Bf/Lily-Lau.jpg" class="relative rounded-full w-80 h-80 object-cover mx-auto shadow-2xl border-8 border-white" alt="Lily Yim Ching Lau">
+                        <img src="lily-photo.jpg" class="relative rounded-full w-80 h-80 object-cover mx-auto shadow-2xl border-8 border-white" alt="Lily Yim Ching Lau">
                     </div>
                     <div>
                         <h1 class="text-4xl font-bold mb-2">Lily Yim Ching LAU</h1>
