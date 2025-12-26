@@ -91,29 +91,29 @@
                         <h3 class="text-3xl font-bold text-slate-900 mb-12 text-center">Therapeutic Techniques</h3>
                         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                             <div class="p-8 bg-white rounded-3xl shadow-sm border border-slate-100 flex flex-col items-center text-center hover:shadow-md transition">
-                                <div class="w-14 h-14 bg-purple-100 text-purple-600 rounded-2xl flex items-center justify-center mb-4"><i data-lucide="masks"></i></div>
+                                <div class="w-14 h-14 bg-purple-100 text-purple-600 rounded-2xl flex items-center justify-center mb-4"><i data-lucide="drama"></i></div>
                                 <h4 class="font-bold text-slate-800 mb-2">Role-Play</h4>
                                 <p class="text-sm text-slate-500">Exploring perspectives.</p>
                             </div>
                             <div class="p-8 bg-white rounded-3xl shadow-sm border border-slate-100 flex flex-col items-center text-center hover:shadow-md transition">
-                                <div class="w-14 h-14 bg-blue-100 text-blue-600 rounded-2xl flex items-center justify-center mb-4"><i data-lucide="book-open"></i></div>
-                                <h4 class="font-bold text-slate-800 mb-2">Storytelling</h4>
+                                <div class="w-14 h-14 bg-blue-100 text-blue-600 rounded-2xl flex items-center justify-center mb-4"><i data-lucide="book-open-check"></i></div>
+                                <h4 class="font-bold text-slate-800 mb-2">Storytelling / Writing</h4>
                                 <p class="text-sm text-slate-500">Processing experiences.</p>
                             </div>
                             <div class="p-8 bg-white rounded-3xl shadow-sm border border-slate-100 flex flex-col items-center text-center hover:shadow-md transition">
-                                <div class="w-14 h-14 bg-emerald-100 text-emerald-600 rounded-2xl flex items-center justify-center mb-4"><i data-lucide="accessibility"></i></div>
+                                <div class="w-14 h-14 bg-emerald-100 text-emerald-600 rounded-2xl flex items-center justify-center mb-4"><i data-lucide="user-round-plus"></i></div>
                                 <h4 class="font-bold text-slate-800 mb-2">Body Movement</h4>
                                 <p class="text-sm text-slate-500">Integrating physical expression.</p>
                             </div>
                             <div class="p-8 bg-white rounded-3xl shadow-sm border border-slate-100 flex flex-col items-center text-center hover:shadow-md transition">
-                                <div class="w-14 h-14 bg-orange-100 text-orange-600 rounded-2xl flex items-center justify-center mb-4"><i data-lucide="pen-tool"></i></div>
-                                <h4 class="font-bold text-slate-800 mb-2">Creative Writing</h4>
-                                <p class="text-sm text-slate-500">Externalizing thoughts.</p>
+                                <div class="w-14 h-14 bg-orange-100 text-orange-600 rounded-2xl flex items-center justify-center mb-4"><i data-lucide="palette"></i></div>
+                                <h4 class="font-bold text-slate-800 mb-2">Creative Writing & Drawing</h4>
+                                <p class="text-sm text-slate-500">Externalizing thoughts and visualizing internal worlds.</p>
                             </div>
                             <div class="p-8 bg-white rounded-3xl shadow-sm border border-slate-100 flex flex-col items-center text-center hover:shadow-md transition">
-                                <div class="w-14 h-14 bg-amber-100 text-amber-600 rounded-2xl flex items-center justify-center mb-4"><i data-lucide="palette"></i></div>
-                                <h4 class="font-bold text-slate-800 mb-2">Sand Play & Drawing</h4>
-                                <p class="text-sm text-slate-500">Visualizing internal worlds.</p>
+                                <div class="w-14 h-14 bg-amber-100 text-amber-600 rounded-2xl flex items-center justify-center mb-4"><i data-lucide="mountain"></i></div>
+                                <h4 class="font-bold text-slate-800 mb-2">Sand Play</h4>
+                                <p class="text-sm text-slate-500">Visualizing internal worlds through play.</p>
                             </div>
                             <div class="p-8 bg-white rounded-3xl shadow-sm border border-slate-100 flex flex-col items-center text-center hover:shadow-md transition">
                                 <div class="w-14 h-14 bg-rose-100 text-rose-600 rounded-2xl flex items-center justify-center mb-4"><i data-lucide="sparkles"></i></div>
@@ -151,27 +151,21 @@
             </div>
         </template>
 
+        <template x-if="page === 'services'">
+            <div class="fade-in py-20 container mx-auto px-6 text-center">
+                <h2 class="text-4xl font-bold text-slate-900 mb-6">Our Services</h2>
+                <p class="text-slate-500 max-w-2xl mx-auto">Individual and group therapy sessions tailored to your journey.</p>
+            </div>
+        </template>
+
         <template x-if="page === 'resources'">
             <div class="fade-in py-20 container mx-auto px-6 text-center">
                 <h2 class="text-4xl font-bold text-slate-900 mb-6">Resources</h2>
-                <p class="text-slate-500 max-w-2xl mx-auto">Coming soon: Downloadable guides, therapeutic worksheets, and helpful articles about the creative arts in therapy.</p>
+                <p class="text-slate-500 max-w-2xl mx-auto">Coming soon: Downloadable guides and helpful articles.</p>
             </div>
         </template>
 
     </main>
-
-    <div x-show="modal" class="fixed inset-0 z-[100] flex items-center justify-center p-6 bg-slate-900/60 backdrop-blur-sm" x-cloak x-transition>
-        <div class="bg-white rounded-[2.5rem] p-8 max-w-md w-full relative">
-            <button @click="modal = false" class="absolute top-6 right-6 text-slate-400"><i data-lucide="x"></i></button>
-            <h2 class="text-2xl font-bold mb-8 text-center">Book Consultation</h2>
-            <form class="space-y-4" @submit.prevent="window.location.href='mailto:dramatherapybay@gmail.com'; modal=false">
-                <input type="text" placeholder="Name" class="w-full p-4 bg-slate-50 rounded-2xl" required>
-                <input type="email" placeholder="Email" class="w-full p-4 bg-slate-50 rounded-2xl" required>
-                <textarea placeholder="Message" class="w-full p-4 bg-slate-50 rounded-2xl h-24" required></textarea>
-                <button type="submit" class="w-full emerald-gradient text-white py-4 rounded-2xl font-bold">Send Message</button>
-            </form>
-        </div>
-    </div>
 
     <footer class="bg-white border-t py-12 text-center text-slate-400 text-xs">
         <p class="font-bold text-slate-600 mb-1">Dramatherapy Bay Limited</p>
