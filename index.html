@@ -15,12 +15,10 @@
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
         .emerald-gradient { background: linear-gradient(135deg, #10b981 0%, #a855f7 100%); }
         .glass-card { background: white; border: 1px solid #e2e8f0; border-radius: 1.5rem; transition: all 0.3s ease; }
-        /* 飲食失調專用配色 */
         .specialized-bg { 
             background: linear-gradient(135deg, rgba(167, 243, 208, 0.4) 0%, rgba(233, 213, 255, 0.4) 100%);
             backdrop-filter: blur(8px);
         }
-        /* 1:1 照片容器 */
         .profile-container { width: 100%; max-width: 400px; aspect-ratio: 1/1; overflow: hidden; border-radius: 2rem; border: 8px solid white; box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1); margin: 0 auto; }
         .profile-container img { width: 100%; height: 100%; object-fit: cover; display: block; }
         .active-lang { background-color: #10b981; color: white; border-color: #10b981; }
@@ -28,7 +26,7 @@
 </head>
 <body x-data="{ page: 'home', lang: 'en' }">
 
-    <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200">
+    <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
             <div class="flex items-center gap-3 cursor-pointer" @click="page = 'home'">
                 <div class="w-10 h-10 rounded-full emerald-gradient flex items-center justify-center text-white font-bold">DB</div>
@@ -73,42 +71,11 @@
             </div>
         </div>
 
-        <div x-show="page === 'services'" class="fade-in py-16 container mx-auto px-6" x-cloak>
-    
-    <div class="max-w-4xl mx-auto mb-20">
-        <div class="text-center mb-12">
-            <h1 class="text-4xl font-bold text-slate-900 mb-4" x-text="lang === 'en' ? 'What is Dramatherapy?' : '什麼是戲劇治療？'"></h1>
-            <p class="text-lg text-emerald-600 font-semibold" x-text="lang === 'en' ? 'Dramatherapy is a specialized form of psychotherapy that harnesses the power of drama, theater, and creative expression to promote healing and personal growth.' : '戲劇治療是一種專門的心理治療形式，它利用戲劇、劇場和創意表達的力量來促進療癒和個人成長。'"></p>
-        </div>
-
-        <div class="grid md:grid-cols-2 gap-12 items-start">
-            <div class="space-y-6">
-                <h3 class="text-2xl font-bold text-slate-800" x-text="lang === 'en' ? 'A Holistic Approach to Healing' : '全人療癒方法'"></h3>
-                <div class="text-slate-600 space-y-4 text-sm leading-relaxed">
-                    <p x-show="lang === 'en'">Unlike traditional talk therapy, dramatherapy engages the whole person – mind, body, and spirit – creating opportunities for profound healing and self-discovery. Through the safe medium of creative play and storytelling, individuals can explore difficult emotions and develop greater self-awareness.</p>
-                    <p x-show="lang === 'zh'">與傳統的談話治療不同，戲劇治療關注的是全人——包括思想、身體和精神——為深刻的療癒和自我發現創造機會。透過創意遊戲和故事敘說的安全媒介，個人可以探索困難的情緒並培養更強的自我意識。</p>
-                </div>
+        <div x-show="page === 'about'" class="fade-in py-16 container mx-auto px-6" x-cloak>
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-4xl font-bold text-slate-900 mb-4" x-text="lang === 'en' ? 'Therapeutic Techniques' : '治療技術'"></h2>
+                <p class="text-slate-600" x-text="lang === 'en' ? 'We use diverse creative tools to help you externalize thoughts and visualize your internal world.' : '我們運用多樣化的創意工具，協助您將想法外在化，並將內在世界視覺化。'"></p>
             </div>
-            <div class="space-y-6">
-                <div class="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm">
-                    <p class="text-slate-600 text-sm leading-relaxed mb-4" x-show="lang === 'en'">This innovative therapeutic approach allows clients to safely explore their emotions, experiences, and relationships through techniques such as role-play, improvisation, storytelling, and creative movement. The therapeutic process is conducted by trained and licensed professionals who work collaboratively with clients to create a safe and supportive environment.</p>
-                    <p class="text-slate-600 text-sm leading-relaxed mb-4" x-show="lang === 'zh'">這種創新的治療方法讓個案能夠透過角色扮演、即興創作、故事敘說和創意律動等技術，安全地探索他們的情緒、經驗和關係。治療過程由受過訓練且持有執照的專業人士進行，他們與個案合作，營造一個安全且支持性的環境。</p>
-                    
-                    <div class="pt-4 border-t border-slate-100">
-                        <h4 class="font-bold text-slate-800 text-sm mb-2" x-text="lang === 'en' ? 'Evidence-Based Practice' : '實證實踐'"></h4>
-                        <p class="text-xs text-slate-500" x-text="lang === 'en' ? 'Dramatherapy is recognized by the Health and Care Professions Council (HCPC) and is used in hospitals, schools, community centers, and private practice settings worldwide.' : '戲劇治療受到英國健康及護理專業協會 (HCPC) 的認可，並廣泛應用於全球的醫院、學校、社區中心和私人執業場所。'"></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="text-center max-w-3xl mx-auto mb-20 border-t border-slate-100 pt-16">
-        <h2 class="text-3xl font-bold text-slate-900 mb-4" x-text="lang === 'en' ? 'Our Services' : '我們的服務項目'"></h2>
-        <p class="text-slate-600" x-text="lang === 'en' ? 'Comprehensive dramatherapy services designed to support your journey toward healing, growth, and emotional well-being.' : '全面的戲劇治療服務，旨在支持您的療癒、成長及情緒健康旅程。'"></p>
-    </div>
-
-    </div>
 
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
                 <template x-for="tech in (lang === 'en' ? [
@@ -154,6 +121,72 @@
             </div>
         </div>
 
+        <div x-show="page === 'services'" class="fade-in py-16 container mx-auto px-6" x-cloak>
+            <div class="max-w-4xl mx-auto mb-20">
+                <div class="text-center mb-12">
+                    <h1 class="text-4xl font-bold text-slate-900 mb-4" x-text="lang === 'en' ? 'What is Dramatherapy?' : '什麼是戲劇治療？'"></h1>
+                    <p class="text-lg text-emerald-600 font-semibold" x-text="lang === 'en' ? 'Dramatherapy is a specialized form of psychotherapy that harnesses the power of drama, theater, and creative expression to promote healing and personal growth.' : '戲劇治療是一種專門的心理治療形式，利用戲劇、劇場和創意表達的力量來促進療癒和個人成長。'"></p>
+                </div>
+                <div class="grid md:grid-cols-2 gap-12 items-start">
+                    <div class="space-y-6">
+                        <h3 class="text-2xl font-bold text-slate-800" x-text="lang === 'en' ? 'A Holistic Approach to Healing' : '全人療癒方法'"></h3>
+                        <div class="text-slate-600 space-y-4 text-sm leading-relaxed">
+                            <p x-show="lang === 'en'">Unlike traditional talk therapy, dramatherapy engages the whole person – mind, body, and spirit – creating opportunities for profound healing and self-discovery. Through the safe medium of creative play and storytelling, individuals can explore difficult emotions and develop greater self-awareness.</p>
+                            <p x-show="lang === 'zh'">與傳統的談話治療不同，戲劇治療關注的是全人——包括思想、身體和精神。透過創意遊戲和故事敘說的安全媒介，個人可以探索困難的情緒並培養自我意識。</p>
+                        </div>
+                    </div>
+                    <div class="space-y-6">
+                        <div class="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm">
+                            <p class="text-slate-600 text-sm leading-relaxed mb-4" x-show="lang === 'en'">This innovative therapeutic approach allows clients to safely explore their emotions and relationships through techniques such as role-play, improvisation, storytelling, and creative movement. The process is conducted by licensed professionals.</p>
+                            <p class="text-slate-600 text-sm leading-relaxed mb-4" x-show="lang === 'zh'">這種創新的治療方法讓個案能夠透過角色扮演、即興創作、故事敘說和創意律動，安全地探索情緒與關係。過程由專業人士帶領。</p>
+                            <div class="pt-4 border-t border-slate-100">
+                                <h4 class="font-bold text-slate-800 text-sm mb-2" x-text="lang === 'en' ? 'Evidence-Based Practice' : '實證實踐'"></h4>
+                                <p class="text-xs text-slate-500" x-text="lang === 'en' ? 'Dramatherapy is recognized by the Health and Care Professions Council (HCPC).' : '戲劇治療受到英國健康及護理專業協會 (HCPC) 的認可。'"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mb-16 pt-16 border-t border-slate-100">
+                <h2 class="text-3xl font-bold text-slate-900 mb-4" x-text="lang === 'en' ? 'Our Services' : '服務項目'"></h2>
+            </div>
+
+            <div class="specialized-bg rounded-[3rem] p-10 md:p-16 mb-20">
+                <h3 class="text-3xl font-bold mb-10 text-center text-slate-800" x-text="lang === 'en' ? 'Specialized Treatment for Eating Disorders' : '飲食失調專項治療'"></h3>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="bg-white/70 p-8 rounded-3xl shadow-sm border border-white">
+                        <h4 class="font-bold text-emerald-600 text-lg mb-3">Dramatherapy</h4>
+                        <p class="text-sm text-slate-600" x-text="lang === 'en' ? 'Creative exploration of body image and emotional regulation.' : '透過戲劇與故事探索身體意象、身份認同與情緒調節。'"></p>
+                    </div>
+                    <div class="bg-white/70 p-8 rounded-3xl shadow-sm border border-white">
+                        <h4 class="font-bold text-purple-600 text-lg mb-3">CBT-T</h4>
+                        <p class="text-sm text-slate-600" x-text="lang === 'en' ? 'Evidence-based treatment for trauma and PTSD related to ED.' : '針對飲食失調中創傷相關部分及 PTSD 的實證治療。'"></p>
+                    </div>
+                    <div class="bg-white/70 p-8 rounded-3xl shadow-sm border border-white">
+                        <h4 class="font-bold text-indigo-600 text-lg mb-3">GSH</h4>
+                        <p class="text-sm text-slate-600" x-text="lang === 'en' ? 'Guided Self-Help for structured recovery and growth.' : '結構化的引導式自助資料，支持持續的康復。'"></p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12 items-start">
+                <div class="glass-card p-10 border-l-8 border-emerald-500">
+                    <h2 class="text-3xl font-bold text-slate-900 mb-6" x-text="lang === 'en' ? 'Professional Workshops' : '專業工作坊'"></h2>
+                    <h4 class="font-bold text-xl mb-4 text-emerald-600" x-text="lang === 'en' ? 'Staff Training for Professionals' : '專業人士職員培訓'"></h4>
+                    <p class="text-slate-600 mb-6" x-text="lang === 'en' ? 'Designed for those who work with children to incorporate creative art forms.' : '專為從事兒童工作並希望融入創意藝術形式的專業人士設計。'"></p>
+                </div>
+                <div class="bg-slate-50 p-10 rounded-[2.5rem] border border-slate-100">
+                    <h4 class="font-bold mb-6 text-slate-800 text-lg" x-text="lang === 'en' ? 'Workshop Topics Include:' : '工作坊內容包括：'"></h4>
+                    <ul class="space-y-4 text-sm text-slate-600">
+                        <template x-for="topic in (lang === 'en' ? ['Story-telling & creation', 'Metaphors, images, and sounds', 'Improvisation & embodiment', 'Role-play & creative writing'] : ['故事敘說與創作技巧', '隱喻、意象與聲音的運用', '即興創作與身體體現', '角色扮演與創意寫作'])">
+                            <li class="flex items-center gap-3"><i data-lucide="sparkles" class="w-4 h-4 text-emerald-400"></i><span x-text="topic"></span></li>
+                        </template>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
         <div x-show="page === 'team'" class="fade-in py-16 container mx-auto px-6" x-cloak>
             <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-12 items-start">
                 <div class="profile-container">
@@ -163,8 +196,8 @@
                     <h1 class="text-4xl font-bold text-slate-900 mb-2" x-text="lang === 'en' ? 'Lily Yim Ching Lau' : '劉蔭菁'"></h1>
                     <p class="text-emerald-600 font-bold mb-6 text-xl">HCPC Registered Dramatherapist</p>
                     <div class="space-y-4 text-slate-600 leading-relaxed text-sm">
-                        <p x-show="lang === 'en'">Originally from Hong Kong, Lily brings a multicultural perspective to her practice as a British registered dramatherapist. She uses drama and creativity to support emotional and psychological well-being.</p>
-                        <p x-show="lang === 'zh'">Lily 來自香港，作為一名英國註冊戲劇治療師，她為執業注入了多元文化的視角。她運用戲劇與創意來支持情緒和心理健康。</p>
+                        <p x-show="lang === 'en'">Originally from Hong Kong, Lily brings a multicultural perspective to her practice as a British registered dramatherapist.</p>
+                        <p x-show="lang === 'zh'">Lily 來自香港，作為一名英國註冊戲劇治療師，她為執業注入了多元文化的視角。</p>
                         <div class="p-5 bg-emerald-50 rounded-2xl border-l-4 border-emerald-500 italic text-slate-700">
                             <span x-text="lang === 'en' ? 'I believe in the inherent capacity for healing within every person.' : '「我相信每個人內在都擁有療癒的能力。」'"></span>
                         </div>
@@ -172,8 +205,7 @@
                 </div>
             </div>
         </div>
-
-        </main>
+    </main>
 
     <script>
         lucide.createIcons();
