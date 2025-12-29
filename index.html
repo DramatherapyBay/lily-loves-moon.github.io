@@ -72,7 +72,6 @@
         </div>
 
         <div x-show="page === 'about'" class="fade-in py-16 container mx-auto px-6" x-cloak>
-            
             <div class="max-w-4xl mx-auto mb-20">
                 <div class="text-center mb-12">
                     <h1 class="text-4xl font-bold text-slate-900 mb-4" x-text="lang === 'en' ? 'What is Dramatherapy?' : '什麼是戲劇治療？'"></h1>
@@ -105,23 +104,26 @@
 
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
                 <template x-for="tech in (lang === 'en' ? [
-                    {t: 'Role-Play', d: 'Exploring perspectives'},
-                    {t: 'Storytelling', d: 'Processing experiences'},
-                    {t: 'Body Movement', d: 'Integrating physical expression'},
-                    {t: 'Creative Writing', d: 'Externalizing thoughts'},
-                    {t: 'Sand Play & Drawing', d: 'Visualizing internal worlds'},
-                    {t: 'Metaphor & Improvisation', d: 'Building spontaneity and insight'}
+                    {t: 'Role-Play', d: 'Exploring perspectives and rehearsing life changes.', i: 'users'},
+                    {t: 'Storytelling/Story-writing', d: 'Processing experiences and reframing personal narratives.', i: 'book-open'},
+                    {t: 'Body Movement', d: 'Integrating physical expression and somatic awareness.', i: 'accessibility'},
+                    {t: 'Creative Writing/Writing', d: 'Externalizing thoughts and capturing inner dialogues.', i: 'pen-tool'},
+                    {t: 'Sand Play & Drawing', d: 'Visualizing internal worlds through symbolic imagery.', i: 'palette'},
+                    {t: 'Metaphor & Improvisation', d: 'Building spontaneity and gaining deep psychological insight.', i: 'sparkles'}
                 ] : [
-                    {t: '角色扮演', d: '探索不同的觀點'},
-                    {t: '故事敘說', d: '處理生活經驗'},
-                    {t: '身體律動', d: '整合肢體表達'},
-                    {t: '創意寫作', d: '將想法外在化'},
-                    {t: '沙遊與繪畫', d: '將內在世界視覺化'},
-                    {t: '隱喻與即興', d: '培養自發性與洞察力'}
+                    {t: '角色扮演', d: '探索不同的觀點並預演人生的轉變。', i: 'users'},
+                    {t: '故事敘說 / 故事創作', d: '處理生活經驗並重塑個人敘事。', i: 'book-open'},
+                    {t: '身體律動', d: '整合肢體表達與軀體意識。', i: 'accessibility'},
+                    {t: '創意寫作 / 寫作', d: '將想法外在化並捕捉內心對話。', i: 'pen-tool'},
+                    {t: '沙遊與繪畫', d: '透過象徵性意象將內在世界視覺化。', i: 'palette'},
+                    {t: '隱喻與即興', d: '培養自發性並獲得深刻的心理洞察。', i: 'sparkles'}
                 ])">
-                    <div class="p-8 glass-card border-t-4 border-emerald-500">
-                        <h4 class="font-bold text-slate-900 mb-2 text-lg" x-text="tech.t"></h4>
-                        <p class="text-sm text-slate-500" x-text="tech.d"></p>
+                    <div class="p-8 glass-card border-t-4 border-emerald-500 text-center hover:shadow-md transition-shadow">
+                        <div class="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-emerald-50 text-emerald-600 mb-6">
+                            <i :data-lucide="tech.i" class="w-7 h-7"></i>
+                        </div>
+                        <h4 class="font-bold text-slate-900 mb-3 text-lg" x-text="tech.t"></h4>
+                        <p class="text-sm text-slate-500 leading-relaxed" x-text="tech.d"></p>
                     </div>
                 </template>
             </div>
@@ -168,7 +170,7 @@
                     </div>
                 </div>
             </div>
-            </div>
+        </div>
 
         <div x-show="page === 'team'" class="fade-in py-16 container mx-auto px-6" x-cloak>
             <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-12 items-start">
