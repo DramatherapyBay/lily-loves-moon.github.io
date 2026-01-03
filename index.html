@@ -7,113 +7,77 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
         [x-cloak] { display: none !important; }
-        
-        /* Updated Color Palette based on Photo Style */
-        :root {
-            --bg-soft: #f8faf9; /* Very light mint/off-white */
-            --text-main: #2d3e50; /* Soft navy from the photo */
-            --accent-soft: #5eb78d; /* Muted sage green */
-            --accent-warm: #d99c8b; /* Soft terracotta/rose from the photo */
-            --card-border: rgba(94, 183, 141, 0.15);
-        }
-
-        body { 
-            font-family: 'Plus Jakarta Sans', sans-serif; 
-            background-color: var(--bg-soft);
-            color: var(--text-main);
-            letter-spacing: -0.01em;
-        }
-
-        .fade-in { animation: fadeIn 0.5s ease-out forwards; }
+        body { font-family: 'Inter', sans-serif; background: linear-gradient(180deg, #fcfcfd 0%, #f1f5f9 100%); color: #1e293b; }
+        .fade-in { animation: fadeIn 0.4s ease-out forwards; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-
-        /* Softer Gradients & Cards */
-        .photo-gradient { 
-            background: linear-gradient(135deg, #f0f4f2 0%, #ffffff 100%); 
-        }
-        
-        .accent-gradient { 
-            background: linear-gradient(135deg, var(--accent-soft) 0%, #4a9d76 100%); 
-        }
-
-        .glass-card { 
-            background: rgba(255, 255, 255, 0.8); 
-            backdrop-filter: blur(8px); 
-            border: 1px solid var(--card-border); 
-            border-radius: 1.5rem; 
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 20px -5px rgba(45, 62, 80, 0.05);
-        }
-
-        .compassionate-box { 
-            background: linear-gradient(135deg, rgba(94, 183, 141, 0.08) 0%, rgba(217, 156, 139, 0.08) 100%); 
-            border: 1px solid rgba(94, 183, 141, 0.1); 
-        }
-
-        .flow-step:not(:last-child)::after { 
-            content: ''; position: absolute; right: -1.5rem; top: 2rem; width: 1rem; height: 1px; 
-            background: var(--accent-soft); opacity: 0.3; display: none; 
-        }
+        .emerald-gradient { background: linear-gradient(135deg, #10b981 0%, #3b82f6 100%); }
+        .glass-card { background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(12px); border: 1px solid rgba(226, 232, 240, 0.8); border-radius: 2rem; transition: all 0.3s ease; }
+        .compassionate-box { background: linear-gradient(135deg, rgba(16, 185, 129, 0.12) 0%, rgba(59, 130, 246, 0.12) 100%); border: 1px solid rgba(16, 185, 129, 0.2); }
+        .flow-step { position: relative; }
+        .flow-step:not(:last-child)::after { content: ''; position: absolute; right: -1.5rem; top: 2rem; width: 1rem; height: 2px; background: #cbd5e1; display: none; }
         @media (min-width: 1024px) { .flow-step:not(:last-child)::after { display: block; } }
-        
-        h1, h2, h3, h4 { color: var(--text-main); font-weight: 700; }
     </style>
 </head>
 <body x-data="{ page: 'about', lang: 'en', showEDDetails: false }">
 
-    <nav class="sticky top-0 z-50 bg-white/70 backdrop-blur-md border-b border-gray-100">
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-200">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
             <div class="flex items-center gap-3 cursor-pointer" @click="page = 'home'; showEDDetails = false">
-                <div class="w-10 h-10 rounded-full accent-gradient flex items-center justify-center text-white font-bold shadow-sm">DB</div>
+                <div class="w-10 h-10 rounded-full emerald-gradient flex items-center justify-center text-white font-bold shadow-lg shadow-emerald-200">DB</div>
                 <div class="leading-none text-left">
-                    <span class="font-bold text-lg block" style="color: var(--text-main)">Dramatherapy Bay</span>
-                    <span class="text-[10px] uppercase tracking-widest font-bold" style="color: var(--accent-soft)">Limited</span>
+                    <span class="font-bold text-lg block text-slate-900">Dramatherapy Bay</span>
+                    <span class="text-[10px] uppercase tracking-widest text-emerald-500 font-bold">Limited</span>
                 </div>
             </div>
-            <div class="hidden lg:flex gap-8 text-sm font-semibold text-gray-500">
-                <template x-for="item in ['home', 'about', 'team', 'services', 'contact']">
-                    <a href="#" @click.prevent="page = item" 
-                       :class="page === item ? 'text-[#5eb78d]' : 'hover:text-[#5eb78d] transition-colors'" 
-                       x-text="item.charAt(0).toUpperCase() + item.slice(1)"></a>
-                </template>
+            <div class="hidden lg:flex gap-8 text-sm font-semibold text-slate-600">
+                <a href="#" @click.prevent="page = 'home'" :class="page === 'home' ? 'text-emerald-600' : ''">Home</a>
+                <a href="#" @click.prevent="page = 'about'" :class="page === 'about' ? 'text-emerald-600' : ''">About</a>
+                <a href="#" @click.prevent="page = 'team'" :class="page === 'team' ? 'text-emerald-600' : ''">Our Team</a>
+                <a href="#" @click.prevent="page = 'services'" :class="page === 'services' ? 'text-emerald-600' : ''">Services</a>
+                <a href="#" @click.prevent="page = 'contact'" :class="page === 'contact' ? 'text-emerald-600' : ''">Contact</a>
             </div>
             <div class="flex gap-2">
-                <button @click="lang = 'en'" :class="lang === 'en' ? 'bg-[#5eb78d] text-white' : 'bg-white text-gray-400'" class="px-4 py-1.5 rounded-xl text-xs font-bold border transition-all">EN</button>
-                <button @click="lang = 'zh'" :class="lang === 'zh' ? 'bg-[#5eb78d] text-white' : 'bg-white text-gray-400'" class="px-4 py-1.5 rounded-xl text-xs font-bold border transition-all">中文</button>
+                <button @click="lang = 'en'" :class="lang === 'en' ? 'bg-emerald-500 text-white' : 'bg-white text-slate-400'" class="px-4 py-1.5 rounded-xl text-xs font-bold border transition-all">EN</button>
+                <button @click="lang = 'zh'" :class="lang === 'zh' ? 'bg-emerald-500 text-white' : 'bg-white text-slate-400'" class="px-4 py-1.5 rounded-xl text-xs font-bold border transition-all">中文</button>
             </div>
         </div>
     </nav>
 
     <main class="min-h-screen">
         
+        <div x-show="page === 'home'" class="fade-in py-20 text-center container mx-auto px-6">
+            <h1 class="text-5xl font-bold mb-6">Welcome to Dramatherapy Bay</h1>
+            <p class="text-xl text-slate-600">Creative paths to healing and growth.</p>
+        </div>
+
         <div x-show="page === 'about'" class="fade-in py-16 container mx-auto px-6">
             <div class="max-w-5xl mx-auto">
                 <div class="text-center mb-16">
-                    <h2 class="text-4xl mb-6">What is <span style="color: var(--accent-soft)">Dramatherapy?</span></h2>
-                    <p class="text-lg text-gray-500 leading-relaxed mb-12">Dramatherapy is a specialized form of psychotherapy that harnesses the power of drama, theater, and creative expression to promote healing and personal growth.</p>
+                    <h2 class="text-4xl font-bold text-slate-900 mb-6">What is Dramatherapy?</h2>
+                    <p class="text-lg text-slate-600 leading-relaxed mb-12">Dramatherapy is a specialized form of psychotherapy that harnesses the power of drama, theater, and creative expression to promote healing and personal growth.</p>
                     
-                    <div class="grid md:grid-cols-2 gap-8 text-left mb-16">
-                        <div class="glass-card p-8 photo-gradient">
-                            <h3 class="text-xl mb-4" style="color: var(--accent-soft)">A Holistic Approach to Healing</h3>
-                            <p class="text-gray-500 text-sm leading-relaxed mb-4">Unlike traditional talk therapy, dramatherapy engages the whole person – mind, body, and spirit – creating opportunities for profound healing and self-discovery.</p>
-                            <p class="text-gray-500 text-sm leading-relaxed">Through the safe medium of creative play and storytelling, individuals can explore difficult emotions and develop greater self-awareness.</p>
+                    <div class="grid md:grid-cols-2 gap-12 text-left mb-16">
+                        <div class="glass-card p-8">
+                            <h3 class="text-2xl font-bold text-emerald-600 mb-4">A Holistic Approach to Healing</h3>
+                            <p class="text-slate-600 text-sm leading-relaxed mb-4">Unlike traditional talk therapy, dramatherapy engages the whole person – mind, body, and spirit – creating opportunities for profound healing and self-discovery.</p>
+                            <p class="text-slate-600 text-sm leading-relaxed">Through the safe medium of creative play and storytelling, individuals can explore difficult emotions and develop greater self-awareness.</p>
                         </div>
-                        <div class="glass-card p-8 photo-gradient">
-                            <h3 class="text-xl mb-4" style="color: var(--accent-soft)">Evidence-Based Practice</h3>
-                            <p class="text-gray-500 text-sm leading-relaxed mb-6">Dramatherapy is recognized by the Health and Care Professions Council (HCPC) and is used in hospitals, schools, and private practice settings worldwide.</p>
-                            <div class="flex items-center gap-4 p-4 bg-white/50 rounded-2xl border border-[#5eb78d]/20">
-                                <i data-lucide="shield-check" style="color: var(--accent-soft)" class="w-8 h-8"></i>
-                                <span class="text-[10px] font-bold tracking-widest text-gray-500 uppercase">HCPC Registered Practice</span>
+                        <div class="glass-card p-8">
+                            <h3 class="text-2xl font-bold text-emerald-600 mb-4">Evidence-Based Practice</h3>
+                            <p class="text-slate-600 text-sm leading-relaxed mb-6">Dramatherapy is recognized by the Health and Care Professions Council (HCPC) and is used in hospitals, schools, and private practice settings worldwide.</p>
+                            <div class="flex items-center gap-4 p-4 bg-emerald-50 rounded-2xl border border-emerald-100">
+                                <i data-lucide="shield-check" class="text-emerald-500 w-8 h-8"></i>
+                                <span class="text-xs font-bold text-emerald-800 tracking-wider uppercase">HCPC Registered</span>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="mb-24">
-                    <h3 class="text-2xl text-center mb-12">Therapeutic Techniques</h3>
+                <div class="mb-20">
+                    <h3 class="text-3xl font-bold text-center text-slate-900 mb-12">Therapeutic Techniques</h3>
                     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                         <template x-for="item in [
                             {t: 'Role-Play & Character Exploration', d: 'Safely explore different perspectives and practice new behaviors through character work.', i: 'users'}, 
@@ -123,17 +87,18 @@
                             {t: 'Sand Play & Drawing', d: 'Visualizing internal worlds and exploring symbolic meaning.', i: 'palette'}, 
                             {t: 'Improvisation & Spontaneity', d: 'Develop flexibility, creativity, and confidence through spontaneous expression.', i: 'sparkles'}
                         ]">
-                            <div class="glass-card p-6 border-l-2 border-[#5eb78d]/30 hover:border-[#5eb78d] transition-all">
-                                <div class="mb-4" style="color: var(--accent-soft)"><i :data-lucide="item.i" class="w-5 h-5"></i></div>
-                                <h4 class="text-md mb-2" x-text="item.t"></h4>
-                                <p class="text-xs text-gray-400 leading-relaxed" x-text="item.d"></p>
+                            <div class="glass-card p-6 border-t-4 border-emerald-500">
+                                <div class="mb-3 text-emerald-500"><i :data-lucide="item.i" class="w-6 h-6"></i></div>
+                                <h4 class="font-bold text-slate-900 mb-2" x-text="item.t"></h4>
+                                <p class="text-xs text-slate-500" x-text="item.d"></p>
                             </div>
                         </template>
                     </div>
                 </div>
 
-                <div class="mb-24 text-center">
-                    <h3 class="text-2xl mb-12">The Therapeutic Process</h3>
+                <div class="mb-20 text-center">
+                    <h3 class="text-3xl font-bold text-slate-900 mb-4">The Therapeutic Process</h3>
+                    <p class="text-slate-600 max-w-2xl mx-auto mb-12">Each dramatherapy session is carefully designed to meet your unique needs, incorporating elements that promote healing and growth.</p>
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                         <template x-for="step in [
                             {n: '1', t: 'Assessment & Goal Setting', d: 'Understanding your needs and establishing therapeutic goals.'},
@@ -141,88 +106,117 @@
                             {n: '3', t: 'Processing & Integration', d: 'Reflecting on experiences and insights gained.'},
                             {n: '4', t: 'Application & Growth', d: 'Applying new skills and perspectives to daily life.'}
                         ]">
-                            <div class="flow-step glass-card p-8 flex flex-col items-center">
-                                <div class="w-10 h-10 rounded-full bg-[#f0f4f2] flex items-center justify-center font-bold text-sm mb-4" style="color: var(--accent-soft)" x-text="step.n"></div>
-                                <h4 class="text-sm mb-2" x-text="step.t"></h4>
-                                <p class="text-xs text-gray-400" x-text="step.d"></p>
+                            <div class="flow-step glass-card p-8 flex flex-col items-center text-center">
+                                <div class="w-12 h-12 rounded-full emerald-gradient text-white flex items-center justify-center font-bold text-xl mb-4" x-text="step.n"></div>
+                                <h4 class="font-bold text-slate-900 mb-2" x-text="step.t"></h4>
+                                <p class="text-sm text-slate-500" x-text="step.d"></p>
                             </div>
                         </template>
                     </div>
                 </div>
+
+                <div class="bg-white p-10 rounded-[3rem] shadow-sm border border-slate-100">
+                    <h3 class="text-2xl font-bold mb-8 text-center">Who Can Benefit?</h3>
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+                        <template x-for="benefit in ['Addiction recovery support', 'Anxiety and depression management', 'ADHD and autism spectrum support', 'Bereavement and grief processing', 'Cognitive impairments and dementia care', 'Communication disorder assistance', 'Eating disorder treatment', 'Learning disability support', 'Life transition guidance', 'Personality disorder therapy', 'Trauma and PTSD healing']">
+                            <div class="flex items-center gap-3 text-sm text-slate-600">
+                                <i data-lucide="check-circle" class="w-4 h-4 text-emerald-500 flex-shrink-0"></i>
+                                <span x-text="benefit"></span>
+                            </div>
+                        </template>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div x-show="page === 'team'" class="fade-in py-16 container mx-auto px-6" x-cloak>
+            <h2 class="text-4xl font-bold text-center mb-12">Our Team</h2>
+            <div class="max-w-md mx-auto glass-card p-8 text-center">
+                <h3 class="text-2xl font-bold">劉蔭菁 Lily Lau</h3>
+                <p class="text-emerald-600 font-semibold mt-2">Dramatherapist</p>
             </div>
         </div>
 
         <div x-show="page === 'services'" class="fade-in py-16 container mx-auto px-6" x-cloak>
             <div class="max-w-6xl mx-auto">
-                <div class="text-center mb-16">
-                    <h2 class="text-4xl mb-4">Our Services</h2>
-                </div>
-
+                <h2 class="text-4xl font-bold text-center mb-16">Our Services</h2>
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-24">
-                    <div class="glass-card p-10 flex flex-col hover:shadow-lg transition-shadow">
-                        <h3 class="text-xl mb-4" style="color: var(--accent-soft)">Individual Sessions</h3>
-                        <p class="text-gray-500 text-sm mb-8 flex-grow">Personalised one-on-one sessions tailored to your specific needs. Particularly helpful for trauma-informed care.</p>
-                        <div class="text-xs font-bold text-gray-400 bg-[#f8faf9] p-4 rounded-xl border border-gray-100">
-                            <div class="mb-1">50-MINUTE SESSION</div>
-                            <div style="color: var(--text-main)">Online: £100 | In-Person: £130</div>
+                    <div class="glass-card p-10 flex flex-col">
+                        <h3 class="text-2xl font-bold text-emerald-600 mb-4">Individual Sessions</h3>
+                        <p class="text-slate-600 text-sm mb-8 flex-grow">Personalised sessions for trauma and neurodiversity.</p>
+                        <div class="space-y-3 text-sm font-bold text-slate-700 bg-emerald-50/50 p-4 rounded-2xl">
+                            <div>50-minute session</div>
+                            <div>Online: £100 | In-Person: £130</div>
                         </div>
                     </div>
-                    <div class="glass-card p-10 flex flex-col hover:shadow-lg transition-shadow">
-                        <h3 class="text-xl mb-4" style="color: var(--accent-warm)">Group Sessions</h3>
-                        <p class="text-gray-500 text-sm mb-8 flex-grow">Group sessions (max 6 participants) fostering connection and social skills development.</p>
-                        <div class="text-xs font-bold text-gray-400 bg-[#f8faf9] p-4 rounded-xl border border-gray-100">
-                            <div class="mb-1">1.5 HOURS DURATION</div>
-                            <div style="color: var(--text-main)">Connection & Shared Healing</div>
+                    <div class="glass-card p-10 flex flex-col">
+                        <h3 class="text-2xl font-bold text-purple-600 mb-4">Group Sessions</h3>
+                        <p class="text-slate-600 text-sm mb-8 flex-grow">Connection and social skills for up to 6 people.</p>
+                        <div class="space-y-3 text-sm font-bold text-slate-700 bg-purple-50/50 p-4 rounded-2xl">
+                            <div>1.5 hours</div>
+                            <div>Max 6 participants</div>
                         </div>
                     </div>
-                    <div class="glass-card p-10 flex flex-col hover:shadow-lg transition-shadow">
-                        <h3 class="text-xl mb-4" style="color: #6a96b3">Workshops & Training</h3>
-                        <p class="text-gray-500 text-sm mb-8 flex-grow">Reflective workshops for universities, schools, and professional organisations.</p>
-                        <div class="text-xs font-bold text-gray-400 bg-[#f8faf9] p-4 rounded-xl border border-gray-100">
-                            <div class="mb-1">SESSION LENGTH</div>
-                            <div style="color: var(--text-main)">Hourly, Half-day, or Full-day</div>
+                    <div class="glass-card p-10 flex flex-col">
+                        <h3 class="text-2xl font-bold text-blue-600 mb-4">Workshops & Training</h3>
+                        <p class="text-slate-600 text-sm mb-8 flex-grow">For schools and organisations.</p>
+                        <div class="space-y-3 text-sm font-bold text-slate-700 bg-blue-50/50 p-4 rounded-2xl">
+                            <div>Flexible durations</div>
                         </div>
                     </div>
                 </div>
 
-                <div class="glass-card p-12 text-center border-dashed border-2 border-[#d99c8b]/30">
-                    <h3 class="text-2xl mb-4" style="color: var(--accent-warm)">Specialised ED Treatment</h3>
-                    <p class="text-gray-500 mb-8 max-w-2xl mx-auto">Structured, evidence-based treatment for Anorexia, Bulimia, and Binge Eating Disorders.</p>
-                    <button @click="showEDDetails = !showEDDetails" class="bg-[#d99c8b] text-white px-10 py-3 rounded-xl font-bold hover:bg-[#c48a7b] transition-all">
-                        <span x-text="showEDDetails ? 'Hide Details' : 'View Full Treatment Options'"></span>
+                <div class="glass-card p-10 border-2 border-rose-200 bg-rose-50/20 text-center mb-12">
+                    <h3 class="text-3xl font-bold text-rose-600 mb-4">Specialised ED Treatment</h3>
+                    <button @click="showEDDetails = !showEDDetails" class="bg-rose-500 text-white px-12 py-4 rounded-2xl font-bold">
+                        <span x-text="showEDDetails ? 'Hide Details' : 'View Treatment Options'"></span>
                     </button>
                 </div>
 
-                <div x-show="showEDDetails" x-transition class="mt-12 space-y-8" x-cloak>
-                    <div class="grid lg:grid-cols-3 gap-6">
-                        <template x-for="item in [
-                            { title: 'Dramatherapy', color: '#5eb78d', approach: 'Creative, experiential therapy providing psychological distance to explore body image, food, and emotions. Uses story, role-play, movement, and imagery.', structure: 'Sessions include talking therapy, storytelling, role-play, or movement. Participation is always optional.', time: 'Usually weekly, over several months.', suitable: 'Triggering direct talk, neurodivergence, anxiety, Anorexia Nervosa.', tasks: 'Reflection, emotional noticing, grounding exercises.' },
-                            { title: 'CBT-informed', color: '#d99c8b', approach: 'Structured, practical strategies adapted from CBT principles. Focuses on thoughts, emotions, and behaviours to reduce patterns.', structure: 'Goal-focused and collaborative. Includes assessment, skill practice, and review.', time: 'Typically 10 sessions standard.', suitable: 'Bulimia Nervosa, Binge Eating Disorder, motivated clients.', tasks: 'Monitoring thoughts, coping strategies, adjusting routines.' },
-                            { title: 'Guided Self-Help', color: '#6a96b3', approach: 'Evidence-informed self-help supported by therapist guidance. Focus on understanding patterns and skills.', structure: 'Short structured sessions combined with self-help materials.', time: 'Typically 8–12 sessions.', suitable: 'Binge Eating Disorder, emotional eating, milder difficulties.', tasks: 'Completing exercises, self-compassion activities.' }
-                        ]">
-                            <div class="glass-card p-8 flex flex-col text-sm border-t-4" :style="`border-top-color: ${item.color}`">
-                                <h4 class="text-xl mb-6 font-bold" :style="`color: ${item.color}`" x-text="item.title"></h4>
-                                <div class="space-y-4 text-gray-500">
-                                    <div><strong class="block uppercase text-[9px] tracking-widest text-gray-400 mb-1">Therapy Approach</strong><p x-text="item.approach"></p></div>
-                                    <div><strong class="block uppercase text-[9px] tracking-widest text-gray-400 mb-1">Structure</strong><p x-text="item.structure"></p></div>
-                                    <div><strong class="block uppercase text-[9px] tracking-widest text-gray-400 mb-1">Time Frame</strong><p x-text="item.time"></p></div>
-                                    <div><strong class="block uppercase text-[9px] tracking-widest text-gray-400 mb-1">Suitable For</strong><p x-text="item.suitable"></p></div>
-                                    <div><strong class="block uppercase text-[9px] tracking-widest text-gray-400 mb-1">Home Tasks</strong><p x-text="item.tasks"></p></div>
-                                </div>
+                <div x-show="showEDDetails" x-transition class="space-y-12 mb-24" x-cloak>
+                    <div class="grid lg:grid-cols-3 gap-8">
+                        <div class="bg-white rounded-[2.5rem] p-8 shadow-sm border border-slate-100 flex flex-col text-sm">
+                            <h4 class="text-2xl font-black mb-6 text-emerald-600">Dramatherapy</h4>
+                            <div class="space-y-4 text-slate-600">
+                                <div><strong class="block uppercase text-[10px] text-slate-400">Approach</strong><p>Creative, experiential therapy exploring body image and food through stories/movement.</p></div>
+                                <div><strong class="block uppercase text-[10px] text-slate-400">Structure</strong><p>Talking, storytelling, and role-play; client maintains full control.</p></div>
+                                <div><strong class="block uppercase text-[10px] text-slate-400">Time Frame</strong><p>Usually weekly over several months.</p></div>
+                                <div><strong class="block uppercase text-[10px] text-slate-400">Suitable For</strong><p>Triggering direct talk, neurodivergence, anxiety, Anorexia Nervosa.</p></div>
+                                <div><strong class="block uppercase text-[10px] text-slate-400">Home Tasks</strong><p>Grounding and reflection between sessions.</p></div>
                             </div>
-                        </template>
-                    </div>
-
-                    <div class="p-10 rounded-3xl compassionate-box">
-                        <h4 class="text-xl mb-6">A Compassionate Approach to Weight and Wellbeing</h4>
-                        <div class="text-sm text-gray-500 space-y-4">
-                            <p>Many dieting programmes focus on quick, short-term weight loss. Our approach is different. We understand that some people may wish to lose weight, but our work focuses on helping you develop a healthy, sustainable, and compassionate relationship with food, eating, and your body.</p>
-                            <p class="italic">As eating patterns stabilise and health behaviours improve, some people may notice gradual, natural changes in weight over time. However, we do not promise or promote weight-loss outcomes. Your emotional, psychological, and physical wellbeing is our priority.</p>
+                        </div>
+                        <div class="bg-white rounded-[2.5rem] p-8 shadow-sm border border-slate-100 flex flex-col text-sm">
+                            <h4 class="text-2xl font-black mb-6 text-purple-600">CBT-informed</h4>
+                            <div class="space-y-4 text-slate-600">
+                                <div><strong class="block uppercase text-[10px] text-slate-400">Approach</strong><p>Practical strategies within dramatherapy to reduce unhelpful patterns.</p></div>
+                                <div><strong class="block uppercase text-[10px] text-slate-400">Structure</strong><p>Goal-focused assessment and skill practice.</p></div>
+                                <div><strong class="block uppercase text-[10px] text-slate-400">Time Frame</strong><p>Typically 10 sessions.</p></div>
+                                <div><strong class="block uppercase text-[10px] text-slate-400">Suitable For</strong><p>Bulimia, Binge Eating, motivated clients.</p></div>
+                                <div><strong class="block uppercase text-[10px] text-slate-400">Home Tasks</strong><p>Monitoring thoughts and adjusting routines.</p></div>
+                            </div>
+                        </div>
+                        <div class="bg-white rounded-[2.5rem] p-8 shadow-sm border border-slate-100 flex flex-col text-sm">
+                            <h4 class="text-2xl font-black mb-6 text-indigo-600">Guided Self-Help</h4>
+                            <div class="space-y-4 text-slate-600">
+                                <div><strong class="block uppercase text-[10px] text-slate-400">Approach</strong><p>Exercises with therapist guidance for recovery skills.</p></div>
+                                <div><strong class="block uppercase text-[10px] text-slate-400">Structure</strong><p>Short sessions with self-help materials.</p></div>
+                                <div><strong class="block uppercase text-[10px] text-slate-400">Time Frame</strong><p>Typically 8–12 sessions.</p></div>
+                                <div><strong class="block uppercase text-[10px] text-slate-400">Suitable For</strong><p>Binge Eating, Bulimia, emotional eating.</p></div>
+                                <div><strong class="block uppercase text-[10px] text-slate-400">Home Tasks</strong><p>Practising routines and self-compassion.</p></div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+
+        <div x-show="page === 'contact'" class="fade-in py-16 container mx-auto px-6" x-cloak>
+            <h2 class="text-4xl font-bold text-center mb-12">Contact Us</h2>
+            <div class="max-w-lg mx-auto glass-card p-10 text-center">
+                <p class="text-slate-600">Email: info@dramatherapybay.com</p>
+            </div>
+        </div>
+
     </main>
 
     <script>
