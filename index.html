@@ -36,9 +36,10 @@
             transition: all 0.3s ease; 
         }
 
-        /* Specific Tints for About Page Boxes */
-        .bg-tint-green { background: rgba(209, 250, 229, 0.3); } /* Light Emerald */
-        .bg-tint-blue { background: rgba(219, 234, 254, 0.3); }  /* Light Blue */
+        /* Calming Tints for Boxes */
+        .bg-tint-green { background: rgba(209, 250, 229, 0.3); } 
+        .bg-tint-blue { background: rgba(219, 234, 254, 0.3); }
+        .bg-tint-purple { background: rgba(243, 232, 255, 0.3); }
 
         .compassionate-box { background: linear-gradient(135deg, rgba(16, 185, 129, 0.12) 0%, rgba(59, 130, 246, 0.12) 100%); border: 1px solid rgba(16, 185, 129, 0.2); }
         .flow-step { position: relative; }
@@ -46,7 +47,7 @@
         @media (min-width: 1024px) { .flow-step:not(:last-child)::after { display: block; } }
     </style>
 </head>
-<body x-data="{ page: 'about', lang: 'en', showEDDetails: false }">
+<body x-data="{ page: 'services', lang: 'en', showEDDetails: false }">
 
     <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-200">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
@@ -73,7 +74,7 @@
 
     <main class="min-h-screen">
         
-        <div x-show="page === 'about'" class="fade-in py-16 container mx-auto px-6">
+        <div x-show="page === 'about'" class="fade-in py-16 container mx-auto px-6" x-cloak>
             <div class="max-w-5xl mx-auto">
                 <div class="text-center mb-16 reveal">
                     <h2 class="text-4xl font-bold text-slate-900 mb-6">What is Dramatherapy?</h2>
@@ -151,37 +152,43 @@
 
         <div x-show="page === 'services'" class="fade-in py-16 container mx-auto px-6" x-cloak>
             <div class="max-w-6xl mx-auto">
-                <div class="text-center mb-16">
+                <div class="text-center mb-16 reveal">
                     <h2 class="text-5xl font-extrabold text-slate-900 mb-6 tracking-tight">Our Services</h2>
                 </div>
 
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-24">
-                    <div class="glass-card p-10 flex flex-col">
+                    <div class="glass-card p-10 flex flex-col bg-tint-green reveal">
                         <h3 class="text-2xl font-bold text-emerald-600 mb-4">Individual Sessions</h3>
                         <p class="text-slate-600 text-sm mb-8 flex-grow">Personalised one-on-one sessions tailored to your specific needs. Helpful for trauma-informed care and neurodiversity.</p>
-                        <div class="space-y-3 text-sm font-bold text-slate-700 bg-emerald-50/50 p-4 rounded-2xl">
-                            <div>50-minute session</div>
-                            <div>Online: £100 | In-Person: £130</div>
+                        <div class="space-y-4 text-sm font-semibold text-slate-700 bg-white/60 p-5 rounded-2xl border border-emerald-100/50">
+                            <div class="flex items-center gap-3"><i data-lucide="clock" class="w-4 h-4 text-emerald-500"></i> 50 minutes</div>
+                            <div class="flex items-center gap-3"><i data-lucide="users" class="w-4 h-4 text-emerald-500"></i> individual or accompanied by carer(s)</div>
+                            <div class="flex items-start gap-3"><i data-lucide="credit-card" class="w-4 h-4 text-emerald-500 mt-1"></i> <div>Online: £100 | In-Person: £130, 1.5 hours duration</div></div>
                         </div>
                     </div>
-                    <div class="glass-card p-10 flex flex-col">
-                        <h3 class="text-2xl font-bold text-purple-600 mb-4">Group Sessions</h3>
+
+                    <div class="glass-card p-10 flex flex-col bg-tint-blue reveal">
+                        <h3 class="text-2xl font-bold text-blue-600 mb-4">Group Sessions</h3>
                         <p class="text-slate-600 text-sm mb-8 flex-grow">Group sessions (max 6 participants) fostering connection and social skills development.</p>
-                        <div class="space-y-3 text-sm font-bold text-slate-700 bg-purple-50/50 p-4 rounded-2xl">
-                            <div>1.5 hours duration</div>
-                            <div>Connection & Shared Healing</div>
+                        <div class="space-y-4 text-sm font-semibold text-slate-700 bg-white/60 p-5 rounded-2xl border border-blue-100/50">
+                            <div class="flex items-center gap-3"><i data-lucide="clock" class="w-4 h-4 text-blue-500"></i> 90 minutes</div>
+                            <div class="flex items-center gap-3"><i data-lucide="users" class="w-4 h-4 text-blue-500"></i> Maximum 8 participants</div>
+                            <div class="flex items-center gap-3"><i data-lucide="credit-card" class="w-4 h-4 text-blue-500"></i> Please contact us for a personalised quote.</div>
                         </div>
                     </div>
-                    <div class="glass-card p-10 flex flex-col">
-                        <h3 class="text-2xl font-bold text-blue-600 mb-4">Workshops & Training</h3>
+
+                    <div class="glass-card p-10 flex flex-col bg-tint-purple reveal">
+                        <h3 class="text-2xl font-bold text-purple-600 mb-4">Workshops & Training</h3>
                         <p class="text-slate-600 text-sm mb-8 flex-grow">Reflective workshops for universities, schools, and professional organisations.</p>
-                        <div class="space-y-3 text-sm font-bold text-slate-700 bg-blue-50/50 p-4 rounded-2xl">
-                            <div>Hourly, Half-day, or Full-day</div>
+                        <div class="space-y-4 text-sm font-semibold text-slate-700 bg-white/60 p-5 rounded-2xl border border-purple-100/50">
+                            <div class="flex items-center gap-3"><i data-lucide="clock" class="w-4 h-4 text-purple-500"></i> Customised schedule</div>
+                            <div class="flex items-center gap-3"><i data-lucide="users" class="w-4 h-4 text-purple-500"></i> Customised group size / participant support</div>
+                            <div class="flex items-center gap-3"><i data-lucide="credit-card" class="w-4 h-4 text-purple-500"></i> Please contact us for a personalised quote.</div>
                         </div>
                     </div>
                 </div>
 
-                <div class="glass-card p-10 border-2 border-rose-200 bg-rose-50/20 text-center mb-12">
+                <div class="glass-card p-10 border-2 border-rose-200 bg-rose-50/20 text-center mb-12 reveal">
                     <h3 class="text-3xl font-bold text-rose-600 mb-4">Specialised ED Treatment</h3>
                     <p class="text-slate-600 mb-8 max-w-2xl mx-auto">Structured, evidence-based treatment for Anorexia, Bulimia, and Binge Eating Disorders.</p>
                     <button @click="showEDDetails = !showEDDetails" class="bg-rose-500 text-white px-12 py-4 rounded-2xl font-bold shadow-lg">
@@ -222,7 +229,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="p-10 rounded-[2.5rem] compassionate-box text-slate-700">
+                    <div class="p-10 rounded-[2.5rem] compassionate-box text-slate-700 reveal">
                         <h4 class="text-2xl font-bold mb-6">A Compassionate Approach to Weight and Wellbeing</h4>
                         <div class="space-y-4 text-sm">
                             <p>Many dieting programmes focus on quick, short-term weight loss. Our approach is different. We understand that some people may wish to lose weight, but our work focuses on helping you develop a healthy, sustainable, and compassionate relationship with food, eating, and your body — rather than chasing rapid, temporary results.</p>
@@ -244,7 +251,7 @@
             reveals.forEach(el => {
                 const windowHeight = window.innerHeight;
                 const elementTop = el.getBoundingClientRect().top;
-                const elementVisible = 150;
+                const elementVisible = 100;
                 if (elementTop < windowHeight - elementVisible) {
                     el.classList.add('active');
                 } else {
@@ -253,7 +260,7 @@
             });
         };
         window.addEventListener('scroll', reveal);
-        // Initial call to catch elements in view on load
+        // Initial call
         reveal();
     </script>
 </body>
