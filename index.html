@@ -36,13 +36,13 @@
             transition: all 0.3s ease; 
         }
 
-        /* Calming Tints for Boxes */
-        .bg-tint-green { background: rgba(209, 250, 229, 0.3); } 
-        .bg-tint-blue { background: rgba(219, 234, 254, 0.3); }
-        .bg-tint-purple { background: rgba(243, 232, 255, 0.3); }
-        .bg-tint-indigo { background: rgba(224, 231, 255, 0.3); } /* For Guided Self Help */
+        /* Stronger Calming Tints for Visibility */
+        .bg-tint-green { background: rgba(209, 250, 229, 0.5) !important; } 
+        .bg-tint-blue { background: rgba(219, 234, 254, 0.5) !important; }
+        .bg-tint-purple { background: rgba(243, 232, 255, 0.5) !important; }
+        .bg-tint-indigo { background: rgba(224, 231, 255, 0.5) !important; }
 
-        .compassionate-box { background: linear-gradient(135deg, rgba(16, 185, 129, 0.12) 0%, rgba(59, 130, 246, 0.12) 100%); border: 1px solid rgba(16, 185, 129, 0.2); }
+        .compassionate-box { background: linear-gradient(135deg, rgba(16, 185, 129, 0.15) 0%, rgba(59, 130, 246, 0.15) 100%); border: 1px solid rgba(16, 185, 129, 0.2); }
         .flow-step { position: relative; }
         .flow-step:not(:last-child)::after { content: ''; position: absolute; right: -1.5rem; top: 2rem; width: 1rem; height: 2px; background: #cbd5e1; display: none; }
         @media (min-width: 1024px) { .flow-step:not(:last-child)::after { display: block; } }
@@ -192,51 +192,48 @@
                 <div class="glass-card p-10 border-2 border-rose-200 bg-rose-50/20 text-center mb-12 reveal">
                     <h3 class="text-3xl font-bold text-rose-600 mb-4">Specialised ED Treatment</h3>
                     <p class="text-slate-600 mb-8 max-w-2xl mx-auto">Structured, evidence-based treatment for Anorexia, Bulimia, and Binge Eating Disorders.</p>
-                    <button @click="showEDDetails = !showEDDetails" class="bg-rose-500 text-white px-12 py-4 rounded-2xl font-bold shadow-lg">
+                    <button @click="showEDDetails = !showEDDetails" class="bg-rose-500 text-white px-12 py-4 rounded-2xl font-bold shadow-lg transform transition active:scale-95">
                         <span x-text="showEDDetails ? 'Hide Details' : 'View Full Treatment Options'"></span>
                     </button>
                 </div>
 
                 <div x-show="showEDDetails" 
-                     x-transition:enter="transition ease-out duration-500"
-                     x-transition:enter-start="opacity-0 transform -translate-y-4"
+                     x-transition:enter="transition ease-out duration-700"
+                     x-transition:enter-start="opacity-0 transform translate-y-8"
                      x-transition:enter-end="opacity-100 transform translate-y-0"
-                     x-transition:leave="transition ease-in duration-300"
+                     x-transition:leave="transition ease-in duration-400"
                      x-transition:leave-start="opacity-100 transform translate-y-0"
-                     x-transition:leave-end="opacity-0 transform -translate-y-4"
+                     x-transition:leave-end="opacity-0 transform translate-y-8"
                      class="space-y-12 mb-24" x-cloak>
                     
                     <div class="grid lg:grid-cols-3 gap-8">
-                        <div class="bg-white rounded-[2.5rem] p-8 shadow-sm border border-slate-100 flex flex-col text-sm bg-tint-green">
+                        <div class="rounded-[2.5rem] p-8 shadow-sm border border-emerald-100 flex flex-col text-sm bg-tint-green">
                             <h4 class="text-2xl font-black mb-6 text-emerald-600">Dramatherapy</h4>
-                            <div class="space-y-4 text-slate-600 flex-grow">
-                                <div><strong class="block uppercase text-slate-400 text-[10px] mb-1">Therapy Approach</strong><p>Creative, experiential therapy providing psychological distance to explore body image, food, and emotions. Uses story, role-play, movement, and imagery.</p></div>
-                                <div><strong class="block uppercase text-slate-400 text-[10px] mb-1">Structure</strong><p>Sessions may include talking therapy, storytelling, role-play, movement, or creative expression. Participation is always optional; clients remain in full control.</p></div>
-                                <div><strong class="block uppercase text-slate-400 text-[10px] mb-1">Time Frame</strong><p>Usually weekly, over several months depending on client needs and goals.</p></div>
-                                <div><strong class="block uppercase text-slate-400 text-[10px] mb-1">Suitable For</strong><p>Clients who find direct discussion triggering, those with neurodivergence (ASD, ADHD), anxiety, or restrictive/emotional eating patterns. Also suitable for Anorexia Nervosa.</p></div>
-                                <div><strong class="block uppercase text-slate-400 text-[10px] mb-1">Home Tasks / Practice</strong><p>Reflection activities, noticing emotional patterns, grounding exercises, optional creative practice between sessions.</p></div>
+                            <div class="space-y-4 text-slate-700 flex-grow">
+                                <div><strong class="block uppercase text-emerald-600/60 text-[10px] mb-1">Therapy Approach</strong><p>Creative, experiential therapy providing psychological distance to explore body image, food, and emotions. Uses story, role-play, movement, and imagery.</p></div>
+                                <div><strong class="block uppercase text-emerald-600/60 text-[10px] mb-1">Structure</strong><p>Sessions may include talking therapy, storytelling, role-play, movement, or creative expression.</p></div>
+                                <div><strong class="block uppercase text-emerald-600/60 text-[10px] mb-1">Time Frame</strong><p>Usually weekly, over several months depending on client needs and goals.</p></div>
+                                <div><strong class="block uppercase text-emerald-600/60 text-[10px] mb-1">Suitable For</strong><p>Clients who find direct discussion triggering, those with neurodivergence (ASD, ADHD), or restrictive/emotional eating patterns.</p></div>
                             </div>
                         </div>
                         
-                        <div class="bg-white rounded-[2.5rem] p-8 shadow-sm border border-slate-100 flex flex-col text-sm bg-tint-purple">
+                        <div class="rounded-[2.5rem] p-8 shadow-sm border border-purple-100 flex flex-col text-sm bg-tint-purple">
                             <h4 class="text-2xl font-black mb-6 text-purple-600">CBT-informed</h4>
-                            <div class="space-y-4 text-slate-600 flex-grow">
-                                <div><strong class="block uppercase text-slate-400 text-[10px] mb-1">Therapy Approach</strong><p>Structured, practical strategies adapted from CBT principles, integrated under a dramatherapy framework. Focuses on thoughts, emotions, and behaviours to reduce unhelpful patterns.</p></div>
-                                <div><strong class="block uppercase text-slate-400 text-[10px] mb-1">Structure</strong><p>Sessions are structured, collaborative, and goal-focused. Includes assessment, goal setting, skill practice, and progress review.</p></div>
-                                <div><strong class="block uppercase text-slate-400 text-[10px] mb-1">Time Frame</strong><p>Typically 10 sessions standard, extendable if more intensive treatment is required.</p></div>
-                                <div><strong class="block uppercase text-slate-400 text-[10px] mb-1">Suitable For</strong><p>Clients motivated to actively engage, including those with Bulimia Nervosa, Binge Eating Disorder, and some presentations of Anorexia Nervosa.</p></div>
-                                <div><strong class="block uppercase text-slate-400 text-[10px] mb-1">Home Tasks / Practice</strong><p>Monitoring thoughts and behaviours, practising coping strategies, adjusting routines, reflection exercises between sessions.</p></div>
+                            <div class="space-y-4 text-slate-700 flex-grow">
+                                <div><strong class="block uppercase text-purple-600/60 text-[10px] mb-1">Therapy Approach</strong><p>Structured, practical strategies adapted from CBT principles. Focuses on thoughts, emotions, and behaviours to reduce unhelpful patterns.</p></div>
+                                <div><strong class="block uppercase text-purple-600/60 text-[10px] mb-1">Structure</strong><p>Sessions are structured, collaborative, and goal-focused. Includes assessment, goal setting, and progress review.</p></div>
+                                <div><strong class="block uppercase text-purple-600/60 text-[10px] mb-1">Time Frame</strong><p>Typically 10 sessions standard, extendable if more intensive treatment is required.</p></div>
+                                <div><strong class="block uppercase text-purple-600/60 text-[10px] mb-1">Suitable For</strong><p>Clients motivated to actively engage, including Bulimia Nervosa and Binge Eating Disorder.</p></div>
                             </div>
                         </div>
                         
-                        <div class="bg-white rounded-[2.5rem] p-8 shadow-sm border border-slate-100 flex flex-col text-sm bg-tint-indigo">
+                        <div class="rounded-[2.5rem] p-8 shadow-sm border border-indigo-100 flex flex-col text-sm bg-tint-indigo">
                             <h4 class="text-2xl font-black mb-6 text-indigo-600">Guided Self-Help</h4>
-                            <div class="space-y-4 text-slate-600 flex-grow">
-                                <div><strong class="block uppercase text-slate-400 text-[10px] mb-1">Therapy Approach</strong><p>Evidence-informed self-help exercises supported by therapist guidance. Focus on understanding eating patterns, building coping strategies, and sustainable recovery skills.</p></div>
-                                <div><strong class="block uppercase text-slate-400 text-[10px] mb-1">Structure</strong><p>Short, structured therapy sessions combined with self-help materials. Therapist provides guidance, support, and progress review.</p></div>
-                                <div><strong class="block uppercase text-slate-400 text-[10px] mb-1">Time Frame</strong><p>Typically 8–12 sessions, depending on client pace and needs.</p></div>
-                                <div><strong class="block uppercase text-slate-400 text-[10px] mb-1">Suitable For</strong><p>Suitable for clients with Binge Eating Disorder, Bulimia Nervosa, emotional eating, or early/milder eating difficulties. Requires clients motivated to work independently between sessions.</p></div>
-                                <div><strong class="block uppercase text-slate-400 text-[10px] mb-1">Home Tasks / Practice</strong><p>Completing structured exercises, monitoring thoughts and behaviours, practising new routines, reflection, and self-compassion activities.</p></div>
+                            <div class="space-y-4 text-slate-700 flex-grow">
+                                <div><strong class="block uppercase text-indigo-600/60 text-[10px] mb-1">Therapy Approach</strong><p>Evidence-informed self-help supported by therapist guidance. Focus on understanding eating patterns and building coping strategies.</p></div>
+                                <div><strong class="block uppercase text-indigo-600/60 text-[10px] mb-1">Structure</strong><p>Short, structured therapy sessions combined with self-help materials. Therapist provides guidance and review.</p></div>
+                                <div><strong class="block uppercase text-indigo-600/60 text-[10px] mb-1">Time Frame</strong><p>Typically 8–12 sessions, depending on client pace and needs.</p></div>
+                                <div><strong class="block uppercase text-indigo-600/60 text-[10px] mb-1">Suitable For</strong><p>Clients with Binge Eating Disorder, Bulimia Nervosa, or early/milder eating difficulties.</p></div>
                             </div>
                         </div>
                     </div>
@@ -272,7 +269,6 @@
             });
         };
         window.addEventListener('scroll', reveal);
-        // Initial call
         reveal();
     </script>
 </body>
