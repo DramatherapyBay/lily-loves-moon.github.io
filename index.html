@@ -40,6 +40,7 @@
         .bg-tint-green { background: rgba(209, 250, 229, 0.3); } 
         .bg-tint-blue { background: rgba(219, 234, 254, 0.3); }
         .bg-tint-purple { background: rgba(243, 232, 255, 0.3); }
+        .bg-tint-indigo { background: rgba(224, 231, 255, 0.3); } /* For Guided Self Help */
 
         .compassionate-box { background: linear-gradient(135deg, rgba(16, 185, 129, 0.12) 0%, rgba(59, 130, 246, 0.12) 100%); border: 1px solid rgba(16, 185, 129, 0.2); }
         .flow-step { position: relative; }
@@ -196,9 +197,17 @@
                     </button>
                 </div>
 
-                <div x-show="showEDDetails" x-transition class="space-y-12 mb-24" x-cloak>
+                <div x-show="showEDDetails" 
+                     x-transition:enter="transition ease-out duration-500"
+                     x-transition:enter-start="opacity-0 transform -translate-y-4"
+                     x-transition:enter-end="opacity-100 transform translate-y-0"
+                     x-transition:leave="transition ease-in duration-300"
+                     x-transition:leave-start="opacity-100 transform translate-y-0"
+                     x-transition:leave-end="opacity-0 transform -translate-y-4"
+                     class="space-y-12 mb-24" x-cloak>
+                    
                     <div class="grid lg:grid-cols-3 gap-8">
-                        <div class="bg-white rounded-[2.5rem] p-8 shadow-sm border border-slate-100 flex flex-col text-sm">
+                        <div class="bg-white rounded-[2.5rem] p-8 shadow-sm border border-slate-100 flex flex-col text-sm bg-tint-green">
                             <h4 class="text-2xl font-black mb-6 text-emerald-600">Dramatherapy</h4>
                             <div class="space-y-4 text-slate-600 flex-grow">
                                 <div><strong class="block uppercase text-slate-400 text-[10px] mb-1">Therapy Approach</strong><p>Creative, experiential therapy providing psychological distance to explore body image, food, and emotions. Uses story, role-play, movement, and imagery.</p></div>
@@ -208,7 +217,8 @@
                                 <div><strong class="block uppercase text-slate-400 text-[10px] mb-1">Home Tasks / Practice</strong><p>Reflection activities, noticing emotional patterns, grounding exercises, optional creative practice between sessions.</p></div>
                             </div>
                         </div>
-                        <div class="bg-white rounded-[2.5rem] p-8 shadow-sm border border-slate-100 flex flex-col text-sm">
+                        
+                        <div class="bg-white rounded-[2.5rem] p-8 shadow-sm border border-slate-100 flex flex-col text-sm bg-tint-purple">
                             <h4 class="text-2xl font-black mb-6 text-purple-600">CBT-informed</h4>
                             <div class="space-y-4 text-slate-600 flex-grow">
                                 <div><strong class="block uppercase text-slate-400 text-[10px] mb-1">Therapy Approach</strong><p>Structured, practical strategies adapted from CBT principles, integrated under a dramatherapy framework. Focuses on thoughts, emotions, and behaviours to reduce unhelpful patterns.</p></div>
@@ -218,7 +228,8 @@
                                 <div><strong class="block uppercase text-slate-400 text-[10px] mb-1">Home Tasks / Practice</strong><p>Monitoring thoughts and behaviours, practising coping strategies, adjusting routines, reflection exercises between sessions.</p></div>
                             </div>
                         </div>
-                        <div class="bg-white rounded-[2.5rem] p-8 shadow-sm border border-slate-100 flex flex-col text-sm">
+                        
+                        <div class="bg-white rounded-[2.5rem] p-8 shadow-sm border border-slate-100 flex flex-col text-sm bg-tint-indigo">
                             <h4 class="text-2xl font-black mb-6 text-indigo-600">Guided Self-Help</h4>
                             <div class="space-y-4 text-slate-600 flex-grow">
                                 <div><strong class="block uppercase text-slate-400 text-[10px] mb-1">Therapy Approach</strong><p>Evidence-informed self-help exercises supported by therapist guidance. Focus on understanding eating patterns, building coping strategies, and sustainable recovery skills.</p></div>
@@ -229,6 +240,7 @@
                             </div>
                         </div>
                     </div>
+                    
                     <div class="p-10 rounded-[2.5rem] compassionate-box text-slate-700 reveal">
                         <h4 class="text-2xl font-bold mb-6">A Compassionate Approach to Weight and Wellbeing</h4>
                         <div class="space-y-4 text-sm">
