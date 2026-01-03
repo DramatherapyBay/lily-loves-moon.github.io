@@ -17,7 +17,7 @@
         .glass-card { background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(12px); border: 1px solid rgba(226, 232, 240, 0.8); border-radius: 2rem; transition: all 0.3s ease; }
     </style>
 </head>
-<body x-data="{ page: 'team', lang: 'en', showEDDetails: false }">
+<body x-data="{ page: 'home', lang: 'en', showEDDetails: false }">
 
     <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-200">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
@@ -29,26 +29,80 @@
                 </div>
             </div>
             <div class="hidden lg:flex gap-8 text-sm font-semibold text-slate-600">
-                <a href="#" @click.prevent="page = 'home'" :class="page === 'home' ? 'text-emerald-600' : ''">Home</a>
-                <a href="#" @click.prevent="page = 'about'" :class="page === 'about' ? 'text-emerald-600' : ''">About</a>
-                <a href="#" @click.prevent="page = 'team'" :class="page === 'team' ? 'text-emerald-600' : ''">Our Team</a>
-                <a href="#" @click.prevent="page = 'services'" :class="page === 'services' ? 'text-emerald-600' : ''">Services</a>
-                <a href="#" @click.prevent="page = 'contact'" :class="page === 'contact' ? 'text-emerald-600' : ''">Contact</a>
+                <a href="#" @click.prevent="page = 'home'" :class="page === 'home' ? 'text-emerald-600' : ''" x-text="lang === 'en' ? 'Home' : '首頁'"></a>
+                <a href="#" @click.prevent="page = 'about'" :class="page === 'about' ? 'text-emerald-600' : ''" x-text="lang === 'en' ? 'About' : '關於'"></a>
+                <a href="#" @click.prevent="page = 'team'" :class="page === 'team' ? 'text-emerald-600' : ''" x-text="lang === 'en' ? 'Our Team' : '專業團隊'"></a>
+                <a href="#" @click.prevent="page = 'services'" :class="page === 'services' ? 'text-emerald-600' : ''" x-text="lang === 'en' ? 'Services' : '服務項目'"></a>
+                <a href="#" @click.prevent="page = 'contact'" :class="page === 'contact' ? 'text-emerald-600' : ''" x-text="lang === 'en' ? 'Contact' : '聯絡我們'"></a>
             </div>
             <div class="flex gap-2">
-                <button @click="lang = 'en'" :class="lang === 'en' ? 'bg-emerald-500 text-white' : 'bg-white text-slate-400'" class="px-4 py-1.5 rounded-xl text-xs font-bold border transition-all">EN</button>
-                <button @click="lang = 'zh'" :class="lang === 'zh' ? 'bg-emerald-500 text-white' : 'bg-white text-slate-400'" class="px-4 py-1.5 rounded-xl text-xs font-bold border transition-all">中文</button>
+                <button @click="lang = 'en'" :class="lang === 'en' ? 'bg-emerald-500 text-white' : 'bg-white text-slate-400 border-slate-200'" class="px-4 py-1.5 rounded-xl text-xs font-bold border transition-all shadow-sm">EN</button>
+                <button @click="lang = 'zh'" :class="lang === 'zh' ? 'bg-emerald-500 text-white' : 'bg-white text-slate-400 border-slate-200'" class="px-4 py-1.5 rounded-xl text-xs font-bold border transition-all shadow-sm">中文</button>
             </div>
         </div>
     </nav>
 
     <main class="min-h-screen">
         
-        <div x-show="page === 'team'" class="fade-in py-16 container mx-auto px-6">
+        <div x-show="page === 'home'" class="fade-in py-20 container mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="text-left">
+                    <h1 class="text-5xl font-bold mb-6 leading-tight text-slate-900">
+                        <template x-if="lang === 'en'"><span>Healing Through <span class="text-emerald-500">Creativity</span> & Expression</span></template>
+                        <template x-if="lang === 'zh'"><span>透過<span class="text-emerald-500">創意</span>與表達啟發療癒之旅</span></template>
+                    </h1>
+                    <p class="text-lg text-slate-600 mb-8" x-text="lang === 'en' ? 'Professional Dramatherapy services by Lily Lau (HCPC Registered). Providing compassionate, trauma-informed therapy to support emotional wellbeing and recovery.' : '由註冊戲劇治療師劉蔭菁提供的專業治療。提供充滿慈心、具傷痛知情的治療，支持情緒健康與康復。'"></p>
+                    <div class="flex flex-wrap gap-4">
+                        <button @click="page = 'services'" class="emerald-gradient text-white px-8 py-4 rounded-xl font-bold shadow-lg transition-transform hover:scale-105" x-text="lang === 'en' ? 'View Services' : '查看服務項目'"></button>
+                        <button @click="page = 'contact'" class="bg-white border border-slate-200 text-slate-700 px-8 py-4 rounded-xl font-bold hover:bg-slate-50 transition-colors" x-text="lang === 'en' ? 'Free 15-min Consultation' : '免費 15 分鐘諮詢'"></button>
+                    </div>
+                </div>
+                <div class="relative">
+                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=800" class="relative rounded-[2.5rem] shadow-2xl" alt="Therapy Session">
+                </div>
+            </div>
+        </div>
+
+        <div x-show="page === 'about'" class="fade-in py-16 container mx-auto px-6" x-cloak>
+            <div class="max-w-5xl mx-auto">
+                <h2 class="text-4xl font-bold text-center mb-12 text-slate-900" x-text="lang === 'en' ? 'What is Dramatherapy?' : '什麼是戲劇治療？'"></h2>
+                
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+                    <template x-for="item in (lang === 'en' ? [
+                        {t: 'Role-Play', d: 'Exploring perspectives'}, {t: 'Storytelling', d: 'Processing experiences'},
+                        {t: 'Body Movement', d: 'Integrating physical expression'}, {t: 'Creative Writing', d: 'Externalizing thoughts'},
+                        {t: 'Sand Play & Drawing', d: 'Visualizing internal worlds'}, {t: 'Metaphor & Improvisation', d: 'Building spontaneity'}
+                    ] : [
+                        {t: '角色扮演', d: '探索不同的觀點'}, {t: '故事敘說', d: '處理生活經驗'},
+                        {t: '身體律動', d: '整合肢體表達'}, {t: '創意寫作', d: '將想法外在化'},
+                        {t: '沙遊與繪畫', d: '將內在世界視覺化'}, {t: '隱喻與即興', d: '建立自發性與洞察力'}
+                    ])">
+                        <div class="glass-card p-6 border-t-4 border-emerald-500">
+                            <h4 class="font-bold text-slate-900" x-text="item.t"></h4>
+                            <p class="text-xs text-slate-500" x-text="item.d"></p>
+                        </div>
+                    </template>
+                </div>
+
+                <div class="bg-white p-10 rounded-[3rem] shadow-sm border border-slate-100">
+                    <h3 class="text-2xl font-bold mb-8 text-center" x-text="lang === 'en' ? 'Who Can Benefit?' : '誰能從中受益？'"></h3>
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+                        <template x-for="benefit in (lang === 'en' ? ['Addiction recovery support', 'Anxiety and depression management', 'ADHD and autism support', 'Bereavement and grief processing', 'Cognitive impairments/dementia', 'Communication disorder assistance', 'Eating disorder treatment', 'Learning disability support', 'Life transition guidance', 'Personality disorder therapy', 'Trauma and PTSD healing'] : ['成癮康復支援', '焦慮與抑鬱管理', 'ADHD 與自閉症譜系支援', '喪親與哀傷處理', '認知障礙與失智症護理', '溝通障礙協助', '飲食失調治療', '學習障礙支援', '人生轉變指導', '人格障礙治療', '創傷與 PTSD 療癒'])">
+                            <div class="flex items-center gap-3 text-sm text-slate-600">
+                                <i data-lucide="check-circle" class="w-4 h-4 text-emerald-500 flex-shrink-0"></i>
+                                <span x-text="benefit"></span>
+                            </div>
+                        </template>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div x-show="page === 'team'" class="fade-in py-16 container mx-auto px-6" x-cloak>
             <div class="max-w-5xl mx-auto">
                 <div class="text-center mb-12">
-                    <h1 class="text-4xl font-bold text-slate-900 mb-2">Meet <span class="text-emerald-600">Lily Lau</span></h1>
-                    <p class="text-slate-500 font-semibold mb-4 text-xl">HCPC registered Arts Therapist (Dramatherapist)</p>
+                    <h1 class="text-4xl font-bold text-slate-900 mb-2" x-text="lang === 'en' ? 'Meet Lily Lau' : '認識 劉蔭菁'"></h1>
+                    <p class="text-emerald-600 font-bold mb-4 text-xl">HCPC registered Arts Therapist (Dramatherapist)</p>
                     <div class="flex justify-center gap-1 text-yellow-400 mb-8">
                         <i data-lucide="star" class="fill-current w-5 h-5"></i><i data-lucide="star" class="fill-current w-5 h-5"></i><i data-lucide="star" class="fill-current w-5 h-5"></i><i data-lucide="star" class="fill-current w-5 h-5"></i><i data-lucide="star" class="fill-current w-5 h-5"></i>
                     </div>
@@ -56,44 +110,54 @@
 
                 <div class="grid md:grid-cols-2 gap-8">
                     <div class="glass-card p-8">
-                        <h3 class="text-xl font-bold text-slate-900 mb-4 flex items-center gap-2"><i data-lucide="book-open" class="text-emerald-500"></i> Professional Background</h3>
-                        <p class="text-slate-600 text-sm leading-relaxed mb-4">Originally from Hong Kong, Lily brings a multicultural perspective to her practice as a British registered dramatherapist. She uses drama and creativity to support emotional and psychological well-being, with a particular passion for working with diverse populations and complex mental health needs.</p>
-                        <p class="text-slate-600 text-sm leading-relaxed">Lily's approach is grounded in empathy, cultural sensitivity, and respect for each individual's unique journey toward healing.</p>
+                        <h3 class="text-xl font-bold text-slate-900 mb-4" x-text="lang === 'en' ? 'Professional Background' : '專業背景'"></h3>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-4" x-text="lang === 'en' ? 'Originally from Hong Kong, Lily brings a multicultural perspective to her practice as a British registered dramatherapist. She uses drama and creativity to support emotional and psychological well-being, with a particular passion for working with diverse populations and complex mental health needs.' : 'Lily 來自香港，作為一名英國註冊戲劇治療師，她為執業注入了多元文化的視角。她利用戲劇和創意來支持情緒和心理健康，特別熱衷於服務多元族群和處理心理健康需求。'"></p>
+                        <p class="text-slate-600 text-sm leading-relaxed" x-text="lang === 'en' ? 'Lily is passionate about making a positive impact on people\'s lives. Her approach is grounded in empathy, cultural sensitivity, and respect for each individual\'s unique journey toward healing.' : 'Lily 熱衷於對人們的生活產生積極影響。她透過共情、文化敏感度以及對每個人獨特療癒旅程的尊重來進行治療。'"></p>
                     </div>
 
-                    <div class="glass-card p-8 bg-emerald-50/30">
-                        <h3 class="text-xl font-bold text-slate-900 mb-4 flex items-center gap-2"><i data-lucide="heart" class="text-rose-500"></i> Therapeutic Philosophy</h3>
-                        <p class="text-slate-700 italic font-medium leading-relaxed">"Healing isn't about fixing what's broken—it's about awakening what's possible. Together, we'll use the transformative power of creativity to help you move from surviving to thriving."</p>
+                    <div class="glass-card p-8 bg-emerald-50/30 border-emerald-100">
+                        <h3 class="text-xl font-bold text-slate-900 mb-4" x-text="lang === 'en' ? 'Therapeutic Philosophy' : '治療理念'"></h3>
+                        <p class="text-slate-700 italic font-medium leading-relaxed" x-text="lang === 'en' ? 'Healing isn\'t about fixing what\'s broken—it\'s about awakening what\'s possible. Together, we\'ll use the transformative power of creativity to help you move from surviving to thriving.' : '「療癒不在於修補破碎的東西，而在於喚醒各種可能性。我們將共同利用創意的轉化力量，幫助您從生存邁向茁壯成長。」'"></p>
                     </div>
 
                     <div class="glass-card p-8 md:col-span-2">
-                        <h3 class="text-xl font-bold text-slate-900 mb-6">Professional Qualifications</h3>
+                        <h3 class="text-xl font-bold text-slate-900 mb-6" x-text="lang === 'en' ? 'Professional Qualifications' : '專業資歷'"></h3>
                         <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 text-sm">
-                            <div><strong class="text-emerald-600 block mb-1">HCPC Registration</strong><p>Health and Care Professions Council registered Arts Therapist (Dramatherapist)</p></div>
-                            <div><strong class="text-emerald-600 block mb-1">Multicultural Expertise</strong><p>Transforming experiences into stories, discovering new meanings for your future.</p></div>
-                            <div><strong class="text-emerald-600 block mb-1">Specialized Training</strong><p>Connect with your body's natural wisdom through movement and expression.</p></div>
-                            <div><strong class="text-emerald-600 block mb-1">Community Engagement</strong><p>Building confidence and resilience through unscripted creative moments.</p></div>
+                            <div class="p-4 bg-white rounded-2xl shadow-sm">
+                                <strong class="text-emerald-600 block mb-1">HCPC Registration</strong>
+                                <p x-text="lang === 'en' ? 'Registered Arts Therapist (Dramatherapist)' : '註冊藝術治療師（戲劇治療師）'"></p>
+                            </div>
+                            <div class="p-4 bg-white rounded-2xl shadow-sm">
+                                <strong class="text-emerald-600 block mb-1" x-text="lang === 'en' ? 'Multicultural' : '多元文化'"></strong>
+                                <p x-text="lang === 'en' ? 'Transform experiences into stories for new meanings.' : '將生活經驗轉化為故事，探索新意義。'"></p>
+                            </div>
+                            <div class="p-4 bg-white rounded-2xl shadow-sm">
+                                <strong class="text-emerald-600 block mb-1" x-text="lang === 'en' ? 'Specialized Training' : '專業培訓'"></strong>
+                                <p x-text="lang === 'en' ? 'Connecting with body wisdom through movement.' : '透過肢體律動與身體智慧連結。'"></p>
+                            </div>
+                            <div class="p-4 bg-white rounded-2xl shadow-sm">
+                                <strong class="text-emerald-600 block mb-1" x-text="lang === 'en' ? 'Community' : '社區參與'"></strong>
+                                <p x-text="lang === 'en' ? 'Building resilience through creative moments.' : '透過創意時刻建立自信與韌性。'"></p>
+                            </div>
                         </div>
                     </div>
 
                     <div class="glass-card p-8">
-                        <h3 class="text-xl font-bold text-slate-900 mb-6">Areas of Specialization</h3>
-                        <ul class="space-y-3 text-sm text-slate-600">
-                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-500"></i> Young people with special educational needs (SEN)</li>
-                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-500"></i> Autism spectrum disorder (ASD)</li>
-                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-500"></i> Eating disorders</li>
-                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-500"></i> Complex post-traumatic stress disorder (C-PTSD)</li>
-                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-500"></i> Attention Deficit Hyperactivity Disorder (ADHD)</li>
-                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-500"></i> Emotionally Unstable Personality Disorder (EUPD)</li>
-                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-500"></i> Older people with dementia</li>
+                        <h3 class="text-xl font-bold text-slate-900 mb-6" x-text="lang === 'en' ? 'Areas of Specialization' : '專長領域'"></h3>
+                        <ul class="space-y-2 text-sm text-slate-600">
+                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-500"></i> SEN / ASD / ADHD</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-500"></i> Eating Disorders (飲食失調)</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-500"></i> C-PTSD / Trauma</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-500"></i> EUPD / Personality Disorders</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-500"></i> Dementia Care (失智症護理)</li>
                         </ul>
                     </div>
 
                     <div class="glass-card p-8">
-                        <h3 class="text-xl font-bold text-slate-900 mb-6">Beyond the Therapy Room</h3>
+                        <h3 class="text-xl font-bold text-slate-900 mb-6" x-text="lang === 'en' ? 'Beyond the Therapy Room' : '治療室之外'"></h3>
                         <div class="flex flex-wrap gap-2">
-                            <template x-for="hobby in ['Taekwondo (Coach & Referee)', 'Swimming & Cycling', 'Badminton', 'Gardening', 'British Sign Language', 'Volunteering']">
-                                <span class="bg-white px-4 py-2 rounded-full border border-slate-100 text-xs font-semibold text-slate-500" x-text="hobby"></span>
+                            <template x-for="item in ['Taekwondo', 'Swimming & Cycling', 'Badminton', 'Gardening', 'BSL', 'Volunteering']">
+                                <span class="bg-white px-3 py-1 rounded-full border text-xs font-medium" x-text="item"></span>
                             </template>
                         </div>
                     </div>
@@ -103,31 +167,70 @@
 
         <div x-show="page === 'services'" class="fade-in py-16 container mx-auto px-6" x-cloak>
             <div class="max-w-6xl mx-auto">
-                <h2 class="text-4xl font-bold text-center mb-16">Our Services</h2>
+                <h2 class="text-4xl font-bold text-center mb-16" x-text="lang === 'en' ? 'Our Services' : '我們的服務'"></h2>
                 <div class="grid md:grid-cols-2 gap-8 mb-16">
                     <div class="glass-card p-10 flex flex-col">
-                        <h3 class="text-2xl font-bold text-emerald-600 mb-4">Individual Therapy</h3>
-                        <p class="text-slate-600 text-sm mb-6 flex-grow">One-to-one sessions tailored to your needs.</p>
+                        <h3 class="text-2xl font-bold text-emerald-600 mb-4" x-text="lang === 'en' ? 'Individual Therapy' : '個人治療'"></h3>
+                        <p class="text-slate-600 text-sm mb-6 flex-grow" x-text="lang === 'en' ? 'One-to-one sessions tailored to your needs.' : '針對您的需求量身定制的一對一課程。'"></p>
                         <div class="text-sm font-bold text-slate-700">Online: £100 | In-Person: £130</div>
                     </div>
                     <div class="glass-card p-10 border-2 border-rose-200 bg-rose-50/20">
-                        <h3 class="text-2xl font-bold text-rose-600 mb-4">Specialised ED Treatment</h3>
-                        <button @click="showEDDetails = !showEDDetails" class="bg-rose-500 text-white px-8 py-3 rounded-2xl font-bold">Learn more</button>
+                        <h3 class="text-2xl font-bold text-rose-600 mb-4" x-text="lang === 'en' ? 'Specialised ED Treatment' : '飲食失調專項治療'"></h3>
+                        <p class="text-slate-600 text-sm mb-6" x-text="lang === 'en' ? 'Structured, evidence-based treatment.' : '結構化實證治療。'"></p>
+                        <button @click="showEDDetails = !showEDDetails" class="bg-rose-500 text-white px-8 py-3 rounded-2xl font-bold" x-text="lang === 'en' ? 'Learn more' : '了解更多'"></button>
                     </div>
                 </div>
 
                 <div x-show="showEDDetails" x-transition class="space-y-8">
+                    <div class="grid md:grid-cols-3 gap-6">
+                        <template x-for="ed in (lang === 'en' ? [{n:'Dramatherapy', c:'text-emerald-600'},{n:'CBT-T', c:'text-purple-600'},{n:'Guided Self-Help', c:'text-indigo-600'}] : [{n:'戲劇治療', c:'text-emerald-600'},{n:'CBT-T', c:'text-purple-600'},{n:'引導式自助', c:'text-indigo-600'}])">
+                            <div class="bg-white p-8 rounded-[2.5rem] border shadow-sm">
+                                <h4 class="text-3xl font-black mb-6" :class="ed.c" x-text="ed.n"></h4>
+                                <div class="space-y-4 text-sm">
+                                    <p><strong>Approach:</strong> Creative/Structured</p>
+                                    <p><strong>Time:</strong> 10-20 sessions</p>
+                                </div>
+                            </div>
+                        </template>
+                    </div>
+                    
                     <div class="p-10 rounded-[2.5rem] border border-emerald-100 bg-emerald-50/20 text-slate-700">
-                        <h4 class="text-xl font-bold mb-4">A Compassionate Approach to Weight and Wellbeing</h4>
-                        <p class="text-sm leading-relaxed mb-4">While many dieting programmes focus on short-term weight loss, our service is different. We understand that some people may have a wish to lose weight, however our work centres on helping you develop a healthy, sustainable and compassionate relationship with food, eating and your body.</p>
-                        <p class="text-sm leading-relaxed italic">As eating patterns stabilise and health-behaviours improve, some people may naturally notice changes in weight over time — however we do not promise or promote weight-loss outcomes. Our priority is your emotional, psychological and physical wellbeing.</p>
+                        <h4 class="text-xl font-bold mb-4" x-text="lang === 'en' ? 'A Compassionate Approach to Weight and Wellbeing' : '對體重與身心健康的慈心方法'"></h4>
+                        <p class="text-sm leading-relaxed mb-4" x-text="lang === 'en' ? 'While many dieting programmes focus on short-term weight loss, our service is different. We understand that some people may have a wish to lose weight, however our work centres on helping you develop a healthy, sustainable and compassionate relationship with food, eating and your body.' : '雖然許多減重計畫專注於短期體重減輕，但我們的服務有所不同。我們理解某些人可能希望減輕體重，然而我們的工作核心是幫助您與食物、進食和您的身體建立健康、可持續且充滿慈心的關係。'"></p>
+                        <p class="text-sm leading-relaxed italic" x-text="lang === 'en' ? 'As eating patterns stabilise and health-behaviours improve, some people may naturally notice changes in weight over time — however we do not promise or promote weight-loss outcomes. Our priority is your emotional, psychological and physical wellbeing.' : '隨著飲食模式趨於穩定和健康行為的改善，部分人士隨著時間推移可能會自然地注意到體重的變化——然而，我們並不承諾或推廣任何減重結果。我們的首要任務是您的情緒、心理和生理健康。'"></p>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div x-show="['home','about','contact'].includes(page)" class="py-20 text-center">
-            <p class="text-slate-400">Content for <span x-text="page"></span> page preserved.</p>
+        <div x-show="page === 'contact'" class="fade-in py-16 container mx-auto px-6" x-cloak>
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-4xl font-bold text-center mb-12 text-slate-900" x-text="lang === 'en' ? 'Contact Us' : '聯絡我們'"></h2>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="glass-card p-10 text-center md:text-left">
+                        <div class="flex items-center justify-center md:justify-start gap-3 mb-6">
+                            <div class="w-12 h-12 bg-emerald-100 rounded-full flex items-center justify-center"><i data-lucide="mail" class="text-emerald-600"></i></div>
+                            <div>
+                                <h3 class="font-bold text-slate-900">Email Address</h3>
+                                <p class="text-emerald-600">dramatherapybay@gmail.com</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-center md:justify-start gap-3 mb-8">
+                            <div class="w-12 h-12 bg-emerald-100 rounded-full flex items-center justify-center"><i data-lucide="phone" class="text-emerald-600"></i></div>
+                            <div>
+                                <h3 class="font-bold text-slate-900">Phone Number</h3>
+                                <p class="text-emerald-600">01223912627</p>
+                            </div>
+                        </div>
+                        <a href="mailto:dramatherapybay@gmail.com" class="emerald-gradient text-white block text-center py-4 rounded-xl font-bold shadow-lg" x-text="lang === 'en' ? 'Book Free 15-min Consultation' : '預約免費 15 分鐘諮詢'"></a>
+                    </div>
+                    <div class="bg-slate-900 text-white p-10 rounded-[2.5rem] flex flex-col justify-center">
+                        <h3 class="text-2xl font-bold mb-4" x-text="lang === 'en' ? 'Cambridge, UK' : '英國 劍橋'"></h3>
+                        <p class="text-slate-400 mb-6" x-text="lang === 'en' ? 'Available for online sessions across the UK and in-person sessions at our clinical locations in Cambridge.' : '提供全英國線上諮詢，以及在劍橋臨床服務地點的實體面談。'"></p>
+                        <div class="flex items-center gap-3 text-emerald-400 font-bold"><i data-lucide="map-pin"></i> <span x-text="lang === 'en' ? 'Cambridge, United Kingdom' : '聯合王國 劍橋'"></span></div>
+                    </div>
+                </div>
+            </div>
         </div>
     </main>
 
