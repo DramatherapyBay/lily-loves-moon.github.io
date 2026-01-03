@@ -105,16 +105,16 @@
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
                 <template x-for="tech in (lang === 'en' ? [
                     {t: 'Role-Play', d: 'Exploring perspectives and rehearsing life changes.', i: 'users'},
-                    {t: 'Storytelling/Story-writing', d: 'Processing experiences and reframing personal narratives.', i: 'book-open'},
+                    {t: 'Storytelling', d: 'Processing experiences and reframing personal narratives.', i: 'book-open'},
                     {t: 'Body Movement', d: 'Integrating physical expression and somatic awareness.', i: 'accessibility'},
-                    {t: 'Creative Writing/Writing', d: 'Externalizing thoughts and capturing inner dialogues.', i: 'pen-tool'},
+                    {t: 'Creative Writing', d: 'Externalizing thoughts and capturing inner dialogues.', i: 'pen-tool'},
                     {t: 'Sand Play & Drawing', d: 'Visualizing internal worlds through symbolic imagery.', i: 'palette'},
                     {t: 'Metaphor & Improvisation', d: 'Building spontaneity and gaining deep psychological insight.', i: 'sparkles'}
                 ] : [
                     {t: '角色扮演', d: '探索不同的觀點並預演人生的轉變。', i: 'users'},
-                    {t: '故事敘說 / 故事創作', d: '處理生活經驗並重塑個人敘事。', i: 'book-open'},
+                    {t: '故事敘說', d: '處理生活經驗並重塑個人敘事。', i: 'book-open'},
                     {t: '身體律動', d: '整合肢體表達與軀體意識。', i: 'accessibility'},
-                    {t: '創意寫作 / 寫作', d: '將想法外在化並捕捉內心對話。', i: 'pen-tool'},
+                    {t: '創意寫作', d: '將想法外在化並捕捉內心對話。', i: 'pen-tool'},
                     {t: '沙遊與繪畫', d: '透過象徵性意象將內在世界視覺化。', i: 'palette'},
                     {t: '隱喻與即興', d: '培養自發性並獲得深刻的心理洞察。', i: 'sparkles'}
                 ])">
@@ -150,23 +150,81 @@
         </div>
 
         <div x-show="page === 'services'" class="fade-in py-16 container mx-auto px-6" x-cloak>
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold text-slate-900 mb-4" x-text="lang === 'en' ? 'Our Services' : '服務項目'"></h2>
-            </div>
-            <div class="specialized-bg rounded-[3rem] p-10 md:p-16 mb-20">
-                <h3 class="text-3xl font-bold mb-10 text-center text-slate-800" x-text="lang === 'en' ? 'Specialized Treatment for Eating Disorders' : '飲食失調專項治療'"></h3>
-                <div class="grid md:grid-cols-3 gap-8">
-                    <div class="bg-white/70 p-8 rounded-3xl shadow-sm border border-white">
-                        <h4 class="font-bold text-emerald-600 text-lg mb-3">Dramatherapy</h4>
-                        <p class="text-sm text-slate-600" x-text="lang === 'en' ? 'Creative exploration of body image and emotional regulation.' : '透過戲劇與故事探索身體意象、身份認同與情緒調節。'"></p>
+            <div class="max-w-4xl mx-auto">
+                <div class="text-center mb-12">
+                    <h2 class="text-4xl font-bold text-slate-900 mb-6" x-text="lang === 'en' ? 'Specialised Treatment for Eating Disorders' : '飲食失調專項治療'"></h2>
+                    <p class="text-lg text-slate-600 leading-relaxed" x-text="lang === 'en' ? 'At Dramatherapy Bay, we offer evidence-based, compassionate treatment for people experiencing eating disorders. Our approach is structured, collaborative, and focused on helping you build a healthier and more sustainable relationship with food, your body, and yourself.' : '在 Dramatherapy Bay，我們為受飲食失調困擾的人士提供以實證為基礎且充滿關懷的治療。我們的方法具結構性、協作性，並專注於幫助您與食物、身體及自我建立更健康、更可持續的關係。'"></p>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-8 mb-16">
+                    <div class="glass-card p-8 border-l-8 border-emerald-500">
+                        <h3 class="text-2xl font-bold text-emerald-600 mb-4" x-text="lang === 'en' ? 'Dramatherapy' : '戲劇治療'"></h3>
+                        
+                        <div class="space-y-4 text-sm text-slate-600 leading-relaxed">
+                            <section>
+                                <h4 class="font-bold text-slate-800" x-text="lang === 'en' ? 'What is Dramatherapy?' : '什麼是戲劇治療？'"></h4>
+                                <p x-text="lang === 'en' ? 'A creative therapy using story, metaphor, and role-play to explore emotions in a safe way. It provides psychological distance, allowing sensitive topics like body image to be explored comfortably.' : '一種利用故事、隱喻和角色扮演以安全方式探索情緒的創意療法。它提供心理距離，讓身體意象等敏感話題能更自在地被討論。'"></p>
+                            </section>
+
+                            <section>
+                                <h4 class="font-bold text-slate-800" x-text="lang === 'en' ? 'Structure of Sessions' : '治療結構'"></h4>
+                                <ul class="list-disc ml-5 space-y-1">
+                                    <li x-text="lang === 'en' ? 'Guided imagery & storytelling' : '引導式意象與故事敘說'"></li>
+                                    <li x-text="lang === 'en' ? 'Symbolic/creative exploration' : '象徵性/創意探索'"></li>
+                                    <li x-text="lang === 'en' ? 'Reflective talking therapy' : '反思性談話治療'"></li>
+                                </ul>
+                            </section>
+
+                            <section>
+                                <h4 class="font-bold text-slate-800" x-text="lang === 'en' ? 'Suitability' : '適用對象'"></h4>
+                                <p x-text="lang === 'en' ? 'Ideal for Anorexia, Bulimia, Binge Eating, anxiety, ASD/ADHD, or those who find direct talk therapy overwhelming.' : '適合厭食症、暴食症、焦慮、自閉症譜系/ADHD，或覺得直接談話治療壓力過大的人士。'"></p>
+                            </section>
+
+                            <div class="pt-4 border-t border-slate-100 flex justify-between text-xs font-semibold text-emerald-600">
+                                <span x-text="lang === 'en' ? 'Time Frame: Monthly/Weekly' : '時間：每週/持續數月'"></span>
+                                <span x-text="lang === 'en' ? 'Home Practice: Optional' : '家居練習：自由選擇'"></span>
+                            </div>
+                        </div>
                     </div>
-                    <div class="bg-white/70 p-8 rounded-3xl shadow-sm border border-white">
-                        <h4 class="font-bold text-purple-600 text-lg mb-3">CBT-T</h4>
-                        <p class="text-sm text-slate-600" x-text="lang === 'en' ? 'Evidence-based treatment for trauma and PTSD related to ED.' : '針對飲食失調中創傷相關部分及 PTSD 的實證治療。'"></p>
+
+                    <div class="glass-card p-8 border-l-8 border-purple-500">
+                        <h3 class="text-2xl font-bold text-purple-600 mb-4" x-text="lang === 'en' ? 'CBT-T (Cognitive Behavioural Therapy)' : 'CBT-T (認知行為治療)'"></h3>
+                        
+                        <div class="space-y-4 text-sm text-slate-600 leading-relaxed">
+                            <section>
+                                <h4 class="font-bold text-slate-800" x-text="lang === 'en' ? 'What is CBT-T?' : '什麼是 CBT-T？'"></h4>
+                                <p x-text="lang === 'en' ? 'An NHS-recommended, evidence-based therapy specifically tailored for eating disorders. It focuses on stabilising eating behaviours and addressing body image concerns.' : '一項英國國家醫療服務體系 (NHS) 推薦、專為飲食失調設計的實證療法。重點在於穩定進食行為並處理身體意象問題。'"></p>
+                            </section>
+
+                            <section>
+                                <h4 class="font-bold text-slate-800" x-text="lang === 'en' ? 'Therapeutic Approach' : '治療重點'"></h4>
+                                <ul class="list-disc ml-5 space-y-1">
+                                    <li x-text="lang === 'en' ? 'Stabilising eating patterns' : '穩定進食模式'"></li>
+                                    <li x-text="lang === 'en' ? 'Building coping strategies' : '建立應對策略'"></li>
+                                    <li x-text="lang === 'en' ? 'Relapse-prevention planning' : '預防復發計劃'"></li>
+                                </ul>
+                            </section>
+
+                            <section>
+                                <h4 class="font-bold text-slate-800" x-text="lang === 'en' ? 'Suitability' : '適用對象'"></h4>
+                                <p x-text="lang === 'en' ? 'Best for Bulimia, Binge Eating Disorder, and atypical eating difficulties. Effective for motivated clients ready for active change.' : '最適合暴食症、嗜食症及非典型飲食困難。對準備好主動尋求改變的個案尤其有效。'"></p>
+                            </section>
+
+                            <div class="pt-4 border-t border-slate-100 flex justify-between text-xs font-semibold text-purple-600">
+                                <span x-text="lang === 'en' ? 'Time Frame: 10 Sessions' : '時間：標準 10 節'"></span>
+                                <span x-text="lang === 'en' ? 'Home Tasks: Encouraged' : '家居練習：建議執行'"></span>
+                            </div>
+                        </div>
                     </div>
-                    <div class="bg-white/70 p-8 rounded-3xl shadow-sm border border-white">
-                        <h4 class="font-bold text-indigo-600 text-lg mb-3">GSH</h4>
-                        <p class="text-sm text-slate-600" x-text="lang === 'en' ? 'Guided Self-Help for structured recovery and growth.' : '結構化的引導式自助資料，支持持續的康復。'"></p>
+                </div>
+
+                <div class="specialized-bg rounded-3xl p-8 border border-white shadow-sm mb-12">
+                    <div class="flex gap-4 items-start">
+                        <i data-lucide="heart" class="text-rose-500 w-8 h-8 flex-shrink-0"></i>
+                        <div>
+                            <h3 class="font-bold text-slate-900 mb-2" x-text="lang === 'en' ? 'Our Approach to Weight and Wellbeing' : '我們對體重與身心健康的態度'"></h3>
+                            <p class="text-sm text-slate-700 leading-relaxed" x-text="lang === 'en' ? 'While many dieting programmes focus on short-term weight loss, our service is different. We recognise that some people may wish to lose weight; however, our focus is on supporting you to develop a healthy, compassionate and sustainable relationship with food, eating and your body. As eating patterns stabilise and wellbeing improves, some people may naturally notice weight changes over time — however, we do not promise weight-loss outcomes.' : '許多節食計劃專注於短期減重，但我們的服務有所不同。我們理解有些人可能希望減輕體重；然而，我們的重點是支持您與食物、進食和身體建立健康、充滿慈心且可持續的關係。隨著進食模式趨於穩定和身心健康的提升，有些人可能會隨時間自然注意到體重的變化——但我們不保證任何減重結果。'"></p>
+                        </div>
                     </div>
                 </div>
             </div>
