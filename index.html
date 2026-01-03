@@ -10,35 +10,35 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
         [x-cloak] { display: none !important; }
-        body { font-family: 'Inter', sans-serif; background-color: #fcfcfd; color: #1e293b; }
+        body { font-family: 'Inter', sans-serif; background: linear-gradient(180deg, #fcfcfd 0%, #f1f5f9 100%); color: #1e293b; }
         .fade-in { animation: fadeIn 0.4s ease-out forwards; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-        .emerald-gradient { background: linear-gradient(135deg, #10b981 0%, #a855f7 100%); }
-        .glass-card { background: white; border: 1px solid #e2e8f0; border-radius: 1.5rem; transition: all 0.3s ease; }
-        .ed-table th { @apply bg-slate-50 p-4 text-left text-xs font-bold uppercase tracking-wider text-slate-500 border-b; }
-        .ed-table td { @apply p-4 text-sm text-slate-600 border-b align-top; }
+        .emerald-gradient { background: linear-gradient(135deg, #10b981 0%, #3b82f6 100%); }
+        .glass-card { background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(12px); border: 1px solid rgba(226, 232, 240, 0.8); border-radius: 2rem; transition: all 0.3s ease; }
+        .glass-card:hover { transform: translateY(-4px); box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05); }
+        .category-label { @apply text-[10px] uppercase tracking-wider font-bold text-slate-400 mb-1 block; }
     </style>
 </head>
 <body x-data="{ page: 'services', lang: 'en', showEDDetails: false }">
 
-    <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm">
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-200">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
             <div class="flex items-center gap-3 cursor-pointer" @click="page = 'home'; showEDDetails = false">
-                <div class="w-10 h-10 rounded-full emerald-gradient flex items-center justify-center text-white font-bold">DB</div>
+                <div class="w-10 h-10 rounded-full emerald-gradient flex items-center justify-center text-white font-bold shadow-lg shadow-emerald-200">DB</div>
                 <div class="leading-none text-left">
                     <span class="font-bold text-lg block text-slate-900">Dramatherapy Bay</span>
-                    <span class="text-[10px] uppercase tracking-widest text-slate-400">Limited</span>
+                    <span class="text-[10px] uppercase tracking-widest text-emerald-500 font-bold">Limited</span>
                 </div>
             </div>
             <div class="hidden lg:flex gap-8 text-sm font-semibold text-slate-600">
                 <a href="#" @click.prevent="page = 'home'" :class="page === 'home' ? 'text-emerald-600' : ''">Home</a>
-                <a href="#" @click.prevent="page = 'about'" :class="page === 'about' ? 'text-emerald-600' : ''">About Dramatherapy</a>
+                <a href="#" @click.prevent="page = 'about'" :class="page === 'about' ? 'text-emerald-600' : ''">About</a>
                 <a href="#" @click.prevent="page = 'team'" :class="page === 'team' ? 'text-emerald-600' : ''">Our Team</a>
                 <a href="#" @click.prevent="page = 'services'" :class="page === 'services' ? 'text-emerald-600' : ''">Services</a>
             </div>
             <div class="flex gap-2">
-                <button @click="lang = 'en'" :class="lang === 'en' ? 'bg-emerald-600 text-white' : 'bg-slate-100 text-slate-400'" class="px-4 py-1.5 rounded-lg text-xs font-bold border transition-all">EN</button>
-                <button @click="lang = 'zh'" :class="lang === 'zh' ? 'bg-emerald-600 text-white' : 'bg-slate-100 text-slate-400'" class="px-4 py-1.5 rounded-lg text-xs font-bold border transition-all">中文</button>
+                <button @click="lang = 'en'" :class="lang === 'en' ? 'bg-emerald-500 text-white border-emerald-500' : 'bg-white text-slate-400 border-slate-200'" class="px-4 py-1.5 rounded-xl text-xs font-bold border transition-all shadow-sm">EN</button>
+                <button @click="lang = 'zh'" :class="lang === 'zh' ? 'bg-emerald-500 text-white border-emerald-500' : 'bg-white text-slate-400 border-slate-200'" class="px-4 py-1.5 rounded-xl text-xs font-bold border transition-all shadow-sm">中文</button>
             </div>
         </div>
     </nav>
@@ -47,110 +47,110 @@
         
         <div x-show="page === 'services'" class="fade-in py-16 container mx-auto px-6">
             <div class="max-w-6xl mx-auto">
-                <h2 class="text-4xl font-bold text-center text-slate-900 mb-6" x-text="lang === 'en' ? 'Our Services' : '我們的服務'"></h2>
-                <p class="text-center text-slate-600 max-w-3xl mx-auto mb-16" x-text="lang === 'en' ? 'Our approach is creative, evidence-based, and tailored to your needs, helping you explore thoughts, emotions, and behaviours in a safe environment.' : '我們的方法具備創意、實證支持並量身定制，助您在安全環境中探索想法、情緒與行為。'"></p>
+                <div class="text-center mb-16">
+                    <h2 class="text-5xl font-extrabold text-slate-900 mb-6 tracking-tight" x-text="lang === 'en' ? 'Our Services' : '我們的服務'"></h2>
+                    <div class="h-1.5 w-24 emerald-gradient mx-auto rounded-full mb-8"></div>
+                    <p class="text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed" x-text="lang === 'en' ? 'Our approach is creative, evidence-based, and tailored to your needs, helping you explore thoughts, emotions, and behaviours in a safe and supportive environment.' : '我們的方法具備創意、實證支持並量身定制，助您在安全環境中探索想法、情緒與行為。'"></p>
+                </div>
 
-                <div class="grid md:grid-cols-2 gap-8 mb-20">
-                    <div class="glass-card p-8 flex flex-col">
-                        <h3 class="text-2xl font-bold text-emerald-600 mb-4" x-text="lang === 'en' ? 'Individual Therapy' : '個人治療'"></h3>
-                        <p class="text-slate-600 text-sm mb-6 flex-grow" x-text="lang === 'en' ? 'One-to-one sessions tailored to your needs, supporting anxiety, depression, trauma, neurodiversity (ASD/ADHD), EUPD, eating disorders and more.' : '一對一療程，支持焦慮、抑鬱、創傷、神經多樣性（自閉症/ADHD）、EUPD及飲食失調等需求。'"></p>
-                        <div class="bg-slate-50 p-4 rounded-xl text-sm font-medium text-slate-700">
-                            <p>Online: £100 / 50-min</p>
-                            <p>In-Person: £130 / 50-min</p>
+                <div class="grid md:grid-cols-2 gap-8 mb-24">
+                    <div class="glass-card p-10 relative overflow-hidden group">
+                        <div class="absolute top-0 right-0 w-32 h-32 bg-emerald-50 rounded-full -mr-16 -mt-16 transition-transform group-hover:scale-110"></div>
+                        <i data-lucide="user" class="text-emerald-500 mb-6 w-10 h-10"></i>
+                        <h3 class="text-2xl font-bold text-slate-900 mb-4" x-text="lang === 'en' ? 'Individual Therapy' : '個人治療'"></h3>
+                        <p class="text-slate-600 text-sm mb-8 leading-relaxed" x-text="lang === 'en' ? 'One-to-one sessions tailored to your needs, supporting anxiety, depression, trauma, neurodiversity (ASD/ADHD), EUPD, and eating disorders.' : '一對一療程，支持焦慮、抑鬱、創傷、神經多樣性及飲食失調等需求。'"></p>
+                        <div class="flex gap-4">
+                            <div class="flex-1 bg-white border border-slate-100 p-4 rounded-2xl shadow-sm">
+                                <span class="category-label">Online</span>
+                                <span class="font-bold text-slate-900">£100</span> <span class="text-xs text-slate-400">/ 50m</span>
+                            </div>
+                            <div class="flex-1 bg-white border border-slate-100 p-4 rounded-2xl shadow-sm">
+                                <span class="category-label">In-Person</span>
+                                <span class="font-bold text-slate-900">£130</span> <span class="text-xs text-slate-400">/ 50m</span>
+                            </div>
                         </div>
                     </div>
 
-                    <div class="glass-card p-8 flex flex-col">
-                        <h3 class="text-2xl font-bold text-purple-600 mb-4" x-text="lang === 'en' ? 'Group Therapy' : '小組治療'"></h3>
-                        <p class="text-slate-600 text-sm mb-6 flex-grow" x-text="lang === 'en' ? 'Experience the healing power of shared stories, creativity, and emotional safety in a supportive group environment.' : '在支持性小組中體驗分享故事與創意帶來的療癒力量。'"></p>
-                        <div class="bg-slate-50 p-4 rounded-xl text-sm font-medium text-slate-700">
-                            <p x-text="lang === 'en' ? 'Max participants: 8' : '最多 8 人'"></p>
-                            <p x-text="lang === 'en' ? 'Fee: Contact for personalized rate' : '費用：請聯絡我們諮詢報價'"></p>
+                    <div class="glass-card p-10 relative overflow-hidden group">
+                        <div class="absolute top-0 right-0 w-32 h-32 bg-purple-50 rounded-full -mr-16 -mt-16 transition-transform group-hover:scale-110"></div>
+                        <i data-lucide="users" class="text-purple-500 mb-6 w-10 h-10"></i>
+                        <h3 class="text-2xl font-bold text-slate-900 mb-4" x-text="lang === 'en' ? 'Group Therapy' : '小組治療'"></h3>
+                        <p class="text-slate-600 text-sm mb-8 leading-relaxed" x-text="lang === 'en' ? 'Experience the healing power of shared stories and creativity in a supportive environment with up to 8 participants.' : '在最多 8 人的支持性環境中體驗分享故事與創意帶來的療癒力量。'"></p>
+                        <div class="bg-white border border-slate-100 p-4 rounded-2xl shadow-sm inline-block">
+                            <span class="category-label" x-text="lang === 'en' ? 'Duration' : '時長'"></span>
+                            <span class="font-bold text-slate-900">90–120 Minutes</span>
                         </div>
                     </div>
 
-                    <div class="glass-card p-8 flex flex-col">
-                        <h3 class="text-2xl font-bold text-blue-600 mb-4" x-text="lang === 'en' ? 'Workshops & Training' : '工作坊與培訓'"></h3>
-                        <p class="text-slate-600 text-sm mb-6 flex-grow" x-text="lang === 'en' ? 'Reflective and psycho-educational workshops for universities, schools, and organisations, focused on mental health education.' : '為學校與機構提供心理教育工作坊，專注於心理健康教育與專業成長。'"></p>
-                        <div class="bg-slate-50 p-4 rounded-xl text-sm font-medium text-slate-700">
-                            <p x-text="lang === 'en' ? 'Format: Hourly, half-day, or full-day' : '模式：按時、半天或全天'"></p>
-                            <p x-text="lang === 'en' ? 'Fee: Contact for personalised quote' : '費用：請聯絡我們諮詢報價'"></p>
-                        </div>
+                    <div class="glass-card p-10 relative overflow-hidden group">
+                        <div class="absolute top-0 right-0 w-32 h-32 bg-blue-50 rounded-full -mr-16 -mt-16 transition-transform group-hover:scale-110"></div>
+                        <i data-lucide="graduation-cap" class="text-blue-500 mb-6 w-10 h-10"></i>
+                        <h3 class="text-2xl font-bold text-slate-900 mb-4" x-text="lang === 'en' ? 'Workshops & Training' : '工作坊與培訓'"></h3>
+                        <p class="text-slate-600 text-sm mb-8 leading-relaxed" x-text="lang === 'en' ? 'Reflective and psycho-educational workshops for universities and organisations. Flexible hourly or full-day packages.' : '為學校與機構提供心理教育工作坊，提供靈活的按時或全天套裝課程。'"></p>
+                        <button class="text-blue-600 font-bold text-sm flex items-center gap-2 hover:gap-3 transition-all">
+                            <span x-text="lang === 'en' ? 'Request a Quote' : '諮詢報價'"></span> <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                        </button>
                     </div>
 
-                    <div class="glass-card p-8 border-2 border-emerald-500 bg-emerald-50/30 flex flex-col">
-                        <h3 class="text-2xl font-bold text-rose-600 mb-4" x-text="lang === 'en' ? 'Specialised Eating Disorder Treatment' : '飲食失調專項治療'"></h3>
-                        <p class="text-slate-600 text-sm mb-6 flex-grow" x-text="lang === 'en' ? 'Structured, evidence-based treatment for Anorexia, Bulimia, Binge Eating Disorder, ARFID, and emotional eating.' : '針對厭食症、暴食症、嗜食症、ARFID 及情緒性進食的結構化實證治療。'"></p>
-                        <button @click="showEDDetails = !showEDDetails" class="bg-emerald-600 text-white px-6 py-3 rounded-xl font-bold hover:bg-emerald-700 transition-colors flex items-center justify-center gap-2">
+                    <div class="glass-card p-10 border-2 border-rose-200 bg-rose-50/20 relative overflow-hidden">
+                        <i data-lucide="heart-handshake" class="text-rose-500 mb-6 w-10 h-10"></i>
+                        <h3 class="text-2xl font-bold text-slate-900 mb-4" x-text="lang === 'en' ? 'Specialised ED Treatment' : '飲食失調專項治療'"></h3>
+                        <p class="text-slate-600 text-sm mb-8 leading-relaxed" x-text="lang === 'en' ? 'Structured, evidence-based treatment for Anorexia, Bulimia, Binge Eating Disorder, and ARFID.' : '針對厭食症、暴食症、嗜食症及 ARFID 的結構化實證治療。'"></p>
+                        <button @click="showEDDetails = !showEDDetails" class="bg-rose-500 text-white px-8 py-3 rounded-2xl font-bold hover:bg-rose-600 transition-all shadow-lg shadow-rose-200 flex items-center gap-2">
                             <span x-text="lang === 'en' ? 'Learn more' : '了解更多'"></span>
-                            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                            <i data-lucide="arrow-down" class="w-4 h-4" :class="showEDDetails ? 'rotate-180' : ''"></i>
                         </button>
                     </div>
                 </div>
 
-                <div x-show="showEDDetails" x-transition class="mt-12 space-y-8 bg-white p-8 rounded-[2.5rem] shadow-xl border border-emerald-100">
-                    <div class="overflow-x-auto">
-                        <table class="w-full ed-table min-w-[800px]">
-                            <thead>
-                                <tr>
-                                    <th>Therapy</th>
-                                    <th>Approach</th>
-                                    <th>Structure</th>
-                                    <th>Time Frame</th>
-                                    <th>Suitable For</th>
-                                    <th>Home Practice</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td class="font-bold text-emerald-600">Dramatherapy</td>
-                                    <td>Creative, experiential therapy providing psychological distance to explore body image and emotions.</td>
-                                    <td>Talking therapy, storytelling, role-play, movement. Participation optional.</td>
-                                    <td>Usually weekly, several months.</td>
-                                    <td>Anorexia, neurodivergence (ASD/ADHD), those finding direct discussion triggering.</td>
-                                    <td>Reflection, noticing patterns, optional creative practice.</td>
-                                </tr>
-                                <tr>
-                                    <td class="font-bold text-purple-600">CBT-informed</td>
-                                    <td>Structured, practical strategies integrated under a dramatherapy framework.</td>
-                                    <td>Goal-focused. Assessment, goal setting, skill practice, progress review.</td>
-                                    <td>Typically 10 sessions standard.</td>
-                                    <td>Bulimia, Binge Eating Disorder, motivated clients ready for active change.</td>
-                                    <td>Monitoring thoughts, practicing coping strategies, adjusting routines.</td>
-                                </tr>
-                                <tr>
-                                    <td class="font-bold text-indigo-600">Guided Self-Help</td>
-                                    <td>Evidence-informed exercises supported by therapist guidance.</td>
-                                    <td>Short therapy sessions combined with self-help materials.</td>
-                                    <td>Typically 8–12 sessions.</td>
-                                    <td>Binge Eating, emotional eating, milder eating difficulties. Requires independent work.</td>
-                                    <td>Completing exercises, monitoring thoughts, self-compassion activities.</td>
-                                </tr>
-                            </tbody>
-                        </table>
+                <div x-show="showEDDetails" x-transition class="mt-12 space-y-8">
+                    <div class="grid md:grid-cols-3 gap-6">
+                        
+                        <div class="bg-white rounded-[2.5rem] p-8 shadow-sm border border-slate-100">
+                            <div class="bg-emerald-500 text-white text-[10px] font-black px-3 py-1 rounded-full inline-block mb-6 tracking-widest">DRAMATHERAPY</div>
+                            <div class="space-y-6">
+                                <div><span class="category-label">Approach</span><p class="text-sm">Creative, experiential therapy providing psychological distance to explore body image and emotions.</p></div>
+                                <div><span class="category-label">Structure</span><p class="text-sm">Talking, storytelling, role-play, movement. Participation is always optional.</p></div>
+                                <div><span class="category-label">Time Frame</span><p class="text-sm">Usually weekly, over several months.</p></div>
+                                <div><span class="category-label">Suitable For</span><p class="text-sm">Anorexia Nervosa, neurodivergence, or those who find direct discussion triggering.</p></div>
+                                <div><span class="category-label">Home Tasks</span><p class="text-sm">Reflection, noticing patterns, grounding exercises.</p></div>
+                            </div>
+                        </div>
+
+                        <div class="bg-white rounded-[2.5rem] p-8 shadow-sm border border-slate-100">
+                            <div class="bg-purple-500 text-white text-[10px] font-black px-3 py-1 rounded-full inline-block mb-6 tracking-widest">CBT-INFORMED</div>
+                            <div class="space-y-6">
+                                <div><span class="category-label">Approach</span><p class="text-sm">Structured strategies integrated under a dramatherapy framework to reduce unhelpful patterns.</p></div>
+                                <div><span class="category-label">Structure</span><p class="text-sm">Goal-focused. Assessment, goal setting, skill practice, and progress review.</p></div>
+                                <div><span class="category-label">Time Frame</span><p class="text-sm">Typically 10 sessions standard.</p></div>
+                                <div><span class="category-label">Suitable For</span><p class="text-sm">Bulimia Nervosa, Binge Eating, and motivated clients ready for active change.</p></div>
+                                <div><span class="category-label">Home Tasks</span><p class="text-sm">Monitoring thoughts, adjusting routines, practicing coping tools.</p></div>
+                            </div>
+                        </div>
+
+                        <div class="bg-white rounded-[2.5rem] p-8 shadow-sm border border-slate-100">
+                            <div class="bg-indigo-500 text-white text-[10px] font-black px-3 py-1 rounded-full inline-block mb-6 tracking-widest">GUIDED SELF-HELP</div>
+                            <div class="space-y-6">
+                                <div><span class="category-label">Approach</span><p class="text-sm">Evidence-informed self-help exercises supported by therapist guidance.</p></div>
+                                <div><span class="category-label">Structure</span><p class="text-sm">Short therapy sessions combined with self-help materials and guidance.</p></div>
+                                <div><span class="category-label">Time Frame</span><p class="text-sm">Typically 8–12 sessions.</p></div>
+                                <div><span class="category-label">Suitable For</span><p class="text-sm">Binge Eating, emotional eating, or early/milder eating difficulties.</p></div>
+                                <div><span class="category-label">Home Tasks</span><p class="text-sm">Completing exercises, self-compassion activities, monitoring patterns.</p></div>
+                            </div>
+                        </div>
+
                     </div>
 
-                    <div class="bg-emerald-50 p-6 rounded-2xl border-l-4 border-emerald-500">
-                        <p class="text-sm text-emerald-800 leading-relaxed italic">
-                            Our focus is on developing a healthy, sustainable relationship with food, body, and self. While some clients may notice changes in weight as they recover, we do not promise or promote weight-loss outcomes.
+                    <div class="bg-slate-900 text-white p-10 rounded-[3rem] text-center relative overflow-hidden">
+                        <div class="absolute inset-0 opacity-10 emerald-gradient"></div>
+                        <p class="relative z-10 text-sm md:text-base font-medium max-w-3xl mx-auto leading-relaxed italic">
+                            "Our focus is on developing a healthy, sustainable relationship with food, body, and self. While some clients may notice changes in weight as they recover, we do not promise or promote weight-loss outcomes."
                         </p>
                     </div>
                 </div>
             </div>
         </div>
-
-        <div x-show="page === 'home'" class="fade-in py-20 container mx-auto px-6 text-center">
-            <h1 class="text-4xl font-bold">Welcome to Dramatherapy Bay</h1>
-            <p class="mt-4 text-slate-600">Compassionate, creative, and evidence-based psychological therapy.</p>
-        </div>
     </main>
-
-    <footer class="bg-white border-t border-slate-200 py-12 mt-20">
-        <div class="container mx-auto px-6 text-center text-slate-500 text-sm">
-            <p class="font-bold text-slate-900 mb-2">Dramatherapy Bay Limited</p>
-            <p>© 2026 劉蔭菁 Lily Lau. All rights reserved.</p>
-        </div>
-    </footer>
 
     <script>
         lucide.createIcons();
