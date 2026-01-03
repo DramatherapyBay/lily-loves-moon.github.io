@@ -48,11 +48,6 @@
 
     <main class="min-h-screen">
         
-        <div x-show="page === 'home'" class="fade-in py-20 text-center container mx-auto px-6">
-            <h1 class="text-5xl font-bold mb-6">Welcome to Dramatherapy Bay</h1>
-            <p class="text-xl text-slate-600">Creative paths to healing and growth.</p>
-        </div>
-
         <div x-show="page === 'about'" class="fade-in py-16 container mx-auto px-6">
             <div class="max-w-5xl mx-auto">
                 <div class="text-center mb-16">
@@ -63,21 +58,21 @@
                         <div class="glass-card p-8">
                             <h3 class="text-2xl font-bold text-emerald-600 mb-4">A Holistic Approach to Healing</h3>
                             <p class="text-slate-600 text-sm leading-relaxed mb-4">Unlike traditional talk therapy, dramatherapy engages the whole person – mind, body, and spirit – creating opportunities for profound healing and self-discovery.</p>
-                            <p class="text-slate-600 text-sm leading-relaxed">Through the safe medium of creative play and storytelling, individuals can explore difficult emotions and develop greater self-awareness.</p>
+                            <p class="text-slate-600 text-sm leading-relaxed">Through the safe medium of creative play and storytelling, individuals can explore difficult emotions and develop greater self-awareness. This approach allows clients to safely explore experiences through techniques such as role-play, improvisation, and storytelling.</p>
                         </div>
                         <div class="glass-card p-8">
                             <h3 class="text-2xl font-bold text-emerald-600 mb-4">Evidence-Based Practice</h3>
-                            <p class="text-slate-600 text-sm leading-relaxed mb-6">Dramatherapy is recognized by the Health and Care Professions Council (HCPC) and is used in hospitals, schools, and private practice settings worldwide.</p>
+                            <p class="text-slate-600 text-sm leading-relaxed mb-6">Dramatherapy is recognized by the Health and Care Professions Council (HCPC) and is used in hospitals, schools, and private practice settings worldwide. The process is conducted by trained professionals working collaboratively with clients.</p>
                             <div class="flex items-center gap-4 p-4 bg-emerald-50 rounded-2xl border border-emerald-100">
                                 <i data-lucide="shield-check" class="text-emerald-500 w-8 h-8"></i>
-                                <span class="text-xs font-bold text-emerald-800 tracking-wider uppercase">HCPC Registered</span>
+                                <span class="text-xs font-bold text-emerald-800 tracking-wider">HCPC REGISTERED PRACTICE</span>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <div class="mb-20">
-                    <h3 class="text-3xl font-bold text-center text-slate-900 mb-12">Therapeutic Techniques</h3>
+                    <h3 class="text-3xl font-bold text-center text-slate-900 mb-4">Therapeutic Techniques</h3>
                     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                         <template x-for="item in [
                             {t: 'Role-Play & Character Exploration', d: 'Safely explore different perspectives and practice new behaviors through character work.', i: 'users'}, 
@@ -129,21 +124,16 @@
             </div>
         </div>
 
-        <div x-show="page === 'team'" class="fade-in py-16 container mx-auto px-6" x-cloak>
-            <h2 class="text-4xl font-bold text-center mb-12">Our Team</h2>
-            <div class="max-w-md mx-auto glass-card p-8 text-center">
-                <h3 class="text-2xl font-bold">劉蔭菁 Lily Lau</h3>
-                <p class="text-emerald-600 font-semibold mt-2">Dramatherapist</p>
-            </div>
-        </div>
-
         <div x-show="page === 'services'" class="fade-in py-16 container mx-auto px-6" x-cloak>
             <div class="max-w-6xl mx-auto">
-                <h2 class="text-4xl font-bold text-center mb-16">Our Services</h2>
+                <div class="text-center mb-16">
+                    <h2 class="text-5xl font-extrabold text-slate-900 mb-6 tracking-tight">Our Services</h2>
+                </div>
+
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-24">
                     <div class="glass-card p-10 flex flex-col">
                         <h3 class="text-2xl font-bold text-emerald-600 mb-4">Individual Sessions</h3>
-                        <p class="text-slate-600 text-sm mb-8 flex-grow">Personalised sessions for trauma and neurodiversity.</p>
+                        <p class="text-slate-600 text-sm mb-8 flex-grow">Personalised one-on-one sessions tailored to your specific needs. Helpful for trauma-informed care and neurodiversity.</p>
                         <div class="space-y-3 text-sm font-bold text-slate-700 bg-emerald-50/50 p-4 rounded-2xl">
                             <div>50-minute session</div>
                             <div>Online: £100 | In-Person: £130</div>
@@ -151,25 +141,26 @@
                     </div>
                     <div class="glass-card p-10 flex flex-col">
                         <h3 class="text-2xl font-bold text-purple-600 mb-4">Group Sessions</h3>
-                        <p class="text-slate-600 text-sm mb-8 flex-grow">Connection and social skills for up to 6 people.</p>
+                        <p class="text-slate-600 text-sm mb-8 flex-grow">Group sessions (max 6 participants) fostering connection and social skills development.</p>
                         <div class="space-y-3 text-sm font-bold text-slate-700 bg-purple-50/50 p-4 rounded-2xl">
-                            <div>1.5 hours</div>
-                            <div>Max 6 participants</div>
+                            <div>1.5 hours duration</div>
+                            <div>Connection & Shared Healing</div>
                         </div>
                     </div>
                     <div class="glass-card p-10 flex flex-col">
                         <h3 class="text-2xl font-bold text-blue-600 mb-4">Workshops & Training</h3>
-                        <p class="text-slate-600 text-sm mb-8 flex-grow">For schools and organisations.</p>
+                        <p class="text-slate-600 text-sm mb-8 flex-grow">Reflective workshops for universities, schools, and professional organisations.</p>
                         <div class="space-y-3 text-sm font-bold text-slate-700 bg-blue-50/50 p-4 rounded-2xl">
-                            <div>Flexible durations</div>
+                            <div>Hourly, Half-day, or Full-day</div>
                         </div>
                     </div>
                 </div>
 
                 <div class="glass-card p-10 border-2 border-rose-200 bg-rose-50/20 text-center mb-12">
                     <h3 class="text-3xl font-bold text-rose-600 mb-4">Specialised ED Treatment</h3>
-                    <button @click="showEDDetails = !showEDDetails" class="bg-rose-500 text-white px-12 py-4 rounded-2xl font-bold">
-                        <span x-text="showEDDetails ? 'Hide Details' : 'View Treatment Options'"></span>
+                    <p class="text-slate-600 mb-8 max-w-2xl mx-auto">Structured, evidence-based treatment for Anorexia, Bulimia, and Binge Eating Disorders.</p>
+                    <button @click="showEDDetails = !showEDDetails" class="bg-rose-500 text-white px-12 py-4 rounded-2xl font-bold shadow-lg">
+                        <span x-text="showEDDetails ? 'Hide Details' : 'View Full Treatment Options'"></span>
                     </button>
                 </div>
 
@@ -177,46 +168,45 @@
                     <div class="grid lg:grid-cols-3 gap-8">
                         <div class="bg-white rounded-[2.5rem] p-8 shadow-sm border border-slate-100 flex flex-col text-sm">
                             <h4 class="text-2xl font-black mb-6 text-emerald-600">Dramatherapy</h4>
-                            <div class="space-y-4 text-slate-600">
-                                <div><strong class="block uppercase text-[10px] text-slate-400">Approach</strong><p>Creative, experiential therapy exploring body image and food through stories/movement.</p></div>
-                                <div><strong class="block uppercase text-[10px] text-slate-400">Structure</strong><p>Talking, storytelling, and role-play; client maintains full control.</p></div>
-                                <div><strong class="block uppercase text-[10px] text-slate-400">Time Frame</strong><p>Usually weekly over several months.</p></div>
-                                <div><strong class="block uppercase text-[10px] text-slate-400">Suitable For</strong><p>Triggering direct talk, neurodivergence, anxiety, Anorexia Nervosa.</p></div>
-                                <div><strong class="block uppercase text-[10px] text-slate-400">Home Tasks</strong><p>Grounding and reflection between sessions.</p></div>
+                            <div class="space-y-4 text-slate-600 flex-grow">
+                                <div><strong class="block uppercase text-slate-400 text-[10px] mb-1">Therapy Approach</strong><p>Creative, experiential therapy providing psychological distance to explore body image, food, and emotions. Uses story, role-play, movement, and imagery.</p></div>
+                                <div><strong class="block uppercase text-slate-400 text-[10px] mb-1">Structure</strong><p>Sessions may include talking therapy, storytelling, role-play, movement, or creative expression. Participation is always optional; clients remain in full control.</p></div>
+                                <div><strong class="block uppercase text-slate-400 text-[10px] mb-1">Time Frame</strong><p>Usually weekly, over several months depending on client needs and goals.</p></div>
+                                <div><strong class="block uppercase text-slate-400 text-[10px] mb-1">Suitable For</strong><p>Clients who find direct discussion triggering, those with neurodivergence (ASD, ADHD), anxiety, or restrictive/emotional eating patterns. Also suitable for Anorexia Nervosa.</p></div>
+                                <div><strong class="block uppercase text-slate-400 text-[10px] mb-1">Home Tasks / Practice</strong><p>Reflection activities, noticing emotional patterns, grounding exercises, optional creative practice between sessions.</p></div>
                             </div>
                         </div>
                         <div class="bg-white rounded-[2.5rem] p-8 shadow-sm border border-slate-100 flex flex-col text-sm">
                             <h4 class="text-2xl font-black mb-6 text-purple-600">CBT-informed</h4>
-                            <div class="space-y-4 text-slate-600">
-                                <div><strong class="block uppercase text-[10px] text-slate-400">Approach</strong><p>Practical strategies within dramatherapy to reduce unhelpful patterns.</p></div>
-                                <div><strong class="block uppercase text-[10px] text-slate-400">Structure</strong><p>Goal-focused assessment and skill practice.</p></div>
-                                <div><strong class="block uppercase text-[10px] text-slate-400">Time Frame</strong><p>Typically 10 sessions.</p></div>
-                                <div><strong class="block uppercase text-[10px] text-slate-400">Suitable For</strong><p>Bulimia, Binge Eating, motivated clients.</p></div>
-                                <div><strong class="block uppercase text-[10px] text-slate-400">Home Tasks</strong><p>Monitoring thoughts and adjusting routines.</p></div>
+                            <div class="space-y-4 text-slate-600 flex-grow">
+                                <div><strong class="block uppercase text-slate-400 text-[10px] mb-1">Therapy Approach</strong><p>Structured, practical strategies adapted from CBT principles, integrated under a dramatherapy framework. Focuses on thoughts, emotions, and behaviours to reduce unhelpful patterns.</p></div>
+                                <div><strong class="block uppercase text-slate-400 text-[10px] mb-1">Structure</strong><p>Sessions are structured, collaborative, and goal-focused. Includes assessment, goal setting, skill practice, and progress review.</p></div>
+                                <div><strong class="block uppercase text-slate-400 text-[10px] mb-1">Time Frame</strong><p>Typically 10 sessions standard, extendable if more intensive treatment is required.</p></div>
+                                <div><strong class="block uppercase text-slate-400 text-[10px] mb-1">Suitable For</strong><p>Clients motivated to actively engage, including those with Bulimia Nervosa, Binge Eating Disorder, and some presentations of Anorexia Nervosa.</p></div>
+                                <div><strong class="block uppercase text-slate-400 text-[10px] mb-1">Home Tasks / Practice</strong><p>Monitoring thoughts and behaviours, practising coping strategies, adjusting routines, reflection exercises between sessions.</p></div>
                             </div>
                         </div>
                         <div class="bg-white rounded-[2.5rem] p-8 shadow-sm border border-slate-100 flex flex-col text-sm">
                             <h4 class="text-2xl font-black mb-6 text-indigo-600">Guided Self-Help</h4>
-                            <div class="space-y-4 text-slate-600">
-                                <div><strong class="block uppercase text-[10px] text-slate-400">Approach</strong><p>Exercises with therapist guidance for recovery skills.</p></div>
-                                <div><strong class="block uppercase text-[10px] text-slate-400">Structure</strong><p>Short sessions with self-help materials.</p></div>
-                                <div><strong class="block uppercase text-[10px] text-slate-400">Time Frame</strong><p>Typically 8–12 sessions.</p></div>
-                                <div><strong class="block uppercase text-[10px] text-slate-400">Suitable For</strong><p>Binge Eating, Bulimia, emotional eating.</p></div>
-                                <div><strong class="block uppercase text-[10px] text-slate-400">Home Tasks</strong><p>Practising routines and self-compassion.</p></div>
+                            <div class="space-y-4 text-slate-600 flex-grow">
+                                <div><strong class="block uppercase text-slate-400 text-[10px] mb-1">Therapy Approach</strong><p>Evidence-informed self-help exercises supported by therapist guidance. Focus on understanding eating patterns, building coping strategies, and sustainable recovery skills.</p></div>
+                                <div><strong class="block uppercase text-slate-400 text-[10px] mb-1">Structure</strong><p>Short, structured therapy sessions combined with self-help materials. Therapist provides guidance, support, and progress review.</p></div>
+                                <div><strong class="block uppercase text-slate-400 text-[10px] mb-1">Time Frame</strong><p>Typically 8–12 sessions, depending on client pace and needs.</p></div>
+                                <div><strong class="block uppercase text-slate-400 text-[10px] mb-1">Suitable For</strong><p>Suitable for clients with Binge Eating Disorder, Bulimia Nervosa, emotional eating, or early/milder eating difficulties. Requires clients motivated to work independently between sessions.</p></div>
+                                <div><strong class="block uppercase text-slate-400 text-[10px] mb-1">Home Tasks / Practice</strong><p>Completing structured exercises, monitoring thoughts and behaviours, practising new routines, reflection, and self-compassion activities.</p></div>
                             </div>
+                        </div>
+                    </div>
+                    <div class="p-10 rounded-[2.5rem] compassionate-box text-slate-700">
+                        <h4 class="text-2xl font-bold mb-6">A Compassionate Approach to Weight and Wellbeing</h4>
+                        <div class="space-y-4 text-sm">
+                            <p>Many dieting programmes focus on quick, short-term weight loss. Our approach is different. We understand that some people may wish to lose weight, but our work focuses on helping you develop a healthy, sustainable, and compassionate relationship with food, eating, and your body — rather than chasing rapid, temporary results.</p>
+                            <p class="italic font-medium">As eating patterns stabilise and health behaviours improve, some people may notice gradual, natural changes in weight over time. However, we do not promise or promote weight-loss outcomes.</p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
-        <div x-show="page === 'contact'" class="fade-in py-16 container mx-auto px-6" x-cloak>
-            <h2 class="text-4xl font-bold text-center mb-12">Contact Us</h2>
-            <div class="max-w-lg mx-auto glass-card p-10 text-center">
-                <p class="text-slate-600">Email: info@dramatherapybay.com</p>
-            </div>
-        </div>
-
     </main>
 
     <script>
