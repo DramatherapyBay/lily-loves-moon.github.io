@@ -11,10 +11,35 @@
     <style>
         [x-cloak] { display: none !important; }
         body { font-family: 'Inter', sans-serif; background: linear-gradient(180deg, #fcfcfd 0%, #f1f5f9 100%); color: #1e293b; }
+        
+        /* Scroll Reveal Animation */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
         .fade-in { animation: fadeIn 0.4s ease-out forwards; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        
         .emerald-gradient { background: linear-gradient(135deg, #10b981 0%, #3b82f6 100%); }
-        .glass-card { background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(12px); border: 1px solid rgba(226, 232, 240, 0.8); border-radius: 2rem; transition: all 0.3s ease; }
+        
+        .glass-card { 
+            background: rgba(255, 255, 255, 0.7); 
+            backdrop-filter: blur(12px); 
+            border: 1px solid rgba(226, 232, 240, 0.8); 
+            border-radius: 2rem; 
+            transition: all 0.3s ease; 
+        }
+
+        /* Specific Tints for About Page Boxes */
+        .bg-tint-green { background: rgba(209, 250, 229, 0.3); } /* Light Emerald */
+        .bg-tint-blue { background: rgba(219, 234, 254, 0.3); }  /* Light Blue */
+
         .compassionate-box { background: linear-gradient(135deg, rgba(16, 185, 129, 0.12) 0%, rgba(59, 130, 246, 0.12) 100%); border: 1px solid rgba(16, 185, 129, 0.2); }
         .flow-step { position: relative; }
         .flow-step:not(:last-child)::after { content: ''; position: absolute; right: -1.5rem; top: 2rem; width: 1rem; height: 2px; background: #cbd5e1; display: none; }
@@ -50,17 +75,17 @@
         
         <div x-show="page === 'about'" class="fade-in py-16 container mx-auto px-6">
             <div class="max-w-5xl mx-auto">
-                <div class="text-center mb-16">
+                <div class="text-center mb-16 reveal">
                     <h2 class="text-4xl font-bold text-slate-900 mb-6">What is Dramatherapy?</h2>
                     <p class="text-lg text-slate-600 leading-relaxed mb-12">Dramatherapy is a specialized form of psychotherapy that harnesses the power of drama, theater, and creative expression to promote healing and personal growth.</p>
                     
                     <div class="grid md:grid-cols-2 gap-12 text-left mb-16">
-                        <div class="glass-card p-8">
+                        <div class="glass-card p-8 bg-tint-green">
                             <h3 class="text-2xl font-bold text-emerald-600 mb-4">A Holistic Approach to Healing</h3>
                             <p class="text-slate-600 text-sm leading-relaxed mb-4">Unlike traditional talk therapy, dramatherapy engages the whole person – mind, body, and spirit – creating opportunities for profound healing and self-discovery.</p>
                             <p class="text-slate-600 text-sm leading-relaxed">Through the safe medium of creative play and storytelling, individuals can explore difficult emotions and develop greater self-awareness. This approach allows clients to safely explore experiences through techniques such as role-play, improvisation, and storytelling.</p>
                         </div>
-                        <div class="glass-card p-8">
+                        <div class="glass-card p-8 bg-tint-blue">
                             <h3 class="text-2xl font-bold text-emerald-600 mb-4">Evidence-Based Practice</h3>
                             <p class="text-slate-600 text-sm leading-relaxed mb-6">Dramatherapy is recognized by the Health and Care Professions Council (HCPC) and is used in hospitals, schools, and private practice settings worldwide. The process is conducted by trained professionals working collaboratively with clients.</p>
                             <div class="flex items-center gap-4 p-4 bg-emerald-50 rounded-2xl border border-emerald-100">
@@ -71,8 +96,8 @@
                     </div>
                 </div>
 
-                <div class="mb-20">
-                    <h3 class="text-3xl font-bold text-center text-slate-900 mb-4">Therapeutic Techniques</h3>
+                <div class="mb-20 reveal">
+                    <h3 class="text-3xl font-bold text-center text-slate-900 mb-8">Therapeutic Techniques</h3>
                     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                         <template x-for="item in [
                             {t: 'Role-Play & Character Exploration', d: 'Safely explore different perspectives and practice new behaviors through character work.', i: 'users'}, 
@@ -82,7 +107,7 @@
                             {t: 'Sand Play & Drawing', d: 'Visualizing internal worlds and exploring symbolic meaning.', i: 'palette'}, 
                             {t: 'Improvisation & Spontaneity', d: 'Develop flexibility, creativity, and confidence through spontaneous expression.', i: 'sparkles'}
                         ]">
-                            <div class="glass-card p-6 border-t-4 border-emerald-500">
+                            <div class="glass-card p-6 border-t-4 border-emerald-500 bg-white/50">
                                 <div class="mb-3 text-emerald-500"><i :data-lucide="item.i" class="w-6 h-6"></i></div>
                                 <h4 class="font-bold text-slate-900 mb-2" x-text="item.t"></h4>
                                 <p class="text-xs text-slate-500" x-text="item.d"></p>
@@ -91,7 +116,7 @@
                     </div>
                 </div>
 
-                <div class="mb-20 text-center">
+                <div class="mb-20 text-center reveal">
                     <h3 class="text-3xl font-bold text-slate-900 mb-4">The Therapeutic Process</h3>
                     <p class="text-slate-600 max-w-2xl mx-auto mb-12">Each dramatherapy session is carefully designed to meet your unique needs, incorporating elements that promote healing and growth.</p>
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -101,7 +126,7 @@
                             {n: '3', t: 'Processing & Integration', d: 'Reflecting on experiences and insights gained.'},
                             {n: '4', t: 'Application & Growth', d: 'Applying new skills and perspectives to daily life.'}
                         ]">
-                            <div class="flow-step glass-card p-8 flex flex-col items-center text-center">
+                            <div class="flow-step glass-card p-8 flex flex-col items-center text-center bg-white/40">
                                 <div class="w-12 h-12 rounded-full emerald-gradient text-white flex items-center justify-center font-bold text-xl mb-4" x-text="step.n"></div>
                                 <h4 class="font-bold text-slate-900 mb-2" x-text="step.t"></h4>
                                 <p class="text-sm text-slate-500" x-text="step.d"></p>
@@ -110,7 +135,7 @@
                     </div>
                 </div>
 
-                <div class="bg-white p-10 rounded-[3rem] shadow-sm border border-slate-100">
+                <div class="bg-white p-10 rounded-[3rem] shadow-sm border border-slate-100 reveal">
                     <h3 class="text-2xl font-bold mb-8 text-center">Who Can Benefit?</h3>
                     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
                         <template x-for="benefit in ['Addiction recovery support', 'Anxiety and depression management', 'ADHD and autism spectrum support', 'Bereavement and grief processing', 'Cognitive impairments and dementia care', 'Communication disorder assistance', 'Eating disorder treatment', 'Learning disability support', 'Life transition guidance', 'Personality disorder therapy', 'Trauma and PTSD healing']">
@@ -212,6 +237,24 @@
     <script>
         lucide.createIcons();
         window.addEventListener('click', () => { setTimeout(() => { lucide.createIcons(); }, 100); });
+
+        // Scroll Reveal Logic
+        const reveal = () => {
+            const reveals = document.querySelectorAll('.reveal');
+            reveals.forEach(el => {
+                const windowHeight = window.innerHeight;
+                const elementTop = el.getBoundingClientRect().top;
+                const elementVisible = 150;
+                if (elementTop < windowHeight - elementVisible) {
+                    el.classList.add('active');
+                } else {
+                    el.classList.remove('active');
+                }
+            });
+        };
+        window.addEventListener('scroll', reveal);
+        // Initial call to catch elements in view on load
+        reveal();
     </script>
 </body>
 </html>
