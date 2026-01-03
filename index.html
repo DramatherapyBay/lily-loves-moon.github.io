@@ -12,7 +12,6 @@
         [x-cloak] { display: none !important; }
         body { font-family: 'Inter', sans-serif; background: linear-gradient(180deg, #fcfcfd 0%, #f1f5f9 100%); color: #1e293b; }
         
-        /* Scroll Reveal Animation */
         .reveal {
             opacity: 0;
             transform: translateY(30px);
@@ -36,7 +35,6 @@
             transition: all 0.3s ease; 
         }
 
-        /* Stronger Calming Tints for Visibility */
         .bg-tint-green { background: rgba(209, 250, 229, 0.5) !important; } 
         .bg-tint-blue { background: rgba(219, 234, 254, 0.5) !important; }
         .bg-tint-purple { background: rgba(243, 232, 255, 0.5) !important; }
@@ -102,12 +100,12 @@
                     <h3 class="text-3xl font-bold text-center text-slate-900 mb-8">Therapeutic Techniques</h3>
                     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                         <template x-for="item in [
-                            {t: 'Role-Play & Character Exploration', d: 'Safely explore different perspectives and practice new behaviors through character work.', i: 'users'}, 
-                            {t: 'Creative Storytelling', d: 'Use narrative and metaphor to process experiences and discover new meanings.', i: 'book-open'},
-                            {t: 'Movement & Embodiment', d: 'Integrate body awareness and physical expression into the therapeutic process.', i: 'activity'}, 
-                            {t: 'Creative Writing', d: 'Externalizing thoughts and feelings through the written word.', i: 'pen-tool'},
-                            {t: 'Sand Play & Drawing', d: 'Visualizing internal worlds and exploring symbolic meaning.', i: 'palette'}, 
-                            {t: 'Improvisation & Spontaneity', d: 'Develop flexibility, creativity, and confidence through spontaneous expression.', i: 'sparkles'}
+                            {t: 'Role-Play: Exploring perspectives', d: 'Safely explore different perspectives and practice new behaviors through character work.', i: 'users'}, 
+                            {t: 'Storytelling: Processing experiences', d: 'Use narrative and metaphor to process experiences and discover new meanings.', i: 'book-open'},
+                            {t: 'Body Movement: Integrating physical expression', d: 'Integrate body awareness and physical expression into the therapeutic process.', i: 'activity'}, 
+                            {t: 'Creative Writing: Externalizing thoughts', d: 'Externalizing thoughts and feelings through the written word.', i: 'pen-tool'},
+                            {t: 'Sand Play & Drawing: Visualizing internal worlds', d: 'Visualizing internal worlds and exploring symbolic meaning.', i: 'palette'}, 
+                            {t: 'Metaphor & Improvisation: Building spontaneity and insight', d: 'Develop flexibility, creativity, and confidence through spontaneous expression.', i: 'sparkles'}
                         ]">
                             <div class="glass-card p-6 border-t-4 border-emerald-500 bg-white/50">
                                 <div class="mb-3 text-emerald-500"><i :data-lucide="item.i" class="w-6 h-6"></i></div>
@@ -120,7 +118,6 @@
 
                 <div class="mb-20 text-center reveal">
                     <h3 class="text-3xl font-bold text-slate-900 mb-4">The Therapeutic Process</h3>
-                    <p class="text-slate-600 max-w-2xl mx-auto mb-12">Each dramatherapy session is carefully designed to meet your unique needs, incorporating elements that promote healing and growth.</p>
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                         <template x-for="step in [
                             {n: '1', t: 'Assessment & Goal Setting', d: 'Understanding your needs and establishing therapeutic goals.'},
@@ -157,43 +154,43 @@
                     <h2 class="text-5xl font-extrabold text-slate-900 mb-6 tracking-tight">Our Services</h2>
                 </div>
 
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-24">
-                    <div class="glass-card p-10 flex flex-col bg-tint-green reveal">
+                <div class="grid md:grid-cols-3 gap-8 mb-24 items-stretch">
+                    <div class="glass-card p-10 flex flex-col bg-tint-green reveal h-full">
                         <h3 class="text-2xl font-bold text-emerald-600 mb-4">Individual Sessions</h3>
                         <p class="text-slate-600 text-sm mb-8 flex-grow">Personalised one-on-one sessions tailored to your specific needs. Helpful for trauma-informed care and neurodiversity.</p>
-                        <div class="space-y-4 text-sm font-semibold text-slate-700 bg-white/60 p-5 rounded-2xl border border-emerald-100/50">
-                            <div class="flex items-center gap-3"><i data-lucide="clock" class="w-4 h-4 text-emerald-500"></i> 50 minutes</div>
-                            <div class="flex items-center gap-3"><i data-lucide="users" class="w-4 h-4 text-emerald-500"></i> individual or accompanied by carer(s)</div>
-                            <div class="flex items-start gap-3"><i data-lucide="credit-card" class="w-4 h-4 text-emerald-500 mt-1"></i> <div>Online: £100 | In-Person: £130, 1.5 hours duration</div></div>
+                        <div class="space-y-4 text-sm font-semibold text-slate-700 bg-white/60 p-5 rounded-2xl border border-emerald-100/50 min-h-[160px]">
+                            <div class="flex items-center gap-3"><i data-lucide="clock" class="w-5 h-5 text-emerald-500"></i> 50 minutes</div>
+                            <div class="flex items-center gap-3"><i data-lucide="users" class="w-5 h-5 text-emerald-500"></i> individual or accompanied by carer(s)</div>
+                            <div class="flex items-start gap-3"><i data-lucide="credit-card" class="w-5 h-5 text-emerald-500 mt-1"></i> <div>Online: £100 <br> In-Person: £130, 1.5 hours duration</div></div>
                         </div>
                     </div>
 
-                    <div class="glass-card p-10 flex flex-col bg-tint-blue reveal">
+                    <div class="glass-card p-10 flex flex-col bg-tint-blue reveal h-full">
                         <h3 class="text-2xl font-bold text-blue-600 mb-4">Group Sessions</h3>
                         <p class="text-slate-600 text-sm mb-8 flex-grow">Group sessions (max 6 participants) fostering connection and social skills development.</p>
-                        <div class="space-y-4 text-sm font-semibold text-slate-700 bg-white/60 p-5 rounded-2xl border border-blue-100/50">
-                            <div class="flex items-center gap-3"><i data-lucide="clock" class="w-4 h-4 text-blue-500"></i> 90 minutes</div>
-                            <div class="flex items-center gap-3"><i data-lucide="users" class="w-4 h-4 text-blue-500"></i> Maximum 8 participants</div>
-                            <div class="flex items-center gap-3"><i data-lucide="credit-card" class="w-4 h-4 text-blue-500"></i> Please contact us for a personalised quote.</div>
+                        <div class="space-y-4 text-sm font-semibold text-slate-700 bg-white/60 p-5 rounded-2xl border border-blue-100/50 min-h-[160px]">
+                            <div class="flex items-center gap-3"><i data-lucide="clock" class="w-5 h-5 text-blue-500"></i> 90 minutes</div>
+                            <div class="flex items-center gap-3"><i data-lucide="users" class="w-5 h-5 text-blue-500"></i> Maximum 8 participants</div>
+                            <div class="flex items-center gap-3"><i data-lucide="credit-card" class="w-5 h-5 text-blue-500"></i> Please contact us for a personalised quote.</div>
                         </div>
                     </div>
 
-                    <div class="glass-card p-10 flex flex-col bg-tint-purple reveal">
+                    <div class="glass-card p-10 flex flex-col bg-tint-purple reveal h-full">
                         <h3 class="text-2xl font-bold text-purple-600 mb-4">Workshops & Training</h3>
                         <p class="text-slate-600 text-sm mb-8 flex-grow">Reflective workshops for universities, schools, and professional organisations.</p>
-                        <div class="space-y-4 text-sm font-semibold text-slate-700 bg-white/60 p-5 rounded-2xl border border-purple-100/50">
-                            <div class="flex items-center gap-3"><i data-lucide="clock" class="w-4 h-4 text-purple-500"></i> Customised schedule</div>
-                            <div class="flex items-center gap-3"><i data-lucide="users" class="w-4 h-4 text-purple-500"></i> Customised group size / participant support</div>
-                            <div class="flex items-center gap-3"><i data-lucide="credit-card" class="w-4 h-4 text-purple-500"></i> Please contact us for a personalised quote.</div>
+                        <div class="space-y-4 text-sm font-semibold text-slate-700 bg-white/60 p-5 rounded-2xl border border-purple-100/50 min-h-[160px]">
+                            <div class="flex items-center gap-3"><i data-lucide="clock" class="w-5 h-5 text-purple-500"></i> Customised schedule</div>
+                            <div class="flex items-center gap-3"><i data-lucide="users" class="w-5 h-5 text-purple-500"></i> Customised group size / participant support</div>
+                            <div class="flex items-center gap-3"><i data-lucide="credit-card" class="w-5 h-5 text-purple-500"></i> Please contact us for a personalised quote.</div>
                         </div>
                     </div>
                 </div>
 
                 <div class="glass-card p-10 border-2 border-rose-200 bg-rose-50/20 text-center mb-12 reveal">
                     <h3 class="text-3xl font-bold text-rose-600 mb-4">Specialised ED Treatment</h3>
-                    <p class="text-slate-600 mb-8 max-w-2xl mx-auto">Structured, evidence-based treatment for Anorexia, Bulimia, and Binge Eating Disorders.</p>
+                    <p class="text-slate-600 mb-8 max-w-2xl mx-auto">Structured, evidence-based treatment for ED including Anorexia, Bulimia, Binge Eating Disorders OSFED and ARFID.</p>
                     <button @click="showEDDetails = !showEDDetails" class="bg-rose-500 text-white px-12 py-4 rounded-2xl font-bold shadow-lg transform transition active:scale-95">
-                        <span x-text="showEDDetails ? 'Hide Details' : 'View Full Treatment Options'"></span>
+                        <span x-text="showEDDetails ? 'Hide Details' : 'Learn More'"></span>
                     </button>
                 </div>
 
@@ -254,7 +251,6 @@
         lucide.createIcons();
         window.addEventListener('click', () => { setTimeout(() => { lucide.createIcons(); }, 100); });
 
-        // Scroll Reveal Logic
         const reveal = () => {
             const reveals = document.querySelectorAll('.reveal');
             reveals.forEach(el => {
