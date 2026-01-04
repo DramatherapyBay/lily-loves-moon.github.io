@@ -10,23 +10,32 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
         [x-cloak] { display: none !important; }
-        body { font-family: 'Inter', sans-serif; background: linear-gradient(180deg, #fcfcfd 0%, #f1f5f9 100%); color: #1e293b; }
+        body { font-family: 'Inter', sans-serif; background: linear-gradient(180deg, #fcfcfd 0%, #f1f5f9 100%); color: #1e293b; overflow-x: hidden; }
         
+        /* Fading Scroll Effect */
         .reveal {
             opacity: 0;
             transform: translateY(30px);
-            transition: all 0.8s ease-out;
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
         }
         .reveal.active {
             opacity: 1;
             transform: translateY(0);
         }
 
-        .fade-in { animation: fadeIn 0.4s ease-out forwards; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .fade-in { animation: fadeIn 0.5s ease-out forwards; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
         
         .emerald-gradient { background: linear-gradient(135deg, #10b981 0%, #3b82f6 100%); }
         
+        /* Transparent Fading Text (Brighter) */
+        .text-gradient-fade {
+            background: linear-gradient(to right, #10b981, #60a5fa, #34d399);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
+        }
+
         .glass-card { 
             background: rgba(255, 255, 255, 0.7); 
             backdrop-filter: blur(12px); 
@@ -41,8 +50,7 @@
         .bg-tint-indigo { background: rgba(224, 231, 255, 0.5) !important; }
         .bg-tint-rose { background: rgba(255, 241, 242, 0.5) !important; }
 
-        .compassionate-box { background: linear-gradient(135deg, rgba(16, 185, 129, 0.15) 0%, rgba(59, 130, 246, 0.15) 100%); border: 1px solid rgba(16, 185, 129, 0.2); }
-        .flow-step { position: relative; }
+        .compassionate-box { background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(59, 130, 246, 0.1) 100%); border: 1px solid rgba(16, 185, 129, 0.2); }
         .flow-step:not(:last-child)::after { content: ''; position: absolute; right: -1.5rem; top: 2rem; width: 1rem; height: 2px; background: #cbd5e1; display: none; }
         @media (min-width: 1024px) { .flow-step:not(:last-child)::after { display: block; } }
     </style>
@@ -74,15 +82,138 @@
 
     <main class="min-h-screen">
         
-        <div x-show="page === 'home'" class="fade-in py-24 container mx-auto px-6 text-center" x-cloak>
-            <div class="max-w-3xl mx-auto reveal">
-                <h1 class="text-5xl md:text-6xl font-bold text-slate-900 mb-8">Healing Through Creativity</h1>
-                <p class="text-xl text-slate-600 leading-relaxed mb-12">
-                    Discover the transformative power of dramatherapy with **Lily Yim Ching**, HCPC registered Arts Therapist. Professional, compassionate care for emotional and psychological well-being.
-                </p>
-                <button @click="page = 'contact'" class="emerald-gradient text-white px-10 py-4 rounded-2xl font-bold text-lg shadow-xl hover:shadow-emerald-200 transition-all transform hover:-translate-y-1 active:scale-95">
-                    Book Free Consultation
-                </button>
+        <div x-show="page === 'home'" class="fade-in py-20 container mx-auto px-6" x-cloak>
+            <div class="flex flex-col lg:flex-row items-center gap-12 max-w-6xl mx-auto">
+                <div class="flex-1 text-left reveal active">
+                    <h1 class="text-5xl md:text-6xl font-bold mb-8 leading-tight">
+                        <span class="text-gradient-fade">Healing Through Creativity</span>
+                    </h1>
+                    <p class="text-xl text-slate-600 leading-relaxed mb-12">
+                        Discover the transformative power of dramatherapy with **Lily Lau**, HCPC registered Arts Therapist. Professional, compassionate care for emotional and psychological well-being.
+                    </p>
+                    <button @click="page = 'contact'" class="emerald-gradient text-white px-10 py-4 rounded-2xl font-bold text-lg shadow-xl hover:shadow-emerald-200 transition-all transform hover:-translate-y-1 active:scale-95">
+                        Book Free Consultation
+                    </button>
+                </div>
+                <div class="flex-1 reveal active">
+                    <div class="relative">
+                        <div class="absolute -inset-4 bg-emerald-100 rounded-[3rem] blur-2xl opacity-50"></div>
+                        <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&q=80&w=800" alt="Relaxing Therapy Environment" class="relative rounded-[3rem] shadow-2xl object-cover w-full h-[450px]">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div x-show="page === 'team'" class="fade-in py-16 container mx-auto px-6" x-cloak>
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-16 reveal">
+                    <h2 class="text-5xl font-bold mb-4"><span class="text-gradient-fade">Meet Lily Lau</span></h2>
+                    <p class="text-lg text-slate-600 mb-2">HCPC registered Arts Therapist (Dramatherapist) with extensive experience in providing compassionate, evidence-based therapeutic services.</p>
+                    <div class="flex justify-center gap-1 text-yellow-400">
+                        <i data-lucide="star" class="fill-current w-5 h-5"></i>
+                        <i data-lucide="star" class="fill-current w-5 h-5"></i>
+                        <i data-lucide="star" class="fill-current w-5 h-5"></i>
+                        <i data-lucide="star" class="fill-current w-5 h-5"></i>
+                        <i data-lucide="star" class="fill-current w-5 h-5"></i>
+                    </div>
+                </div>
+
+                <div class="grid lg:grid-cols-2 gap-16 mb-20 items-start">
+                    <div class="reveal">
+                        <div class="aspect-square rounded-full overflow-hidden border-8 border-white shadow-2xl max-w-md mx-auto">
+                            <img src="lily-photo.jpg" alt="Lily Lau" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                    <div class="reveal">
+                        <h3 class="text-2xl font-bold text-slate-900 mb-6">Professional Background</h3>
+                        <div class="space-y-6 text-slate-600 leading-relaxed">
+                            <p>Originally from Hong Kong, Lily brings a multicultural perspective to her practice as a British registered dramatherapist. She uses drama and creativity to support emotional and psychological well-being, with a particular passion for working with diverse populations and complex mental health needs.</p>
+                            <p>Lily is passionate about making a positive impact on people's lives and loves using her creativity and expertise to help them grow. Her approach is grounded in empathy, cultural sensitivity, and respect for each individual's unique journey toward healing.</p>
+                        </div>
+                        <div class="mt-10 p-8 glass-card bg-tint-green border-emerald-200">
+                            <h4 class="font-bold text-emerald-700 mb-2">Therapeutic Philosophy</h4>
+                            <p class="italic text-slate-700">"I believe in the inherent capacity for healing that exists within every person. Through creative expression and collaborative therapeutic work, we can unlock potential for growth and transformation."</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mb-20 reveal">
+                    <h3 class="text-2xl font-bold text-center mb-8">Professional Qualifications</h3>
+                    <p class="text-center text-slate-500 mb-12">Lily's extensive training and professional credentials ensure the highest standard of therapeutic care.</p>
+                    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                        <div class="glass-card p-6 text-center hover:bg-white transition-colors">
+                            <div class="w-12 h-12 rounded-xl bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto mb-4"><i data-lucide="shield-check"></i></div>
+                            <h5 class="font-bold text-sm mb-2">HCPC Registration</h5>
+                            <p class="text-xs text-slate-500">Health and Care Professions Council registered Arts Therapist (Dramatherapist)</p>
+                        </div>
+                        <div class="glass-card p-6 text-center hover:bg-white transition-colors">
+                            <div class="w-12 h-12 rounded-xl bg-blue-100 text-blue-600 flex items-center justify-center mx-auto mb-4"><i data-lucide="globe"></i></div>
+                            <h5 class="font-bold text-sm mb-2">Multicultural Expertise</h5>
+                            <p class="text-xs text-slate-500">Trilingual practice in English, Cantonese, and Mandarin</p>
+                        </div>
+                        <div class="glass-card p-6 text-center hover:bg-white transition-colors">
+                            <div class="w-12 h-12 rounded-xl bg-purple-100 text-purple-600 flex items-center justify-center mx-auto mb-4"><i data-lucide="graduation-cap"></i></div>
+                            <h5 class="font-bold text-sm mb-2">Specialized Training</h5>
+                            <p class="text-xs text-slate-500">Advanced training in eating disorders, trauma, and neurodevelopmental conditions</p>
+                        </div>
+                        <div class="glass-card p-6 text-center hover:bg-white transition-colors">
+                            <div class="w-12 h-12 rounded-xl bg-indigo-100 text-indigo-600 flex items-center justify-center mx-auto mb-4"><i data-lucide="heart"></i></div>
+                            <h5 class="font-bold text-sm mb-2">Community Engagement</h5>
+                            <p class="text-xs text-slate-500">Active volunteer and community advocate for mental health awareness</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid lg:grid-cols-2 gap-12 mb-20">
+                    <div class="reveal">
+                        <h3 class="text-2xl font-bold mb-6">Areas of Specialization</h3>
+                        <div class="bg-white rounded-[2.5rem] p-8 shadow-sm border border-slate-100">
+                            <ul class="space-y-4">
+                                <template x-for="area in ['Young people with special educational needs (SEN)', 'Autism spectrum disorder (ASD)', 'Eating disorders', 'Complex post-traumatic stress disorder (C-PTSD)', 'Attention Deficit Hyperactivity Disorder (ADHD)', 'Emotionally Unstable Personality Disorder (EUPD)', 'Older people with dementia']">
+                                    <li class="flex items-center gap-3 text-slate-700">
+                                        <div class="bg-emerald-100 p-1 rounded-full"><i data-lucide="check" class="w-4 h-4 text-emerald-600"></i></div>
+                                        <span x-text="area"></span>
+                                    </li>
+                                </template>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="reveal">
+                        <div class="bg-gradient-to-br from-blue-50 to-emerald-50 rounded-[2.5rem] p-10 border border-emerald-100 h-full">
+                            <h3 class="text-2xl font-bold mb-6 text-emerald-800">Beyond the Practice</h3>
+                            <p class="text-sm text-slate-600 mb-6">Lily believes in maintaining a balanced lifestyle that enriches both her personal well-being and professional practice.</p>
+                            <div class="grid grid-cols-2 gap-4 text-sm font-semibold text-emerald-900">
+                                <div class="flex items-center gap-2"><i data-lucide="award" class="w-4 h-4"></i> Taekwondo Coach</div>
+                                <div class="flex items-center gap-2"><i data-lucide="waves" class="w-4 h-4"></i> Swimming</div>
+                                <div class="flex items-center gap-2"><i data-lucide="bike" class="w-4 h-4"></i> Cycling</div>
+                                <div class="flex items-center gap-2"><i data-lucide="trees" class="w-4 h-4"></i> Gardening</div>
+                                <div class="flex items-center gap-2"><i data-lucide="languages" class="w-4 h-4"></i> Learning BSL</div>
+                            </div>
+                            <div class="mt-8 pt-8 border-t border-emerald-200">
+                                <h4 class="font-bold flex items-center gap-2 text-blue-800 mb-2"><i data-lucide="sparkles"></i> Fun Fact</h4>
+                                <p class="text-sm text-slate-600 leading-relaxed">Lily is also a registered Taekwondo coach and referee, bringing discipline and mindfulness practices into her therapeutic work.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="reveal mb-20">
+                    <div class="text-center mb-10">
+                        <h3 class="text-2xl font-bold mb-2">Multilingual Services</h3>
+                        <p class="text-slate-500">Culturally sensitive accessibility for diverse communities.</p>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <template x-for="lang in [{l: 'English', s: 'Fluent'}, {l: 'Cantonese', s: 'Fluent'}, {l: 'Mandarin', s: 'Fluent'}]">
+                            <div class="glass-card p-6 flex items-center gap-6">
+                                <div class="bg-blue-50 p-4 rounded-2xl text-blue-500"><i data-lucide="languages"></i></div>
+                                <div>
+                                    <h4 class="font-bold text-slate-900" x-text="lang.l"></h4>
+                                    <p class="text-xs text-emerald-600 font-bold" x-text="lang.s"></p>
+                                </div>
+                            </div>
+                        </template>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -91,7 +222,6 @@
                 <div class="text-center mb-16 reveal">
                     <h2 class="text-4xl font-bold text-slate-900 mb-6">What is Dramatherapy?</h2>
                     <p class="text-lg text-slate-600 leading-relaxed mb-12">Dramatherapy is a specialized form of psychotherapy that harnesses the power of drama, theater, and creative expression to promote healing and personal growth.</p>
-                    
                     <div class="grid md:grid-cols-2 gap-12 text-left mb-16">
                         <div class="glass-card p-8 bg-tint-green">
                             <h3 class="text-2xl font-bold text-emerald-600 mb-4">A Holistic Approach to Healing</h3>
@@ -108,18 +238,10 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="mb-20 reveal">
                     <h3 class="text-3xl font-bold text-center text-slate-900 mb-8">Therapeutic Techniques</h3>
                     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                        <template x-for="item in [
-                            {t: 'Role-Play: Exploring perspectives', d: 'Safely explore different perspectives and practice new behaviors through character work.', i: 'users'}, 
-                            {t: 'Storytelling: Processing experiences', d: 'Use narrative and metaphor to process experiences and discover new meanings.', i: 'book-open'},
-                            {t: 'Body Movement: Integrating physical expression', d: 'Integrate body awareness and physical expression into the therapeutic process.', i: 'activity'}, 
-                            {t: 'Creative Writing: Externalizing thoughts', d: 'Externalizing thoughts and feelings through the written word.', i: 'pen-tool'},
-                            {t: 'Sand Play & Drawing: Visualizing internal worlds', d: 'Visualizing internal worlds and exploring symbolic meaning.', i: 'palette'}, 
-                            {t: 'Metaphor & Improvisation: Building spontaneity and insight', d: 'Develop flexibility, creativity, and confidence through spontaneous expression.', i: 'sparkles'}
-                        ]">
+                        <template x-for="item in [{t: 'Role-Play: Exploring perspectives', d: 'Safely explore different perspectives and practice new behaviors through character work.', i: 'users'}, {t: 'Storytelling: Processing experiences', d: 'Use narrative and metaphor to process experiences and discover new meanings.', i: 'book-open'}, {t: 'Body Movement: Integrating physical expression', d: 'Integrate body awareness and physical expression into the therapeutic process.', i: 'activity'}, {t: 'Creative Writing: Externalizing thoughts', d: 'Externalizing thoughts and feelings through the written word.', i: 'pen-tool'}, {t: 'Sand Play & Drawing: Visualizing internal worlds', d: 'Visualizing internal worlds and exploring symbolic meaning.', i: 'palette'}, {t: 'Metaphor & Improvisation: Building spontaneity and insight', d: 'Develop flexibility, creativity, and confidence through spontaneous expression.', i: 'sparkles'}]">
                             <div class="glass-card p-6 border-t-4 border-emerald-500 bg-white/50">
                                 <div class="mb-3 text-emerald-500"><i :data-lucide="item.i" class="w-6 h-6"></i></div>
                                 <h4 class="font-bold text-slate-900 mb-2" x-text="item.t"></h4>
@@ -128,16 +250,10 @@
                         </template>
                     </div>
                 </div>
-
                 <div class="mb-20 text-center reveal">
                     <h3 class="text-3xl font-bold text-slate-900 mb-4">The Therapeutic Process</h3>
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                        <template x-for="step in [
-                            {n: '1', t: 'Assessment & Goal Setting', d: 'Understanding your needs and establishing therapeutic goals.'},
-                            {n: '2', t: 'Creative Exploration', d: 'Engaging in creative activities and dramatic techniques.'},
-                            {n: '3', t: 'Processing & Integration', d: 'Reflecting on experiences and insights gained.'},
-                            {n: '4', t: 'Application & Growth', d: 'Applying new skills and perspectives to daily life.'}
-                        ]">
+                        <template x-for="step in [{n: '1', t: 'Assessment & Goal Setting', d: 'Understanding your needs and establishing therapeutic goals.'}, {n: '2', t: 'Creative Exploration', d: 'Engaging in creative activities and dramatic techniques.'}, {n: '3', t: 'Processing & Integration', d: 'Reflecting on experiences and insights gained.'}, {n: '4', t: 'Application & Growth', d: 'Applying new skills and perspectives to daily life.'}]">
                             <div class="flow-step glass-card p-8 flex flex-col items-center text-center bg-white/40">
                                 <div class="w-12 h-12 rounded-full emerald-gradient text-white flex items-center justify-center font-bold text-xl mb-4" x-text="step.n"></div>
                                 <h4 class="font-bold text-slate-900 mb-2" x-text="step.t"></h4>
@@ -146,7 +262,6 @@
                         </template>
                     </div>
                 </div>
-
                 <div class="bg-white p-10 rounded-[3rem] shadow-sm border border-slate-100 reveal">
                     <h3 class="text-2xl font-bold mb-8 text-center">Who Can Benefit?</h3>
                     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -166,7 +281,6 @@
                 <div class="text-center mb-16 reveal">
                     <h2 class="text-5xl font-extrabold text-slate-900 mb-6 tracking-tight">Our Services</h2>
                 </div>
-
                 <div class="grid md:grid-cols-3 gap-8 mb-24 items-stretch">
                     <div class="glass-card p-10 flex flex-col bg-tint-green reveal h-full">
                         <h3 class="text-2xl font-bold text-emerald-600 mb-4">Individual Sessions</h3>
@@ -177,7 +291,6 @@
                             <div>Online: £100 <br> In-Person: £130</div>
                         </div>
                     </div>
-
                     <div class="glass-card p-10 flex flex-col bg-tint-blue reveal h-full">
                         <h3 class="text-2xl font-bold text-blue-600 mb-4">Group Sessions</h3>
                         <p class="text-slate-600 text-sm mb-8 flex-grow">Group sessions (max 6 participants) fostering connection and social skills development.</p>
@@ -187,7 +300,6 @@
                             <div>Please contact us for a personalised quote.</div>
                         </div>
                     </div>
-
                     <div class="glass-card p-10 flex flex-col bg-tint-purple reveal h-full">
                         <h3 class="text-2xl font-bold text-purple-600 mb-4">Workshops & Training</h3>
                         <p class="text-slate-600 text-sm mb-8 flex-grow">Reflective workshops for universities, schools, and professional organisations.</p>
@@ -198,7 +310,6 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="glass-card p-10 border-2 border-rose-200 bg-rose-50/20 text-center mb-12 reveal">
                     <h3 class="text-3xl font-bold text-rose-600 mb-4">Specialised ED Treatment</h3>
                     <p class="text-slate-600 mb-8 max-w-2xl mx-auto">Structured, evidence-based treatment for ED including Anorexia, Bulimia, Binge Eating Disorders OSFED and ARFID.</p>
@@ -206,54 +317,11 @@
                         <span x-text="showEDDetails ? 'Hide Details' : 'Learn More'"></span>
                     </button>
                 </div>
-
-                <div x-show="showEDDetails" 
-                    x-transition:enter="transition ease-out duration-700"
-                    x-transition:enter-start="opacity-0 transform translate-y-8"
-                    x-transition:enter-end="opacity-100 transform translate-y-0"
-                    x-transition:leave="transition ease-in duration-400"
-                    x-transition:leave-start="opacity-100 transform translate-y-0"
-                    x-transition:leave-end="opacity-0 transform translate-y-8"
-                    class="space-y-12 mb-24" x-cloak>
-                    
+                <div x-show="showEDDetails" class="space-y-12 mb-24" x-cloak>
                     <div class="grid lg:grid-cols-3 gap-8">
-                        <div class="rounded-[2.5rem] p-8 shadow-sm border border-emerald-100 flex flex-col text-sm bg-tint-green">
-                            <h4 class="text-2xl font-black mb-6 text-emerald-600">Dramatherapy</h4>
-                            <div class="space-y-4 text-slate-700 flex-grow">
-                                <div><strong class="block uppercase text-emerald-600/60 text-[10px] mb-1">Therapy Approach</strong><p>Creative, experiential therapy providing psychological distance to explore body image, food, and emotions. Uses story, role-play, movement, and imagery.</p></div>
-                                <div><strong class="block uppercase text-emerald-600/60 text-[10px] mb-1">Structure</strong><p>Sessions may include talking therapy, storytelling, role-play, movement, or creative expression.</p></div>
-                                <div><strong class="block uppercase text-emerald-600/60 text-[10px] mb-1">Time Frame</strong><p>Usually weekly, over several months depending on client needs and goals.</p></div>
-                                <div><strong class="block uppercase text-emerald-600/60 text-[10px] mb-1">Suitable For</strong><p>Clients who find direct discussion triggering, those with neurodivergence (ASD, ADHD), or restrictive/emotional eating patterns.</p></div>
-                            </div>
-                        </div>
-                        
-                        <div class="rounded-[2.5rem] p-8 shadow-sm border border-purple-100 flex flex-col text-sm bg-tint-purple">
-                            <h4 class="text-2xl font-black mb-6 text-purple-600">CBT-informed</h4>
-                            <div class="space-y-4 text-slate-700 flex-grow">
-                                <div><strong class="block uppercase text-purple-600/60 text-[10px] mb-1">Therapy Approach</strong><p>Structured, practical strategies adapted from CBT principles. Focuses on thoughts, emotions, and behaviours to reduce unhelpful patterns.</p></div>
-                                <div><strong class="block uppercase text-purple-600/60 text-[10px] mb-1">Structure</strong><p>Sessions are structured, collaborative, and goal-focused. Includes assessment, goal setting, and progress review.</p></div>
-                                <div><strong class="block uppercase text-purple-600/60 text-[10px] mb-1">Time Frame</strong><p>Typically 10 sessions standard, extendable if more intensive treatment is required.</p></div>
-                                <div><strong class="block uppercase text-purple-600/60 text-[10px] mb-1">Suitable For</strong><p>Clients motivated to actively engage, including Bulimia Nervosa and Binge Eating Disorder.</p></div>
-                            </div>
-                        </div>
-                        
-                        <div class="rounded-[2.5rem] p-8 shadow-sm border border-indigo-100 flex flex-col text-sm bg-tint-indigo">
-                            <h4 class="text-2xl font-black mb-6 text-indigo-600">Guided Self-Help</h4>
-                            <div class="space-y-4 text-slate-700 flex-grow">
-                                <div><strong class="block uppercase text-indigo-600/60 text-[10px] mb-1">Therapy Approach</strong><p>Evidence-informed self-help supported by therapist guidance. Focus on understanding eating patterns and building coping strategies.</p></div>
-                                <div><strong class="block uppercase text-indigo-600/60 text-[10px] mb-1">Structure</strong><p>Short, structured therapy sessions combined with self-help materials. Therapist provides guidance and review.</p></div>
-                                <div><strong class="block uppercase text-indigo-600/60 text-[10px] mb-1">Time Frame</strong><p>Typically 8–12 sessions, depending on client pace and needs.</p></div>
-                                <div><strong class="block uppercase text-indigo-600/60 text-[10px] mb-1">Suitable For</strong><p>Clients with Binge Eating Disorder, Bulimia Nervosa, or early/milder eating difficulties.</p></div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="p-10 rounded-[2.5rem] compassionate-box text-slate-700 reveal">
-                        <h4 class="text-2xl font-bold mb-6">A Compassionate Approach to Weight and Wellbeing</h4>
-                        <div class="space-y-4 text-sm">
-                            <p>Many dieting programmes focus on quick, short-term weight loss. Our approach is different. We understand that some people may wish to lose weight, but our work focuses on helping you develop a healthy, sustainable, and compassionate relationship with food, eating, and your body — rather than chasing rapid, temporary results.</p>
-                            <p class="italic font-medium">As eating patterns stabilise and health behaviours improve, some people may notice gradual, natural changes in weight over time. However, we do not promise or promote weight-loss outcomes.</p>
-                        </div>
+                        <div class="rounded-[2.5rem] p-8 shadow-sm border border-emerald-100 bg-tint-green"><h4 class="text-2xl font-black mb-6 text-emerald-600">Dramatherapy</h4><p class="text-sm text-slate-700 leading-relaxed">Creative, experiential therapy providing psychological distance to explore body image, food, and emotions. Uses story, role-play, movement, and imagery.</p></div>
+                        <div class="rounded-[2.5rem] p-8 shadow-sm border border-purple-100 bg-tint-purple"><h4 class="text-2xl font-black mb-6 text-purple-600">CBT-informed</h4><p class="text-sm text-slate-700 leading-relaxed">Structured, practical strategies adapted from CBT principles. Focuses on thoughts, emotions, and behaviours to reduce unhelpful patterns.</p></div>
+                        <div class="rounded-[2.5rem] p-8 shadow-sm border border-indigo-100 bg-tint-indigo"><h4 class="text-2xl font-black mb-6 text-indigo-600">Guided Self-Help</h4><p class="text-sm text-slate-700 leading-relaxed">Evidence-informed self-help supported by therapist guidance. Focus on understanding eating patterns and building coping strategies.</p></div>
                     </div>
                 </div>
             </div>
@@ -264,54 +332,36 @@
                 <div class="text-center mb-12 reveal">
                     <h2 class="text-4xl font-bold text-slate-900 mb-6">Contact Information</h2>
                 </div>
-
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 reveal">
                     <div class="glass-card p-8 bg-tint-green flex flex-col items-center text-center">
-                        <div class="w-12 h-12 rounded-2xl bg-white flex items-center justify-center text-emerald-500 mb-4 shadow-sm">
-                            <i data-lucide="mail"></i>
-                        </div>
+                        <div class="w-12 h-12 rounded-2xl bg-white flex items-center justify-center text-emerald-500 mb-4 shadow-sm"><i data-lucide="mail"></i></div>
                         <h4 class="font-bold text-slate-900 mb-2">Email</h4>
                         <p class="text-emerald-600 font-semibold mb-2">dramatherapybay@gmail.com</p>
                         <p class="text-xs text-slate-500">Send us a message anytime</p>
                     </div>
-
                     <div class="glass-card p-8 bg-tint-blue flex flex-col items-center text-center">
-                        <div class="w-12 h-12 rounded-2xl bg-white flex items-center justify-center text-blue-500 mb-4 shadow-sm">
-                            <i data-lucide="phone"></i>
-                        </div>
+                        <div class="w-12 h-12 rounded-2xl bg-white flex items-center justify-center text-blue-500 mb-4 shadow-sm"><i data-lucide="phone"></i></div>
                         <h4 class="font-bold text-slate-900 mb-2">Phone</h4>
                         <p class="text-blue-600 font-semibold mb-1 text-sm">01223912627 / 07517605713</p>
                         <p class="text-xs text-slate-600 font-bold mb-1">Free 15-minute consultation</p>
-                        <p class="text-[10px] text-slate-400">Call to book your consultation</p>
                     </div>
-
                     <div class="glass-card p-8 bg-tint-purple flex flex-col items-center text-center">
-                        <div class="w-12 h-12 rounded-2xl bg-white flex items-center justify-center text-purple-500 mb-4 shadow-sm">
-                            <i data-lucide="map-pin"></i>
-                        </div>
+                        <div class="w-12 h-12 rounded-2xl bg-white flex items-center justify-center text-purple-500 mb-4 shadow-sm"><i data-lucide="map-pin"></i></div>
                         <h4 class="font-bold text-slate-900 mb-2">Location</h4>
                         <p class="text-purple-600 font-semibold mb-2">Cambridge, UK</p>
                         <p class="text-xs text-slate-500">In-person and online sessions available</p>
                     </div>
-
                     <div class="glass-card p-8 bg-tint-indigo flex flex-col items-center text-center">
-                        <div class="w-12 h-12 rounded-2xl bg-white flex items-center justify-center text-indigo-500 mb-4 shadow-sm">
-                            <i data-lucide="clock"></i>
-                        </div>
+                        <div class="w-12 h-12 rounded-2xl bg-white flex items-center justify-center text-indigo-500 mb-4 shadow-sm"><i data-lucide="clock"></i></div>
                         <h4 class="font-bold text-slate-900 mb-2">Hours</h4>
                         <p class="text-indigo-600 font-semibold mb-2">Flexible scheduling</p>
                         <p class="text-xs text-slate-500">Evening and weekend appointments available</p>
                     </div>
-
                     <div class="glass-card p-8 bg-tint-rose flex flex-col items-center text-center lg:col-span-2 md:col-span-2">
                         <h4 class="font-bold text-slate-900 mb-4">Follow Us</h4>
                         <div class="flex gap-6 mb-4">
-                            <a href="https://www.instagram.com/dramatherapybay/" target="_blank" class="w-12 h-12 rounded-full bg-white flex items-center justify-center text-rose-500 shadow-sm hover:scale-110 transition-transform">
-                                <i data-lucide="instagram"></i>
-                            </a>
-                            <a href="https://www.linkedin.com/in/lily-yim-ching-l-75755618a/" target="_blank" class="w-12 h-12 rounded-full bg-white flex items-center justify-center text-blue-700 shadow-sm hover:scale-110 transition-transform">
-                                <i data-lucide="linkedin"></i>
-                            </a>
+                            <a href="https://www.instagram.com/dramatherapybay/" target="_blank" class="w-12 h-12 rounded-full bg-white flex items-center justify-center text-rose-500 shadow-sm hover:scale-110 transition-transform"><i data-lucide="instagram"></i></a>
+                            <a href="https://www.linkedin.com/in/lily-yim-ching-l-75755618a/" target="_blank" class="w-12 h-12 rounded-full bg-white flex items-center justify-center text-blue-700 shadow-sm hover:scale-110 transition-transform"><i data-lucide="linkedin"></i></a>
                         </div>
                         <p class="text-xs text-slate-500">Stay connected for updates, tips, and mental health resources.</p>
                     </div>
