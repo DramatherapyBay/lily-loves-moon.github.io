@@ -334,88 +334,106 @@
             </div>
         </div>
 
-        <div x-show="page === 'services'" class="fade-in py-16 container mx-auto px-6" x-cloak>
+                <div x-show="page === 'services'" class="fade-in py-16 container mx-auto px-6" x-cloak>
             <div class="max-w-6xl mx-auto">
                 <div class="text-center mb-16 reveal">
                     <h2 class="text-5xl font-extrabold text-slate-900 mb-6 tracking-tight">Our Services</h2>
                 </div>
-                <div class="grid md:grid-cols-3 gap-8 mb-24 reveal">
-                    <div class="glass-card p-10 flex flex-col bg-tint-green">
+
+                <div class="grid md:grid-cols-3 gap-8 mb-24 items-stretch">
+                    <div class="glass-card p-10 flex flex-col bg-tint-green reveal h-full">
                         <h3 class="text-2xl font-bold text-emerald-600 mb-4">Individual Sessions</h3>
                         <p class="text-slate-600 text-sm mb-8 flex-grow">Personalised one-on-one sessions tailored to your specific needs. Helpful for trauma-informed care and neurodiversity.</p>
-                        <div class="space-y-4 text-sm font-semibold text-slate-700 bg-white/60 p-5 rounded-2xl border border-emerald-100/50">
-                            <div>50 minutes</div><div>individual or accompanied by carer(s)</div><div>Online: £100 <br> In-Person: £130</div>
+                        <div class="space-y-4 text-sm font-semibold text-slate-700 bg-white/60 p-5 rounded-2xl border border-emerald-100/50 min-h-[160px]">
+                            <div>50 minutes</div>
+                            <div>individual or accompanied by carer(s)</div>
+                            <div>Online: £100 <br> In-Person: £130</div>
                         </div>
                     </div>
-                    <div class="glass-card p-10 flex flex-col bg-tint-blue">
+
+                    <div class="glass-card p-10 flex flex-col bg-tint-blue reveal h-full">
                         <h3 class="text-2xl font-bold text-blue-600 mb-4">Group Sessions</h3>
                         <p class="text-slate-600 text-sm mb-8 flex-grow">Group sessions (max 6 participants) fostering connection and social skills development.</p>
-                        <div class="space-y-4 text-sm font-semibold text-slate-700 bg-white/60 p-5 rounded-2xl border border-blue-100/50">
-                            <div>90 minutes</div><div>Maximum 8 participants</div><div>Please contact us for quote.</div>
+                        <div class="space-y-4 text-sm font-semibold text-slate-700 bg-white/60 p-5 rounded-2xl border border-blue-100/50 min-h-[160px]">
+                            <div>90 minutes</div>
+                            <div>Maximum 8 participants</div>
+                            <div>Please contact us for a personalised quote.</div>
                         </div>
                     </div>
-                    <div class="glass-card p-10 flex flex-col bg-tint-purple">
+
+                    <div class="glass-card p-10 flex flex-col bg-tint-purple reveal h-full">
                         <h3 class="text-2xl font-bold text-purple-600 mb-4">Workshops & Training</h3>
                         <p class="text-slate-600 text-sm mb-8 flex-grow">Reflective workshops for universities, schools, and professional organisations.</p>
-                        <div class="space-y-4 text-sm font-semibold text-slate-700 bg-white/60 p-5 rounded-2xl border border-purple-100/50">
-                            <div>Customised schedule</div><div>Customised group size</div><div>Please contact us for quote.</div>
+                        <div class="space-y-4 text-sm font-semibold text-slate-700 bg-white/60 p-5 rounded-2xl border border-purple-100/50 min-h-[160px]">
+                            <div>Customised schedule</div>
+                            <div>Customised group size / participant support</div>
+                            <div>Please contact us for a personalised quote.</div>
                         </div>
                     </div>
                 </div>
 
                 <div class="glass-card p-10 border-2 border-rose-200 bg-rose-50/20 text-center mb-12 reveal">
-                    <h3 class="text-3xl font-bold text-rose-600 mb-4">Specialised Eating Disorders Treatment</h3>
+                    <h3 class="text-3xl font-bold text-rose-600 mb-4">Specialised ED Treatment</h3>
                     <p class="text-slate-600 mb-8 max-w-2xl mx-auto">Structured, evidence-based treatment for ED including Anorexia, Bulimia, Binge Eating Disorders OSFED and ARFID.</p>
                     <button @click="showEDDetails = !showEDDetails" class="bg-rose-500 text-white px-12 py-4 rounded-2xl font-bold shadow-lg transform transition active:scale-95">
                         <span x-text="showEDDetails ? 'Hide Details' : 'Learn More'"></span>
                     </button>
                 </div>
 
-                <div x-show="showEDDetails" class="space-y-12 mb-24" x-cloak>
+                <div x-show="showEDDetails" 
+                     x-transition:enter="transition ease-out duration-700"
+                     x-transition:enter-start="opacity-0 transform translate-y-8"
+                     x-transition:enter-end="opacity-100 transform translate-y-0"
+                     x-transition:leave="transition ease-in duration-400"
+                     x-transition:leave-start="opacity-100 transform translate-y-0"
+                     x-transition:leave-end="opacity-0 transform translate-y-8"
+                     class="space-y-12 mb-24" x-cloak>
+                    
                     <div class="grid lg:grid-cols-3 gap-8">
-                        <div class="rounded-[2.5rem] p-8 shadow-sm border border-emerald-100 bg-tint-green">
-                            <h4 class="text-2xl font-black mb-6 text-emerald-600 uppercase tracking-tighter">Dramatherapy</h4>
-                            <p class="text-sm text-slate-700 leading-relaxed">Creative, experiential therapy providing psychological distance to explore body image, food, and emotions. Uses story, role-play, movement, and imagery.</p>
+                        <div class="rounded-[2.5rem] p-8 shadow-sm border border-emerald-100 flex flex-col text-sm bg-tint-green">
+                            <h4 class="text-2xl font-black mb-6 text-emerald-600">Dramatherapy</h4>
+                            <div class="space-y-4 text-slate-700 flex-grow">
+                                <div><strong class="block uppercase text-emerald-600/60 text-[10px] mb-1">Therapy Approach</strong><p>Creative, experiential therapy providing psychological distance to explore body image, food, and emotions. Uses story, role-play, movement, and imagery.</p></div>
+                                <div><strong class="block uppercase text-emerald-600/60 text-[10px] mb-1">Structure</strong><p>Sessions may include talking therapy, storytelling, role-play, movement, or creative expression.</p></div>
+                                <div><strong class="block uppercase text-emerald-600/60 text-[10px] mb-1">Time Frame</strong><p>Usually weekly, over several months depending on client needs and goals.</p></div>
+                                <div><strong class="block uppercase text-emerald-600/60 text-[10px] mb-1">Suitable For</strong><p>Clients who find direct discussion triggering, those with neurodivergence (ASD, ADHD), or restrictive/emotional eating patterns.</p></div>
+                            </div>
                         </div>
-                        <div class="rounded-[2.5rem] p-8 shadow-sm border border-purple-100 bg-tint-purple">
-                            <h4 class="text-2xl font-black mb-6 text-purple-600 uppercase tracking-tighter">CBT-informed</h4>
-                            <p class="text-sm text-slate-700 leading-relaxed">Structured, practical strategies adapted from CBT principles. Focuses on the connection between thoughts, emotions, and behaviours.</p>
+                        
+                        <div class="rounded-[2.5rem] p-8 shadow-sm border border-purple-100 flex flex-col text-sm bg-tint-purple">
+                            <h4 class="text-2xl font-black mb-6 text-purple-600">CBT-informed</h4>
+                            <div class="space-y-4 text-slate-700 flex-grow">
+                                <div><strong class="block uppercase text-purple-600/60 text-[10px] mb-1">Therapy Approach</strong><p>Structured, practical strategies adapted from CBT principles. Focuses on thoughts, emotions, and behaviours to reduce unhelpful patterns.</p></div>
+                                <div><strong class="block uppercase text-purple-600/60 text-[10px] mb-1">Structure</strong><p>Sessions are structured, collaborative, and goal-focused. Includes assessment, goal setting, and progress review.</p></div>
+                                <div><strong class="block uppercase text-purple-600/60 text-[10px] mb-1">Time Frame</strong><p>Typically 10 sessions standard, extendable if more intensive treatment is required.</p></div>
+                                <div><strong class="block uppercase text-purple-600/60 text-[10px] mb-1">Suitable For</strong><p>Clients motivated to actively engage, including Bulimia Nervosa and Binge Eating Disorder.</p></div>
+                            </div>
                         </div>
-                        <div class="rounded-[2.5rem] p-8 shadow-sm border border-indigo-100 bg-tint-indigo">
-                            <h4 class="text-2xl font-black mb-6 text-indigo-600 uppercase tracking-tighter">Guided Self-Help</h4>
-                            <p class="text-sm text-slate-700 leading-relaxed">Evidence-informed self-help supported by therapist guidance. Focus on understanding eating patterns and building coping strategies.</p>
+                        
+                        <div class="rounded-[2.5rem] p-8 shadow-sm border border-indigo-100 flex flex-col text-sm bg-tint-indigo">
+                            <h4 class="text-2xl font-black mb-6 text-indigo-600">Guided Self-Help</h4>
+                            <div class="space-y-4 text-slate-700 flex-grow">
+                                <div><strong class="block uppercase text-indigo-600/60 text-[10px] mb-1">Therapy Approach</strong><p>Evidence-informed self-help supported by therapist guidance. Focus on understanding eating patterns and building coping strategies.</p></div>
+                                <div><strong class="block uppercase text-indigo-600/60 text-[10px] mb-1">Structure</strong><p>Short, structured therapy sessions combined with self-help materials. Therapist provides guidance and review.</p></div>
+                                <div><strong class="block uppercase text-indigo-600/60 text-[10px] mb-1">Time Frame</strong><p>Typically 8–12 sessions, depending on client pace and needs.</p></div>
+                                <div><strong class="block uppercase text-indigo-600/60 text-[10px] mb-1">Suitable For</strong><p>Clients with Binge Eating Disorder, Bulimia Nervosa, or early/milder eating difficulties.</p></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="p-10 rounded-[2.5rem] compassionate-box text-slate-700 reveal">
+                        <h4 class="text-2xl font-bold mb-6">A Compassionate Approach to Weight and Wellbeing</h4>
+                        <div class="space-y-4 text-sm">
+                            <p>Many dieting programmes focus on quick, short-term weight loss. Our approach is different. We understand that some people may wish to lose weight, but our work focuses on helping you develop a healthy, sustainable, and compassionate relationship with food, eating, and your body — rather than chasing rapid, temporary results.</p>
+                            <p class="italic font-medium">As eating patterns stabilise and health behaviours improve, some people may notice gradual, natural changes in weight over time. However, we do not promise or promote weight-loss outcomes.</p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
-        <div x-show="page === 'contact'" class="fade-in py-16 container mx-auto px-6" x-cloak>
-            <div class="max-w-5xl mx-auto">
-                <div class="text-center mb-12 reveal">
-                    <h2 class="text-4xl font-bold text-slate-900 mb-6">Contact Information</h2>
-                </div>
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 reveal">
-                    <div class="glass-card p-8 bg-tint-green flex flex-col items-center text-center">
-                        <div class="w-12 h-12 rounded-2xl bg-white flex items-center justify-center text-emerald-500 mb-4 shadow-sm"><i data-lucide="mail"></i></div>
-                        <h4 class="font-bold text-slate-900 mb-2">Email</h4>
-                        <p class="text-emerald-600 font-semibold mb-2">dramatherapybay@gmail.com</p>
-                    </div>
-                    <div class="glass-card p-8 bg-tint-blue flex flex-col items-center text-center">
-                        <div class="w-12 h-12 rounded-2xl bg-white flex items-center justify-center text-blue-500 mb-4 shadow-sm"><i data-lucide="phone"></i></div>
-                        <h4 class="font-bold text-slate-900 mb-2">Phone</h4>
-                        <p class="text-blue-600 font-semibold mb-1 text-sm">01223912627 / 07517605713</p>
-                    </div>
-                    <div class="glass-card p-8 bg-tint-purple flex flex-col items-center text-center">
-                        <div class="w-12 h-12 rounded-2xl bg-white flex items-center justify-center text-purple-500 mb-4 shadow-sm"><i data-lucide="map-pin"></i></div>
-                        <h4 class="font-bold text-slate-900 mb-2">Location</h4>
-                        <p class="text-purple-600 font-semibold mb-2">Cambridge, UK</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
     </main>
+
+
 
     <script>
         lucide.createIcons();
