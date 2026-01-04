@@ -52,7 +52,7 @@
         @media (min-width: 1024px) { .flow-step:not(:last-child)::after { display: block; } }
     </style>
 </head>
-<body x-data="{ page: 'home', lang: 'en', showEDDetails: false }">
+<body x-data="{ page: 'home', lang: 'en', showEDDetails: false, resourceFilter: 'all' }">
 
     <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-200">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
@@ -63,11 +63,12 @@
                     <span class="text-[10px] uppercase tracking-widest text-emerald-500 font-bold">Limited</span>
                 </div>
             </div>
-            <div class="hidden lg:flex gap-8 text-sm font-semibold text-slate-600">
+            <div class="hidden lg:flex gap-6 text-sm font-semibold text-slate-600">
                 <a href="#" @click.prevent="page = 'home'" :class="page === 'home' ? 'text-emerald-600' : ''">Home</a>
                 <a href="#" @click.prevent="page = 'about'" :class="page === 'about' ? 'text-emerald-600' : ''">About</a>
                 <a href="#" @click.prevent="page = 'team'" :class="page === 'team' ? 'text-emerald-600' : ''">Our Team</a>
                 <a href="#" @click.prevent="page = 'services'" :class="page === 'services' ? 'text-emerald-600' : ''">Services</a>
+                <a href="#" @click.prevent="page = 'resources'" :class="page === 'resources' ? 'text-emerald-600' : ''">Resources</a>
                 <a href="#" @click.prevent="page = 'contact'" :class="page === 'contact' ? 'text-emerald-600' : ''">Contact</a>
             </div>
             <div class="flex gap-2">
@@ -130,7 +131,7 @@
                     </div>
                 </div>
 
-                <div class="mb-16 reveal p-8 glass-card bg-tint-green border-emerald-200">
+                <div class="mb-16 reveal p-8 glass-card bg-tint-green border-emerald-200 text-center">
                     <h4 class="font-bold text-emerald-700 mb-2">Therapeutic Philosophy</h4>
                     <p class="italic text-slate-700">"I believe in the inherent capacity for healing that exists within every person. Through creative expression and collaborative therapeutic work, we can unlock potential for growth and transformation."</p>
                 </div>
@@ -157,7 +158,7 @@
                     </div>
                 </div>
 
-                <div class="space-y-12">
+                <div class="space-y-12 mb-20">
                     <div class="reveal">
                         <h3 class="text-2xl font-bold mb-6">Areas of Specialization</h3>
                         <div class="bg-white rounded-[2.5rem] p-8 shadow-sm border border-slate-100">
@@ -171,7 +172,6 @@
                             </ul>
                         </div>
                     </div>
-
                     <div class="reveal">
                         <div class="bg-gradient-to-br from-blue-50 to-emerald-50 rounded-[2.5rem] p-10 border border-emerald-100">
                             <h3 class="text-2xl font-bold mb-6 text-emerald-800">Beyond the Practice</h3>
@@ -183,23 +183,105 @@
                                 <div class="flex items-center gap-2"><i data-lucide="target" class="w-4 h-4"></i> Badminton</div>
                                 <div class="flex items-center gap-2"><i data-lucide="trees" class="w-4 h-4"></i> Gardening</div>
                                 <div class="flex items-center gap-2"><i data-lucide="languages" class="w-4 h-4"></i> Learning BSL</div>
-                                <div class="flex items-center gap-2"><i data-lucide="users" class="w-4 h-4"></i> Volunteering</div>
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
 
-                <div class="reveal mt-16 mb-20">
-                    <div class="text-center mb-10">
-                        <h3 class="text-2xl font-bold mb-2">Multilingual Services</h3>
+        <div x-show="page === 'resources'" class="fade-in py-16 container mx-auto px-6" x-cloak>
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-16 reveal">
+                    <h2 class="text-5xl font-bold mb-4"><span class="text-gradient-fade">Helpful Resources</span></h2>
+                    <p class="text-lg text-slate-600 max-w-2xl mx-auto">Access free educational materials, self-help resources, and professional information to support your mental health and well-being journey.</p>
+                </div>
+
+                <div class="mb-12 reveal">
+                    <h3 class="text-2xl font-bold mb-4">Free Downloads</h3>
+                    <p class="text-slate-500 mb-8">Download these free resources to support your understanding of mental health, dramatherapy, and personal well-being.</p>
+                    
+                    <div class="flex flex-wrap gap-4 mb-10">
+                        <button @click="resourceFilter = 'all'" :class="resourceFilter === 'all' ? 'emerald-gradient text-white' : 'bg-white text-slate-600'" class="px-6 py-2 rounded-full font-bold border transition-all">All</button>
+                        <button @click="resourceFilter = 'educational'" :class="resourceFilter === 'educational' ? 'emerald-gradient text-white' : 'bg-white text-slate-600'" class="px-6 py-2 rounded-full font-bold border transition-all">Educational</button>
+                        <button @click="resourceFilter = 'selfhelp'" :class="resourceFilter === 'selfhelp' ? 'emerald-gradient text-white' : 'bg-white text-slate-600'" class="px-6 py-2 rounded-full font-bold border transition-all">Self Help</button>
+                        <button @click="resourceFilter = 'exercises'" :class="resourceFilter === 'exercises' ? 'emerald-gradient text-white' : 'bg-white text-slate-600'" class="px-6 py-2 rounded-full font-bold border transition-all">Exercises</button>
                     </div>
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                        <template x-for="lang in [{l: 'English', s: 'Fluent'}, {l: 'Cantonese', s: 'Fluent'}, {l: 'Mandarin', s: 'Fluent'}]">
-                            <div class="glass-card p-4 flex items-center gap-4">
-                                <div class="bg-blue-50 p-3 rounded-xl text-blue-500"><i data-lucide="languages"></i></div>
-                                <div><h4 class="font-bold text-sm text-slate-900" x-text="lang.l"></h4><p class="text-[10px] text-emerald-600 font-bold" x-text="lang.s"></p></div>
+
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div x-show="resourceFilter === 'all' || resourceFilter === 'educational'" class="glass-card p-8 bg-tint-green">
+                            <h4 class="font-bold text-emerald-800 mb-4">Introduction to Dramatherapy</h4>
+                            <div class="space-y-3">
+                                <a href="https://www.badth.org.uk/dramatherapy/what-is-dramatherapy" target="_blank" class="flex items-center gap-2 text-sm text-emerald-600 hover:underline font-semibold"><i data-lucide="external-link" class="w-4 h-4"></i> British Association of Dramatherapists</a>
+                                <a href="https://www.nadta.org/" target="_blank" class="flex items-center gap-2 text-sm text-emerald-600 hover:underline font-semibold"><i data-lucide="external-link" class="w-4 h-4"></i> North American Drama Therapy Association</a>
                             </div>
-                        </template>
+                        </div>
+                        <div x-show="resourceFilter === 'all' || resourceFilter === 'educational'" class="glass-card p-8 bg-tint-green flex flex-col justify-between">
+                            <h4 class="font-bold text-emerald-800 mb-4">Understanding Eating Disorders</h4>
+                            <button class="flex items-center gap-2 bg-emerald-500 text-white w-fit px-6 py-2 rounded-xl text-sm font-bold shadow-md"><i data-lucide="download" class="w-4 h-4"></i> Download PDF</button>
+                        </div>
+                        <div x-show="resourceFilter === 'all' || resourceFilter === 'selfhelp'" class="glass-card p-8 bg-tint-blue flex flex-col justify-between">
+                            <div>
+                                <h4 class="font-bold text-blue-800 mb-2">Mindfulness and Grounding Techniques</h4>
+                                <p class="text-xs text-slate-600 mb-4">Practical techniques for managing anxiety, staying present, and grounding yourself during difficult moments.</p>
+                            </div>
+                            <button class="flex items-center gap-2 bg-blue-500 text-white w-fit px-6 py-2 rounded-xl text-sm font-bold shadow-md"><i data-lucide="download" class="w-4 h-4"></i> Download PDF</button>
+                        </div>
+                        <div x-show="resourceFilter === 'all' || resourceFilter === 'selfhelp'" class="glass-card p-8 bg-tint-blue flex flex-col justify-between">
+                            <div>
+                                <h4 class="font-bold text-blue-800 mb-2">Self-Care Strategies for Mental Health</h4>
+                                <p class="text-xs text-slate-600 mb-4">Practical self-care techniques and strategies to support your mental health and emotional well-being.</p>
+                            </div>
+                            <button class="flex items-center gap-2 bg-blue-500 text-white w-fit px-6 py-2 rounded-xl text-sm font-bold shadow-md"><i data-lucide="download" class="w-4 h-4"></i> Download PDF</button>
+                        </div>
+                        <div x-show="resourceFilter === 'all' || resourceFilter === 'exercises'" class="glass-card p-8 bg-tint-purple flex flex-col justify-between">
+                            <div>
+                                <h4 class="font-bold text-purple-800 mb-2">Creative Emotional Check-in</h4>
+                                <p class="text-xs text-slate-600 mb-4">Simple creative exercises you can do at home to explore emotions and promote self-discovery.</p>
+                            </div>
+                            <button class="flex items-center gap-2 bg-purple-500 text-white w-fit px-6 py-2 rounded-xl text-sm font-bold shadow-md"><i data-lucide="download" class="w-4 h-4"></i> Download PDF</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="reveal mt-20">
+                    <h2 class="text-3xl font-bold mb-4">Links</h2>
+                    <p class="text-slate-500 mb-10">Helpful links to professional organizations, regulatory bodies, and mental health support services.</p>
+                    
+                    <div class="space-y-8">
+                        <div>
+                            <h3 class="text-xl font-bold text-emerald-700 mb-6 flex items-center gap-2"><i data-lucide="shield-check"></i> Regulatory Bodies</h3>
+                            <div class="grid md:grid-cols-2 gap-6">
+                                <div class="glass-card p-8">
+                                    <h4 class="font-bold mb-2">Health and Care Professions Council (HCPC)</h4>
+                                    <p class="text-sm text-slate-600 mb-4">Regulatory body for arts therapists in the UK, ensuring professional standards and public protection.</p>
+                                    <a href="https://www.hcpc-uk.org/" target="_blank" class="inline-block bg-slate-900 text-white px-6 py-2 rounded-xl text-sm font-bold">Visit Website</a>
+                                </div>
+                                <div class="glass-card p-8">
+                                    <h4 class="font-bold mb-2">Mind - Mental Health Charity</h4>
+                                    <p class="text-sm text-slate-600 mb-4">UK mental health charity providing information, support, and advocacy for people experiencing mental health problems.</p>
+                                    <a href="https://www.mind.org.uk/" target="_blank" class="inline-block bg-slate-900 text-white px-6 py-2 rounded-xl text-sm font-bold">Visit Website</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h3 class="text-xl font-bold text-rose-700 mb-6 flex items-center gap-2"><i data-lucide="heart"></i> Eating Disorder Support</h3>
+                            <div class="glass-card p-8">
+                                <h4 class="font-bold mb-2">Beat - Eating Disorder Charity</h4>
+                                <p class="text-sm text-slate-600 mb-4">UK charity providing support, information, and resources for people affected by eating disorders.</p>
+                                <a href="https://www.beateatingdisorders.org.uk/" target="_blank" class="inline-block bg-rose-500 text-white px-6 py-2 rounded-xl text-sm font-bold">Visit Website</a>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h3 class="text-xl font-bold text-blue-700 mb-6 flex items-center gap-2"><i data-lucide="info"></i> Autism Support</h3>
+                            <div class="glass-card p-8">
+                                <h4 class="font-bold mb-2">National Autistic Society</h4>
+                                <p class="text-sm text-slate-600 mb-4">Leading UK charity for autistic people and their families, providing support, information, and services.</p>
+                                <a href="https://autism.org.uk/" target="_blank" class="inline-block bg-blue-500 text-white px-6 py-2 rounded-xl text-sm font-bold">Visit Website</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -234,18 +316,6 @@
                                 <div class="mb-3 text-emerald-500"><i :data-lucide="item.i" class="w-6 h-6"></i></div>
                                 <h4 class="font-bold text-slate-900 mb-2" x-text="item.t"></h4>
                                 <p class="text-xs text-slate-500" x-text="item.d"></p>
-                            </div>
-                        </template>
-                    </div>
-                </div>
-                <div class="mb-20 text-center reveal">
-                    <h3 class="text-3xl font-bold text-slate-900 mb-4">The Therapeutic Process</h3>
-                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                        <template x-for="step in [{n: '1', t: 'Assessment & Goal Setting', d: 'Understanding your needs and establishing therapeutic goals.'}, {n: '2', t: 'Creative Exploration', d: 'Engaging in creative activities and dramatic techniques.'}, {n: '3', t: 'Processing & Integration', d: 'Reflecting on experiences and insights gained.'}, {n: '4', t: 'Application & Growth', d: 'Applying new skills and perspectives to daily life.'}]">
-                            <div class="flow-step glass-card p-8 flex flex-col items-center text-center bg-white/40">
-                                <div class="w-12 h-12 rounded-full emerald-gradient text-white flex items-center justify-center font-bold text-xl mb-4" x-text="step.n"></div>
-                                <h4 class="font-bold text-slate-900 mb-2" x-text="step.t"></h4>
-                                <p class="text-sm text-slate-500" x-text="step.d"></p>
                             </div>
                         </template>
                     </div>
@@ -305,15 +375,15 @@
                     <div class="grid lg:grid-cols-3 gap-8">
                         <div class="rounded-[2.5rem] p-8 shadow-sm border border-emerald-100 bg-tint-green">
                             <h4 class="text-2xl font-black mb-6 text-emerald-600 uppercase tracking-tighter">Dramatherapy</h4>
-                            <p class="text-sm text-slate-700 leading-relaxed">Creative, experiential therapy providing psychological distance to explore body image, food, and emotions. Uses story, role-play, movement, and imagery to process difficult feelings safely.</p>
+                            <p class="text-sm text-slate-700 leading-relaxed">Creative, experiential therapy providing psychological distance to explore body image, food, and emotions. Uses story, role-play, movement, and imagery.</p>
                         </div>
                         <div class="rounded-[2.5rem] p-8 shadow-sm border border-purple-100 bg-tint-purple">
                             <h4 class="text-2xl font-black mb-6 text-purple-600 uppercase tracking-tighter">CBT-informed</h4>
-                            <p class="text-sm text-slate-700 leading-relaxed">Structured, practical strategies adapted from CBT principles. Focuses on the connection between thoughts, emotions, and behaviours to reduce unhelpful eating patterns.</p>
+                            <p class="text-sm text-slate-700 leading-relaxed">Structured, practical strategies adapted from CBT principles. Focuses on the connection between thoughts, emotions, and behaviours.</p>
                         </div>
                         <div class="rounded-[2.5rem] p-8 shadow-sm border border-indigo-100 bg-tint-indigo">
                             <h4 class="text-2xl font-black mb-6 text-indigo-600 uppercase tracking-tighter">Guided Self-Help</h4>
-                            <p class="text-sm text-slate-700 leading-relaxed">Evidence-informed self-help supported by therapist guidance. Focus on understanding eating patterns, building coping strategies, and establishing regular eating habits.</p>
+                            <p class="text-sm text-slate-700 leading-relaxed">Evidence-informed self-help supported by therapist guidance. Focus on understanding eating patterns and building coping strategies.</p>
                         </div>
                     </div>
                 </div>
